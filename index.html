@@ -329,45 +329,50 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
                 @media (min-width: 1025px) { /********** Desktop part************/
                .main-title {
-                font-size: 3.5rem !important;
-                letter-spacing: 4px !important;
-                margin-bottom: 10px !important;
+                font-size: 3.8rem !important;
+                letter-spacing: 6px !important;
+                margin-bottom: 15px !important;
                }
                .micro-desc {
-                font-size: 1.4rem !important;
+                font-size: 1.5rem !important;
                 line-height: 1.6 !important;
-                margin-bottom: 25px !important;
+                margin-bottom: 30px !important;
+                display: block !important;
                }
                 #video-container-main {
                     display: block !important;
                     width: 100% !important;
-                    height: auto !important;
+                    background-color: #001a1a !important;
                 }
                 .video-wrapper {
                     width: 100% !important;
                     height: 100vh !important;
                     position: relative !important;
+                    display: flex !important;
+                    align-items: center !important;
                 }
                 .video-box {
-                    width: 50% !important;
-                    height: 100vh !important;
+                    width: 65% !important;
+                    height: 85vh !important;
                     position: absolute !important;
-                    left: 0 !important;
-                    top: 0 !important;
-                    filter: brightness(0.7) contrast(1.1) !important;
-                }
-                .video-box video {
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
+                    left: 5% !important;
+                    border-radius: 20px !important;
+                    box-shadow: 0 30px 60px rgba(0,0,0,0.6) !important;
+                    overflow: hidden !important;
+                    filter: brightness(0.8) contrast(1.1) !important;
                 }
                 .video-label {
                     position: absolute !important;
-                    top: 50% !important;
-                    left: 75% !important;
-                    transform: translate(-50%, -50%) !important;
-                    width: 40% !important;
+                    right: 8% !important;
+                    width: 400px !important;
+                    background: rgba(255, 255, 255, 0.05) !important;
+                    backdrop-filter: blur(15px) !important;
+                    padding: 45px !important;
+                    border-radius: 20px !important;
+                    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+                    z-index: 10 !important;
                     text-align: left !important;
+                    transform: none !important;
                 }
                 }
            @keyframes fadeInUp {
