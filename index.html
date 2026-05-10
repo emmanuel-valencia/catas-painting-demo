@@ -340,8 +340,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 .mobile-only-video {
                     display: none !important;
                 }
-                .desktop-only-video {
+                .desktop-only-video, .all-videos {
                     display: block !important;
+                    filter: brightness(0.6) contrast(1.1) !important;
                 }
                 .main-title {
                     font-size: 5rem !important;
@@ -662,7 +663,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
 
     <div class="video-wrapper" id="vid-2">
-        <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video carpet-focus">
+        <video autoplay muted loop playsinline preload="metadata" class="video-box all-videos carpet-focus">
                 <source src="every_dayhome.mp4" type="video/mp4"></video>
 
         <div class="video-label">
@@ -672,7 +673,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             </div>
     </div>
     <div class="video-wrapper" id="vid-3">
-        <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
+        <video autoplay muted loop playsinline preload="metadata" class="video-box all-videos">
                 <source src="property_pro.mp4" type="video/mp4"></video>
 
         <div class="video-label">
