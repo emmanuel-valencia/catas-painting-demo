@@ -177,6 +177,12 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
+                .desktop-only-video {
+                    display: none !important;
+                }
+                .mobile-only-video {
+                    display: block !important;
+                }
                 header {
                 position: fixed !important;
                 top: 0 !important;
@@ -457,6 +463,12 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
            
               @media (max-width: 767px) { /*Iphone section/*/
+                 .desktop-only-video {
+                    display: none !important;
+                }
+                .mobile-only-video {
+                    display: block !important;
+                }
                 .header-container {
                 position: fixed !important;
                 top: 0 !important;
