@@ -722,8 +722,12 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         }, 300);
     });
 
-    var video = document.querySelector(".property_pro");
-    if (video) {video.playbackRate = 0.5;}
+    const propertyVideo = document.querySelector(".property_pro");
+    if (propertyVideo) {
+        propertyVideo.playbackRate = 0.5;
+        propertyVideo.addEventListener('loadedmetadata', function() { this.currentTime = 3; });
+        propertyVideo.addEventListener('ended', function() { this.currentTime = 3; });
+    }
 
     const menuBtn = document.getElementById( 'menu-icon');
     const drawer = document.getElementById( 'nav-drawer');
