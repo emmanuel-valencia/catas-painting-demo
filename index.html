@@ -674,7 +674,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             </div>
     </div>
     <div class="video-wrapper" id="vid-3">
-        <video autoplay muted loop playsinline preload="metadata" class="video-box all-videos">
+        <video autoplay muted loop playsinline preload="metadata" class="video-box all-videos property_pro">
                 <source src="property_pro.mp4" type="video/mp4"></video>
 
         <div class="video-label">
@@ -717,12 +717,12 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             curtain.style.opacity ='0';
         setTimeout(() => { 
             curtain.style.display = 'none';
-        }, 600);
+        }, 400);
         sessionStorage.setItem( 'curtainShown', 'true' );
         }, 300);
     });
 
-    var video = document.getElementById("property_pro");
+    var video = document.querySelector(".property_pro");
     if (video) {video.playbackRate = 0.5;}
 
     const menuBtn = document.getElementById( 'menu-icon');
