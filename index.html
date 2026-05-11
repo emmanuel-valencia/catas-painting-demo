@@ -726,8 +726,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     if (propertyVideo) {
         propertyVideo.playbackRate = 0.5;
         propertyVideo.addEventListener('play', function() {
-            if (this.currentTime < 3) {
-                this.currentTime = 3;
+            if (this.currentTime < 4) {
+                this.currentTime = 4;
             }
     },  { once: true });
         propertyVideo.addEventListener('ended', function() { this.currentTime = 5; 
