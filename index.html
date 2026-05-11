@@ -725,8 +725,14 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     const propertyVideo = document.querySelector(".property_pro");
     if (propertyVideo) {
         propertyVideo.playbackRate = 0.5;
-        propertyVideo.addEventListener('loadedmetadata', function() { this.currentTime = 5; });
-        propertyVideo.addEventListener('ended', function() { this.currentTime = 5; });
+        propertyVideo.addEventListener('play', function() {
+            if (this.currentTime < 5) {
+                this.currentTime = 5;
+            }
+    },  { once: true });
+        propertyVideo.addEventListener('ended', function() { this.currentTime = 5; 
+            this.play();
+        });
     }
 
     const menuBtn = document.getElementById( 'menu-icon');
