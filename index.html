@@ -725,8 +725,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     const propertyVideo = document.querySelector(".property_pro");
     if (propertyVideo) {
         propertyVideo.playbackRate = 0.5;
-        propertyVideo.addEventListener('loadedmetadata', function() { this.currentTime = 3; });
-        propertyVideo.addEventListener('ended', function() { this.currentTime = 3; });
+        propertyVideo.addEventListener('loadedmetadata', function() { this.currentTime = 5; });
+        propertyVideo.addEventListener('ended', function() { this.currentTime = 5; });
     }
 
     const menuBtn = document.getElementById( 'menu-icon');
