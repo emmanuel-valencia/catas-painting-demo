@@ -471,8 +471,17 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     font-weight: 600;
                     padding: 25px 20px;
                     display: block;
-                    color: #c5a059
+                    color:#f5f5f5;
+                    text-decoration: none;
                 }
+                #nav-drawer .hero-cta {
+                    background-color: #c5a059;
+                    color: #000 !important;
+                    margin: 10px 20px;
+                    border-radius: 5px;
+                    text-align: center;
+                }
+
                 }
            @keyframes fadeInUp {
                 from { opacity: 0; transform: translateY(20px);}
@@ -662,7 +671,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <a href="gallery.html" style="display: block; padding: 15px; color: #f5f5f5; font-family: Arial, sans-serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Gallery</a>
     <a href="about.html" style="display: block; padding: 15px; color: #f5f5f5; text-decoration: none; font-family: 'Playfair Display', serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">About Us</a>
     <a href="services.html" style="display: block; color: white; padding: 20px; text-decoration: none; font-family: Arial, sans-serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Services</a>
-    <a href="#quote-form-container" style="display: block; color: #f5f5f5; padding: 20px; text-decoration: none; font-family: Arial, sans-serif; font-weight: bold;">Request Quote</a>
+    <a href="#quote-form-container" class="hero-cta">Request a Quote</a>
     </div>
     <div class="video-wrapper" id="vid-1">
             <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
