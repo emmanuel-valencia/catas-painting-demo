@@ -725,8 +725,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         }, 300);
     });
 
-    var video = document.querySelector(".property_pro");
-    if (video) {
+    const propertyVideos = document.querySelectorAll(".property_pro");
+    propertVideos.forEach(function(video) {
         video.playbackRate = 0.5;
     }
 
