@@ -715,7 +715,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 <span class="micro-desc">Premium Berber & Luxury Plush</span>
             <div class="video-details-dropdown">
                 <button class="details-trigger" onclick="toggleDetails('details-1')">Learn More</button>
-                <div id="detail-1" class="details-content">
+                <div id="details-1" class="details-content">
                     <p>Premium Berber is durable for high-traffic, while Luxury Plush provides maximum softness.</p>
     </div>
     </div>
@@ -773,6 +773,14 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <p style="font-size: 0.8em; color: #666;">&copy; 2026 All Rights Reserved</p>
     
     <script> 
+    function toggleDetails(id) {
+        const box = document.getElementById(id);
+        if (box.style.display === "none" || box.style.display === "") {
+            box.style.display = "block";
+     } else  {
+        box.style.display = "none";
+     }
+    }
     /* Java for the disney curtain (loading screen)** 
     window.addEventListener('load', function() {
     const curtain = document.getElementById('splash-screen');
