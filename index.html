@@ -809,6 +809,12 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         const box = document.getElementById(id);
         if (box.style.display === "none" || box.style.display === "") {
             box.style.display = "block";
+            gsap.from(box, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            ease: "power2.out"
+        });
      } else  {
         box.style.display = "none";
      }
@@ -869,12 +875,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             });
         });
     }
-gsap.from(".details-content", {
-    opacity: 0,
-    y: 30,
-    duration: 1.2,
-    ease: "power2.out"
-});
     </script>
     </footer>
     </div>
