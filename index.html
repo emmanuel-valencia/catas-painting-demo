@@ -877,7 +877,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             });
         });
     }
-    AOS.init();
+    AOS.init({ startEvent: 'DOMcontentLoaded' });
     </script>
     </footer>
     </div>
