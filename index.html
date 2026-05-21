@@ -721,7 +721,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <a href="services.html" style="display: block; color: white; padding: 20px; text-decoration: none; font-family: Arial, sans-serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Services</a>
     <a href="#quote-form-container" class="hero-cta">Request a Quote</a>
     </div>
-    <div class="video-wrapper" id="vid-1">
+    <div class="video-wrapper" id="vid-1" data-tilt>
             <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
                 <source src="living-room.mp4" type="video/mp4">
                 </video>
@@ -741,7 +741,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
     </div>
 
-    <div class="video-wrapper" id="vid-2">
+    <div class="video-wrapper" id="vid-2" data-tilt>
             <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
                 <source src="family-playing.mp4" type="video/mp4">
                 </video>
@@ -760,7 +760,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
             </div>
     </div>
-    <div class="video-wrapper" id="vid-3">
+    <div class="video-wrapper" id="vid-3" data-tilt>
             <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video property_pro">
                 <source src="property_pro_WIDE.mp4" type="video/mp4">
                 </video>
@@ -803,7 +803,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <p style="font-size: 0.9em; color: #aaa; margin: 10px 0;">Professional Installation * Serving Denver & Lakewood Metro</p>
     <p style="font-size: 0.8em; color: #666;">&copy; 2026 All Rights Reserved</p>
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script> 
     function toggleDetails(id) {
         const box = document.getElementById(id);
