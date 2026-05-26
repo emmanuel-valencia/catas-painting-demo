@@ -762,24 +762,64 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     font-weight: bold !important;
                 }
                 .featured-section {
+                    padding: 10px 0 !important;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                     width: 100%;
                     overflow: hidden;
                     box-sizing: border-box;
                 }
+                .featured-title {
+                    font-size: 1.4rem !important;
+                    margin-top: 5px !important;
+                    margin-bottom: 8px !important;
+                }
                 .featured-grid {
+                    display: flex !important;
                     justify-content: flex-start;
                     flex-wrap: nowrap;
                     overflow-x: auto;
                     scroll-snap-type: x mandatory;
-                    padding: 10px 20px;
+                    padding: 5px 15px !important;
                     -webkit-overflow-scrolling: touch;
+                    width: 100%;
+                    box-sizing:border-box;
                 }
                 .featured-grid::-webkit-scrollbar {
                     display: none;
                 }
                 .featured-card {
-                    flex: 0 0 310px;
+                    flex: 0 0 230px !important;
                     scroll-snap-align: start;
+                    background: #111;
+                    border-radius: 8px;
+                    overflow: hidden;
+                }
+                .featured-media {
+                    height: 130px !important;
+                    object-fit: cover;
+                    width: 100%;
+                }
+                .featured-info {
+                    padding: 6px !important;
+                }
+                .featured-info h3 {
+                    font-size: 0.95rem !important;
+                    margin: 2px 0 4px 0 !important;
+                }
+                .featured-info p {
+                    font-size: 0.72rem !important;
+                    line-height: 1.2 !important;
+                    margin: 0 !important;
+                }
+                .gallery-btn-container {
+                    margin-top: 10px !important;
+                    margin-bottom: 2px !important;
+                }
+                .gallery-btn {
+                    padding: 6px 16px !important;
+                    font-size: 0.75rem !important;
                 }
             }
 </style>
