@@ -685,6 +685,21 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     padding: 15px 50px !important;
                     font-weight: bold !important;
                 }
+                .featured-grid {
+                    justify-content: flex-start;
+                    flex-wrap: nowrap;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    padding: 10px 20px;
+                    -webkit-overflow-scrolling: touch;
+                }
+                .featured-grid::-webkit-scrollbar {
+                    display: none;
+                }
+                .featured-card {
+                    flex: 0 0 320px;
+                    scroll-snap-align: start;
+                }
             }
                 .featured-section {
                     background-color: #0a0a0a;
