@@ -1050,6 +1050,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             });
         });
     }
+    const cinematicVideos = document.querySelectorALL('.featured-media');
+    cinematicVideos.forEach(video => {
+        video.playbackRate = 0.65;
+    });
     </script>
     </footer>
     </div>
