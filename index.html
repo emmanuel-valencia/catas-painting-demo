@@ -471,18 +471,33 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 .featured-grid {
                     display: flex !important;
                     justify-content: center !important;
-                    gap: 18px !important;
-                    margin-bottom: 20px !important;
+                    gap: 20px !important;
+                    margin-bottom: 25px !important;
                 }
                 .featured-card {
-                    max-height: 260px !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    max-width: 250px !important;
+                    height: auto !important;
+                    background-color: #111 !important;
+                    border-radius: 12px !important;
+                    overflow: hidden !important;
                 }
                 .featured-media {
-                    height: 250px !important;
+                    height: 2o0px !important;
+                    width: 100% !important;
                     object-fit: cover !important;
                 }
                 .featured-info {
+                    display: block !important;
                     padding: 15px 12px !important;
+                }
+                .featured-info h3 {
+                    color: #c5a059 !important;
+                    margin-bottom: 6px !important;
+                }
+                .featured-info p {
+                    color: #ffffff !important;
                 }
                 .header-phone {
                     font-size: 1.2rem !important;
