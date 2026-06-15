@@ -22,6 +22,24 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 color: white !important;
                 font-family: 'Cinzel', serif !important;
             }
+            .sub-nav {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                padding: 15px 0;
+                text-align: center;
+            }
+            .sub-nav a {
+                color: white;
+                text-decoration: none;
+                font-family: Arial, sans-serif;
+                font-size: 0.9rem;
+                transition: color 0.3s ease;
+            }
+            .sub-nav a:hover {
+                color: #c5a059;
+                cursor: pointer;
+            }
             .video-wrapper {
                 width: 100% !important;
                 height: 100vh !important;
@@ -927,6 +945,11 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>-->
      <div class="vibrant-line" style="margin: 0 auto; width: 80%; height: 1px; background: #c5a059"></div>
         <p style="text-align: center; margin: 5px 0; color: #fff; letter-spacing: 2px; font-size: 0.9rem;">Denver & Lakewood Carpet Installations.</p>
+    </div>
+    <div class="sub-nav">
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
     </div>
     <div id="nav-drawer" style="position: fixed; top: 0; right: -100%; width: 250px; height: 100%; background: #002229; transition: 0.5s; z-index: 2000; box-shadow: -5px 0 15px rgba(0,0,0,0.5); padding-top: 60px; font-family: 'Cinzel', serif;">
     <div id="close-btn" style="position: absolute; top: 15px; right: 20px; color: #f5f5f5; font-size: 2rem; cursor: pointer; font-family: Arial, sans-serif;">&times</div>
