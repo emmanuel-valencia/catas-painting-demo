@@ -23,11 +23,17 @@
         max-width: 1000px; 
         margin: auto; }
     .service-card {
-        background: none !important; 
+        background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(197, 160, 89, 0.3);
-        padding: 30px 20;
-        margin: 10px 0;
-        transition: none;
+        border-radius: 15px;
+        padding: 40px;
+        margin: 20px 0;
+        transition: all 0.4s ease;
+    }
+    .service-card:hover {
+        transform: translateY(-10);
+        border-color: rgba(197, 160, 89, 0.8);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
     .service-card p{
         color: rgba(255, 255, 255, 0.9);
@@ -51,8 +57,9 @@
     <div class="services-container">
         <h1>Our Services</h1>
     <div class="service-card">
+        <div class="service-icon" style="font-size: 2rem; color: #c5a059; margin-bottom: 15px;">✨</div>
         <h2>Carpet Installation</h2>
-        <p>Expert sttretching and seamless transitions for a plush, professional finish.</p>
+        <p>Expert stretching and seamless transitions for a plush, professional finish.</p>
     </div>
     </div>
 </body>
