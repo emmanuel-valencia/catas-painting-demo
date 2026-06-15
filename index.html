@@ -887,20 +887,18 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         "url": "https://floorharmonyco.com",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "6193 W 10th Ave Lakewood Colorado 80214",
             "addressLocality": "Lakewood",
-            "addressRegion": "CO",
+            "addressRegion": "Colorado",
             "addressCountry": "US",
         },
-        "serviceArea": [
-        {
-            "@type": "AdministrativeArea",
-            "name": "Denver"
-        },
-        {
-            "@type": "AdministrativeArea",
-            "name": "Lakewood"
+        "serviceArea": {
+            "@type": "GeoShape",
+            "containesInPlace": {
+            "@type": "City",
+            "name": "Denver, Lakewood, and surrounding Colorado areas"
         }
-      ]
+      }
     }
 </script>
 </head>
