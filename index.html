@@ -14,7 +14,9 @@
        
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 95px !important;
+        }
+        #services, #gallery, #about, #contact {
+        padding-top: 95px !important; /* Stretches backgrounds under the white header */
         }
         a, button {
             cursor: url('paintbrush.png'), pointer;
@@ -611,11 +613,6 @@
   /* ========================================= */
     /* SERVICES SECTION MOBILE FIXES (TUNED)     */
     /* ========================================= */
-
-    .services-section {
-        padding-top: 5px !important;      /* Pulls the entire section higher up the screen */
-        scroll-margin-top: 75px !important;
-    }
 
     .services-main-title {
         font-size: 2rem !important;        /* Makes the main title bigger */
