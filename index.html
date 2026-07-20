@@ -1,1160 +1,875 @@
 <!DOCTYPE html>
-<html>
-<script>
-if (sessionStorage.getItem( 'comingFromSubpage' )) { 
-    document.write( '<style>#splash-screen { display: none !important; } </style>');
-    document.documentElement.classicList.add( 'skip-intro' );
-    sessionStorage.removeItem( 'comingFromSubpage' );
-    }
-</script>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https//fonts.googleapis.com/css2? family=Cinzel:wght@700&display=swap" rel="stylesheet">
-        <title>Floor Harmony</title>
-        <style>
-            html, body {
-                height: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                overflow-y: scroll !important;
-                scroll-snap-type: y mandatory !important;
-                background: #002229 !important;
-                color: white !important;
-                font-family: 'Cinzel', serif !important;
-            }
-            .sub-nav {
-                display: flex;
-                justify-content: center;
-                gap: 30px;
-                padding: 15px 0;
-                text-align: center;
-            }
-            .sub-nav a {
-                color: white;
-                text-decoration: none;
-                font-family: Arial, sans-serif;
-                font-size: 0.9rem;
-                transition: color 0.3s ease;
-            }
-            .sub-nav a:hover {
-                color: #c5a059;
-                cursor: pointer;
-            }
-            .video-wrapper {
-                width: 100% !important;
-                height: 100vh !important;
-                position: relative !important;
-                scroll-snap-align: start !important;
-                scroll-snap-stop: always !important;
-                display: block !important;
-            }
-            .video-box {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-                display: block !important;
-            }
-            #main-wrapper {
-                height: auto !important;
-                width: 100% !important;
-                display: block !important;
-            }
-            .skip-intro #splash-screen {
-                display: none !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-            }
-            #nav-drawer {
-                position: fixed !important;
-                top: 0 !important;
-                right: -100% !important;
-                width: 300px !important;
-                height: 100vh !important;
-                background: rgba(0, 26, 26, 0.95) !important;
-                transition: right 0.3s ease-in-out !important;
-                z-index: 1000000 !important;
-            }
-            #nav-drawer a {
-                color: #f5f5f5 !important;
-                text-decoration: none;
-                display: block;
-                padding: 15px;
-                font-family: 'Playfair Display', serif;
-            }
-            #nav-drawer.open {
-                right: 0 !important;
-            }
-
-            #vid-1 { animation-delay: 0.2s; }
-            #vid-2 { animation-delay: 0.6s; }
-            #vid-3 { animation-delay: 0.8s; }
-            
-            @import url( 'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
-            
-            .logo-text {
-                font-family: 'Cinzel' , serif !important;
-                font-size: 3.5rem;
-                letter-spacing: 25px;
-                margin: 20px auto;
-                text-transform: uppercase;
-                display: block;
-            }
-            .gold-brand {
-                color: #c5a059;
-                font-weight: 900;
-                padding-right: 10px;
-                text-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
-            }
-            .white-brand{
-                color: #ffffff;
-                font-weight: 200;
-                opacity: 0.95;
-            }
-            .vibrant-line {
-                width: 750px;
-                height: 3px;
-                margin: 10px auto;
-                background: linear-gradient(90deg, transparent, #c5a059, transparent);
-                transition: width 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-                box-shadow: 0 0 15px rgba(197, 160, 89, 0.8);
-                
-            }
-            .vibrant-line:hover {
-                width: 750px;
-                background: linear-gradient(90deg, transparent, #c5a059, #ffffff, #c5a059, transparent);
-                box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6);
-            }
-            * { 
-            box-sizing: border-box;
-            }
-            p {
-                font-size: 1rem;
-                font-weight: 300;
-                letter-spacing: 5px;
-                color: #888;
-                margin: 0;
-                text-transform: uppercase;
-            }
-            input, textarea, select {
-                font-size: 16px !important;
-            }
-             @keyframes LaserStrike {
-                0% { width: 0; opacity: 0; }
-                20% { opacity: 1; }
-                100% { width: 100%; opacity: 1; }
-             }
-             @keyframes cinematicIntro {
-                0% { opacity: 0; filter: blur(15px); transform: scale(1.1); letter-spacing: 15px; }
-                100% { opacity: 1; filter: blur(0px); transform: scale(1); letter-spacing: 6px; text-shadow: 0 0 15px rgba(197, 160, 89, 0.6); }
-            }
-            @keyframes shimmer {
-                0% { transform: translateX(-100%); }
-                100% { transform: translateX(100%); }
-            }
-            /*styling the main logo*/
-            .main-logo {
-                height: 100px !important;
-                width: auto !important;
-                display: block !important;
-                margin: 0 auto !important;
-                will-change: filter;
-                filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
-            }
-            .video-label {
-               position: absolute !important;
-               top: 50% !important;
-               left: 50% !important;
-               transform: translate(-50%, -50%) !important;
-               width: 90%;
-               z-index: 10;
-               background: transparent !important;
-               text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
-
-            }
-            .video-label .main-title {
-                color: #c5a059;
-                font-family: 'Cinzel', serif;
-                font-size: 1.8rem;
-                display: block;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            }
-            .video-label .micro-desc {
-                color: #ffff;
-                font-size: 1rem !important;
-                font-family: 'Playfair Display', serif;
-                font-style: italic;
-                text-transform: none;
-            }
-
-            #contact, footer {
-                width: 100% !important;
-                display: block;
-                clear: both !important;
-                text-align: center !important;
-                scroll-snap-align: end !important;
-            
-            }
-            .video-details-dropdown {
-                margin: 10px 0;
-            }
-            .details-trigger {
-                background: none;
-                border: 1px solid #c5a059;
-                color: #c5a059;
-                padding: 6px 12px;
-                cursor: pointer;
-                font-family: 'Playfair Display', serif;
-                font-size: 0.85rem;
-                border-radius: 4px;
-                transition: 0.3s;
-            }
-            .details-trigger:hover {
-                background: #c5a059;
-                color: #000;
-            }
-            .details-content {
-                display: none;
-                background: rgba(0, 0, 0, 0.85);
-                color: #f5f5f5;
-                padding: 20px 25px;
-                margin-top: 12px;
-                font-size: 1.1rem;
-                line-height: 1.6;
-                border-left: 3px solid #c5a059;
-                max-width: 550px;
-                width: 95%;
-                text-align: left;
-                border-radius: 4px;
-
-            }
-            .featured-section {
-                    background-color: #0a0a0a;
-                    text-align: center;
-                    min-height: 100vh;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    scroll-snap-align: start;
-                    padding: 40px 20px;
-                    box-sizing: border-box;
-                }
-                .featured-title{
-                    color: #ffffff;
-                    font-size: 2.5rem;
-                    margin-bottom: 40px;
-                    letter-spacing: 2px;
-                    text-transform: uppercase;
-                    font-family: 'Cinzel', serif;
-                }
-                .featured-grid {
-                    display: flex;
-                    justify-content: center;
-                    gap: 20px;
-                    flex-wrap: wrap;
-                    max-width: 1400px;
-                    margin: 0 auto;
-                }
-                .featured-card {
-                    width: 320px;
-                    background-color: #1a1a1a;
-                    border-radius: 8px;
-                    overflow: hidden;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-                    border: 1px solid rgba(197, 160, 89, 0.3);
-                }
-                .featured-media {
-                    width: 100%;
-                    height: 450px;
-                    object-fit: cover;
-                    display: block;
-                    background-color: #000;
-                }
-                .featured-info {
-                    padding: 20px;
-                    text-align: left;
-                    border-top: 2px solid #c5a059;
-                }
-                .featured-info h3 {
-                    color: #c5a059;
-                    margin:0 0 10px 0;
-                    font-size: 1.3rem;
-                }
-                .featured-info p {
-                    color: #dddddd;
-                    margin: 0;
-                    font-size: 0.95rem;
-                    line-height: 1.5;
-                }
-                .gallery-btn-container {
-                    margin-top: 40px;
-                }
-                .gallery-btn {
-                    display: inline-block;
-                    padding: 15px 40px;
-                    background-color: #c5a059;
-                    color: #000000;
-                    text-decoration: none;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    border-radius: 4px;
-                    transition: all 0.3s ease;
-                }
-                .gallery-btn:hover {
-                    background-color: #ffffff;
-                    box-shadow: 0 0 15px rgba(197, 160, 89, 0.5);
-                }
-            @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
-                .video-card {
-                    width: 65%;
-                    flex: 0 0 65%;
-                }
-                .featured-grid {
-                    display: flex !important;
-                    justify-content: flex-start !important;
-                    flex-wrap: nowrap !important;
-                    overflow-x: auto !important;
-                    gap: 14px;
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    padding: 5px 20px !important;
-                    box-sizing: border-box;
-                }
-                .featured-card {
-                    flex: 0 0 280px !important;
-                }
-                .header-phone {
-                    font-size: 1rem;
-                }
-                .desktop-only-video {
-                display: none !important;
-                }
-                .mobile-only-video {
-                display: block !important;
-                }
-                header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: auto !important;
-                z-index: 9999 !important;
-                background: #1e0008 !important;
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                }
-                #nav-drawer {
-                    top: 70px !important;
-                    bottom: auto !important;
-                    height: auto !important;
-                }
-                #video-container-main {
-                    overflow: visible !important;
-                    position: relative !important;
-                    display: block !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    width: 100% !important;
-                    height: auto !important;
-                }
-                .video-wrapper {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    justify-content: center !important;
-                    align-items: center !important;
-                    height: 100vh !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
-                }
-                .video-box {
-                    width: 100% !important;
-                    height: 100vh !important;
-                    position: absolute !important;
-                    object-fit: cover !important;
-                    object-position: center !important;
-                    top: 0;
-                    left: 0;
-                    z-index: 1 !important;
-                    filter: brightness(0.6) contrast(1.1) !important;
-                }
-                .video-label {
-                    position: absolute !important;
-                    top: 50% !important;
-                    left: 50% !important;
-                    transform: translate(-50%, -50%) !important;
-                    text-align: center !important;
-                    z-index: 10 !important;
-                    pointer-events: auto !important;
-                }
-                .hero-cta,
-                .video-label a {
-                    pointer-events: auto !important;
-                }
-                .main-title {
-                    display: block !important;
-                    color: #ffffff !important;
-                    -webkit-text-fill-color: #ffffff !important;
-                    font-size: 2.8rem !important;
-                    font-weight: 300 !important;
-                    text-transform: uppercase;
-                    letter-spacing: 6px;
-                    margin-bottom: 5px;
-                    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) !important;
-                    background: inherit !important;
-                }
-                .micro-desc {
-                    display: block !important;
-                    color: #f5f5f5 !important;
-                    font-size: 1.1rem !important;
-                    font-weight: 300 !important;
-                    font-style: italic;
-                    letter-spacing: 2px;
-                    margin-bottom: 20px;
-                    opacity: 1;
-                    text-shadow: 1px 1px 5px rgba(0, 0, 0, 1) !important;
-                }
-                .hero-cta, a[href="#quote-form-container"] {
-                    display: inline-block !important;
-                    background-color: #c5a059 !important;
-                    color: #000000 !important;
-                    padding: 12px 25px !important;
-                    text-decoration: none !important;
-                    font-weight: 700 !important;
-                    transition: none !important;
-                    touch-action: manipulation !important;
-                    cursor: pointer !important;
-                }
-                .hero-cta:hover {
-                    transform: scale(1.05);
-                    background-color: #d4af37 !important;
-                }
-                 #quote-form-container {
-                    width: 100% !important;
-                    background-color: #002229 !important;
-                    min-height: 100vh !important;
-                    z-index: 99 !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    padding-top: 150px !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
-                    margin-top: 0 !important;
-
-                }
-                .quote-box-inner {
-                    width: 90% !important;
-                    max-width: 600px !important;
-                    text-align: center !important;
-                }
-                #quote-title {
-                    font-family: 'Cinzel', serif !important;
-                    color: #c5a059 !important;
-                    font-size: 2.5rem !important;
-                    margin-bottom: 30px !important;
-                }
-                #actual-quote-form {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    gap: 20px !important;
-                    width: 100% !important;
-                }
-                #actual-quote-form input,
-                #actual-quote-form select {
-                    width: 85% !important;
-                    max-width: 450px !important;
-                    height: 55px !important;
-                    background: rgba(255, 255, 255, 0.05) !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 12px !important;
-                    padding: 0 20px !important;
-                    color: white !important;
-                    font-size: 1.1rem !important;
-                }
-                #actual-quote-form button.hero-cta {
-                    background-color: #002229 !important;
-                    color: #c5a059 !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 30px !important;
-                    padding: 15px 50px !important;
-                    font-weight: bold !important;
-                }
-            }
-                @media (min-width: 1025px) { /********** Desktop part************/
-                .featured-section {
-                    padding-top: 130px !important;
-                    padding-bottom: 20px !important;
-                }
-                .featured-grid {
-                    display: flex !important;
-                    justify-content: center !important;
-                    gap: 20px !important;
-                    margin-bottom: 25px !important;
-                }
-                .featured-card {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    max-width: 250px !important;
-                    height: auto !important;
-                    background-color: #111 !important;
-                    border-radius: 12px !important;
-                    overflow: hidden !important;
-                }
-                .featured-media {
-                    height: 2o0px !important;
-                    width: 100% !important;
-                    object-fit: cover !important;
-                }
-                .featured-info {
-                    display: block !important;
-                    padding: 15px 12px !important;
-                }
-                .featured-info h3 {
-                    color: #c5a059 !important;
-                    margin-bottom: 6px !important;
-                }
-                .featured-info p {
-                    color: #ffffff !important;
-                }
-                .header-phone {
-                    font-size: 1.2rem !important;
-                    font-weight: bold;
-                    letter-spacing: 1px;
-                }
-                .mobile-only-video {
-                    display: none !important;
-                }
-                .desktop-only-video, .all-videos {
-                    display: block !important;
-                    filter: brightness(0.6) contrast(1.1) !important;
-                }
-                .main-title {
-                    font-size: 5rem !important;
-                    letter-spacing: 8px !important;
-                    color: white !important;
-                    text-transform: uppercase !important;
-               }
-                .video-label .micro-desc {
-                    font-size: 1.8rem !important;
-                    letter-spacing: 2px;
-                    line-height: 1.4 !important;
-                    color: #f5f5f5 !important;
-                    margin-bottom: 40px !important;
-                    display: block !important;
-               }
-                #video-container-main {
-                    display: block !important;
-                    width: 100% !important;
-                    background-color: #0d0d0d !important;
-                    margin: 0 !important;
-                    padding: 0 !important;
-                }
-                .video-wrapper {
-                    width: 100% !important;
-                    height: 100vh !important;
-                    position: relative !important;
-                    display: block !important;
-                }
-                .video-box.desktop-only-video {
-                    width: 100% !important;
-                    height: 100vh !important;
-                    position: absolute !important;
-                    left: 0 !important;
-                    top: 0 !important;
-                    filter: brightness(0.6) contrast(1.1) !important;
-                }
-                .video-box video{
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                }
-                .video-label {
-                    position: absolute !important;
-                    top: 50% !important;
-                    left: 8% !important;
-                    transform: translateY(-50%) !important;
-                    width: 550px !important;
-                    z-index: 10 !important;
-                    text-align: left !important;
-                }
-                 #quote-form-container {
-                    width: 100% !important;
-                    background-color: #002229 !important;
-                    min-height: 100vh !important;
-                    z-index: 99 !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    padding-top: 210px !important;
-                    padding-bottom: 80px !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
-                    margin-top: 0 !important;
-
-                }
-                .quote-box-inner {
-                    width: 90% !important;
-                    max-width: 1300px !important;
-                    text-align: center !important;
-                }
-                #quote-title {
-                    font-family: 'Cinzel', serif !important;
-                    color: #c5a059 !important;
-                    font-size: 2.5rem !important;
-                    margin-bottom: 30px !important;
-                }
-                #actual-quote-form {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    gap: 20px !important;
-                    width: 100% !important;
-                }
-                #actual-quote-form input,
-                #actual-quote-form select {
-                    width: 100% !important;
-                    max-width: 800px !important;
-                    height: 65px !important;
-                    background: rgba(255, 255, 255, 0.05) !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 12px !important;
-                    padding: 0 20px !important;
-                    color: white !important;
-                    font-size: 1.2rem !important;
-                }
-                #actual-quote-form button.hero-cta {
-                    background-color: #052d4f !important;
-                    color: #c5a059 !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 30px !important;
-                    padding: 15px 50px !important;
-                    font-weight: bold !important;
-                }
-                .video-label a {
-                    display: inline-block !important;
-                    width: auto !important;
-                    min-width: 280px !important;
-                    background-color: #c5a059 !important;
-                    color: #000000 !important;
-                    padding: 18px 35px !important;
-                    text-align: center !important;
-                    letter-spacing: 2px !important;
-                    margin-top: 30px !important;
-                    font-size: 1.2rem !important;
-                    transition: 0.3s ease !important;
-                    cursor: pointer !important;
-                }
-                .video-label a:hover {
-                    transform: scale(1.05) !important;
-                    background-color:#ddb73b
-                }
-                #nav-drawer a {
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    padding: 25px 20px;
-                    display: block;
-                    color:#f5f5f5;
-                    text-decoration: none;
-                }
-                #nav-drawer .hero-cta {
-                    background-color: #c5a059;
-                    color: #000 !important;
-                    margin: 10px 20px;
-                    border-radius: 5px;
-                    text-align: center;
-                }
-                .details-trigger {
-                    font-size: 1.1rem !important;
-                    padding: 10px 25px !important;
-                    border-width: 2px !important;
-                    margin-bottom: 15px;
-                    text-transform: uppercase;
-                }
-                .details-content {
-                    max-width: 550px !important;
-                    font-size: 1.15rem !important;
-                    padding: 20px !important;
-                }
-
-                }
-           @keyframes fadeInUp {
-                from { opacity: 0; transform: translateY(20px);}
-                to { opacity: 1; transform: translateY (0); }
-            }
-           
-              @media (max-width: 767px) { /*Iphone section/*/
-                .header-phone {
-                font-size: 0.8rem;
-                }
-                .desktop-only-video {
-                display: none !important;
-                }
-                .mobile-only-video {
-                display: block !important;
-                }
-                .header-container {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: auto !important;
-                z-index: 9999 !important;
-                background:  #1e0008 !important;
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                }
-                .main-logo {
-                    height: 45px !important;
-                    width: auto !important;
-                }
-                .logo-container p{
-                    width: 100% !important;
-                    text-align: center;
-                    white-space: nowrap;
-                }
-                body{
-                    width: 100%;
-                }
-                .video-label {
-                    position: absolute !important;
-                    top: 50% !important;
-                    left: 50% !important;
-                    transform: translate(-50%, -50%) !important;
-                    text-align: center !important;
-                    z-index: 10 !important;
-                    pointer-events: auto !important;
-                }
-                  .hero-cta,
-                .video-label a {
-                    pointer-events: auto !important;
-                }
-                .main-title {
-                    display: block !important;
-                    color: #ffffff !important;
-                    -webkit-text-fill-color: #ffffff !important;
-                    font-size: 1.8rem !important;
-                    font-weight: 300 !important;
-                    text-transform: uppercase;
-                    letter-spacing: 6px;
-                    margin-bottom: 5px;
-                    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) !important;
-                    background: inherit !important;
-                }
-                .micro-desc {
-                    display: block !important;
-                    color: #f5f5f5 !important;
-                    font-size: 1.1rem !important;
-                    font-weight: 300 !important;
-                    font-style: italic;
-                    letter-spacing: 2px;
-                    margin-bottom: 20px;
-                    opacity: 1;
-                    text-shadow: 1px 1px 5px rgba(0, 0, 0, 1) !important;
-                }
-                 .hero-cta, a[href="#quote-form-container"] {
-                    display: inline-block !important;
-                    background-color: #c5a059 !important;
-                    color: #000000 !important;
-                    padding: 12px 25px !important;
-                    text-decoration: none !important;
-                    font-weight: 700 !important;
-                    transition: none !important;
-                    touch-action: manipulation !important;
-                    cursor: pointer !important;
-                }
-                .hero-cta:hover {
-                    transform: scale(1.05);
-                    background-color: #d4af37 !important;
-                }
-                
-                .video-wrapper {
-                    position: relative !important;
-                    width: 100% !important;
-                    height: 100vh !important;
-                }
-                 .video-box {
-                    width: 100% !important;
-                   height: 100% !important;
-                   object-fit: cover !important;
-                   filter: brightness(0.6) contrast(1.1) !important;
-                }
-                .video-box video {
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                }
-    
-                #quote-form-container {
-                    width: 100% !important;
-                    min-height: 100vh !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    background-color: #002229 !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
-                    padding: 20px !important;
-                    box-sizing: border-box !important;
-                }
-                #quote-title {
-                    font-family: 'Cinzel', serif !important;
-                    color: #c5a059 !important;
-                    font-size: 2.5rem !important;
-                    margin-bottom: 30px !important;
-                }
-                #actual-quote-form {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    gap: 20px !important;
-                    width: 100% !important;
-                }
-                #actual-quote-form input,
-                #actual-quote-form select {
-                    width: 85% !important;
-                    max-width: 450px !important;
-                    height: 55px !important;
-                    background: rgba(255, 255, 255, 0.05) !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 12px !important;
-                    padding: 0 20px !important;
-                    color: white !important;
-                    font-size: 1.1rem !important;
-                }
-                #actual-quote-form button.hero-cta {
-                    background-color: #002229 !important;
-                    color: #c5a059 !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 30px !important;
-                    padding: 15px 50px !important;
-                    font-weight: bold !important;
-                }
-                .featured-section {
-                    padding: 30px 0 !important;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    width: 100%;
-                    overflow: hidden;
-                    box-sizing: border-box;
-                }
-                .featured-title {
-                    font-size: 1.5rem !important;
-                    margin-top: 0 !important;
-                    margin-bottom: 20px !important;
-                }
-                .featured-grid {
-                    display: flex !important;
-                    justify-content: flex-start;
-                    flex-wrap: nowrap;
-                    overflow-x: auto !important;
-                    scroll-snap-type: x mandatory;
-                    padding: 5px 20px !important;
-                    gap: 14px;
-                    -webkit-overflow-scrolling: touch;
-                    width: 100%;
-                    box-sizing:border-box;
-                }
-                .featured-grid::-webkit-scrollbar {
-                    display: none;
-                }
-                .featured-card {
-                    flex: 0 0 235px !important;
-                    scroll-snap-align: start;
-                    background: #111;
-                    border-radius: 12px;
-                    overflow: hidden;
-                    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-                }
-                .featured-media {
-                    height: 290px !important;
-                    object-fit: cover;
-                    width: 100%;
-                }
-                .featured-info {
-                    padding: 12px 10px !important;
-                }
-                .featured-info h3 {
-                    font-size: 1.05rem !important;
-                    margin: 0 0 4px 0 !important;
-                }
-                .featured-info p {
-                    font-size: 0.75rem !important;
-                    line-height: 1.25 !important;
-                    margin: 0 !important;
-                }
-                .gallery-btn-container {
-                    margin-top: 25px !important;
-                    margin-bottom: 0 !important;
-                }
-                .gallery-btn {
-                    padding: 8px 24px !important;
-                    font-size: 0.82rem !important;
-                }
-            }
-</style>
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Floor Harmony LLC",
-        "telephone": "303-913-0327",
-        "url": "https://floorharmonyco.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "6193 W 10th Ave Lakewood Colorado 80214",
-            "addressLocality": "Lakewood",
-            "addressRegion": "Colorado",
-            "addressCountry": "US",
-        },
-        "serviceArea": {
-            "@type": "GeoShape",
-            "containesInPlace": {
-            "@type": "City",
-            "name": "Denver, Lakewood, and surrounding Colorado areas"
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luvs House Painting | Lakewood, CO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* THE RESET */
+        body {
+            cursor: url('paintbrush.png'), auto;
         }
-      }
+        html {
+            scroll-behavior: smooth;
+        /* ========================================= */
+        /* ANCHOR LINK BUFFER FIX                    */
+        /* ========================================= */
+        [id] {
+            scroll-margin-top: 110px; 
+        }
+
+        }
+        a, button {
+            cursor: url('paintbrush.png'), pointer;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* 1. THE CRISP WHITE NAVIGATION BAR */
+        .top-nav {
+            width: 100%;
+            background-color: #FDFBF7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            height: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: fixed; /* This glues the menu to the top even when scrolling */
+            top: 0;
+            z-index: 1000;
+        }
+
+           .nav-logo {
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo, .nav-logo img {
+            height: 70px; 
+            width: auto;
+            transform: scale(1.4);
+            margin-top: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #333333;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: #d63031;
+        }
+
+        .phone-number {
+            color: #d63031;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        /* 2. THE BACKGROUND IMAGE SECTION */
+        .hero-section {
+            width: 100%;
+            height: 100vh;
+            margin-top: 90px; /* Pushes the image down so it isn't hidden behind the top nav */
+            background-image: url('luv-paint-barna.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+
+        /* 4. THE LEFT-ALIGNED TEXT */
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Brings the text above the dark shadow */
+            max-width: 800px;
+        }
+
+        .main-headline {
+            color: #ffffff;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .sub-headline {
+            color: #f5f5f5;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            border-left: 4px solid #d63031; /* Adds a professional red accent line */
+            padding-left: 15px;
+        }
+
+        /* THE CALL TO ACTION BUTTON */
+        .btn-primary {
+            background-color: #d63031;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #b30000;
+            transform: translateY(-2px);
+        }
+        /* Fixes the dimness and creates the left/right split */
+        .hero-content-wrapper {
+        position: relative; 
+        z-index: 10; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        width: 100%;
+        }
+
+        /* Restricts the text to the left side */
+        .hero-content-left {
+        width: 50%;
+        }
+
+        /* Restricts the quote form to the right side */
+        .hero-content-right {
+        width: 40%;
+        }
+        /* --- LEAD CAPTURE CARD STYLING --- */
+        .lead-capture-card {
+        background-color: rgba(255, 255, 255, 0.45); /* Lowered to 45% solid so it's more transparent */
+        -webkit-backdrop-filter: blur(8px); /* Forces Safari to apply the blur */
+        backdrop-filter: blur(8px); /* Standard rule for Chrome/Edge */
+        padding: 35px;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Adds a professional drop shadow */
+        width: 100%;
+        max-width: 420px;
+        margin-left: auto; /* Pushes the card perfectly to the right edge of its container */
+        }
+
+        /* Form Title */
+        .lead-capture-card h3 {
+        color: #333333;
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-size: 24px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        }
+
+        /* Stacking the labels and inputs vertically */
+        .input-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 18px;
+        }
+
+        /* The text above the input box */
+        .input-group label {
+        color: #555555;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        }
+
+        /* The actual typing area */
+        .input-group input {
+        padding: 14px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #f9f9f9;
+        }
+
+        /* The Send Request Button */
+        .submit-btn {
+        width: 100%;
+        padding: 16px;
+        background-color: #d93838; /* Matches your left-side button */
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+        background-color: #b52c2c; /* Darkens slightly when hovered */
+        }
+        /* --- SUBTLE BACKGROUND DIM --- */
+        .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* The 0.4 means it's only 40% dark */
+        z-index: 1; /* Keeps the dark film behind your text and form */
+        }
+        /* --- SERVICES SECTION GRID --- */
+        .services-section {
+        padding: 60px 20px;
+        min-height: 100vh;
+        background: linear-gradient(to bottom, #ffffff 0%, #ffb3b3 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        }
+
+        .services-main-title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 32px;
+        color: #333;
+        }
+
+        .services-grid {
+        display: flex;
+        flex-direction:column;
+        gap: 20px; /* Space between the cards */
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+        }
+        /* Pushes Card 1 and 3 to the left side */
+        .service-card:nth-child(odd) {
+        align-self: flex-start;
+        width: 45%; 
+        }
+
+        /* Pushes Card 2 to the right side */
+        .service-card:nth-child(even) {
+        align-self: flex-end;
+        width: 45%; 
+        }
+
+        .service-card {
+        background-color: #f8f8f8;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        border: 1px solid #eeeeee;
+        opacity: 0;
+        transform: translate(100px, 100px);
+        transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .service-card h3 {
+        margin-bottom: 15px;
+        color: #d93838;
+        }
+        /* The Active State: Fully visible and back in its normal spot */
+        .service-card.show-card {
+        opacity: 1;
+        transform: translate(0, 0); 
+        }
+        .service-card.show-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* The Stagger Effect: Makes them slide in one after the other */
+        .service-card:nth-child(1) { transition-delay: 0.1s; }
+        .service-card:nth-child(2) { transition-delay: 0.3s; }
+        .service-card:nth-child(3) { transition-delay: 0.5s; }
+
+        .service-card p {
+        color: #666;
+        line-height: 1.6;
+        }
+            /* Placeholder Section Styling */
+        .services-section, .gallery-section, .about-section, .contact-section {
+        padding: 40px 20px;
+        text-align: center;
+        scroll-margin-top: 100px;
+        }
+
+        .gallery-section {
+        background-color: #f4f4f9; 
+        }
+
+        .about-section {
+        background-color: #f8f8f8; 
+        }
+
+        .contact-section {
+        background-color: #ffffff; 
+        }
+
+        .gallery-section h2, .about-section h2, .contact-section h2 {
+        font-size: 3rem; /* Makes the title significantly larger and bolder */
+        color: #333333;
+        margin-bottom: 50px; /* Pushes the gallery card down so it doesn't crowd the title */
+        position: relative;
+        display: inline-block; /* Keeps the decoration tightly wrapped to the width of the words */
+        }
+
+        /* The "Decoration" - Creates a red accent line under the titles */
+        .gallery-section h2::after, .about-section h2::after, .contact-section h2::after {
+                content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -15px; 
+        transform: translateX(-50%); 
+        width: 350px; /* Makes the line much longer to frame the words */
+        height: 6px; /* Slightly thinner so it looks like a glass neon tube */
+        background-color: #ff4d4d; /* A brighter, punchier red for the core of the light */
+        border-radius: 10px; /* Rounds the ends of the tube */
+        
+        }
+
+                /* Gallery Two-Column Layout */
+        
+        .gallery-container {
+        display: flex;
+        align-items: center; /* Vertically centers the text with the video */
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto; /* Centers the whole container on the screen */
+        gap: 40px; /* Creates breathing room between the video and text */
+        }
+
+        .gallery-video-box {
+        flex: 1; /* Takes up half the container */
+        display: flex;
+        justify-content: center; /* Centers the vertical video nicely inside its half of the screen */
+        }
+
+        .gallery-video {
+        width: 100%;
+        max-width: 295px;
+        height: auto;
+        border: 12px solid #ffffff; 
+        border-radius: 2px; 
+        /* The 1px outline is now a darker gray (#999999) and the shadow opacity is increased to 0.45 */
+        box-shadow: 0 0 0 1px #999999, 0 15px 30px rgba(0,0,0,0.45); 
+        }
+
+        .gallery-text-box {
+        flex: 1; 
+        text-align: left;
+        background: #ffffff; 
+        padding: 40px; 
+        border-radius: 15px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+        border-top: 6px solid #d32f2f; 
+        }
+
+        .gallery-btn {
+        display: inline-block;
+        margin-top: 25px; 
+        padding: 12px 28px;
+        background-color: #d32f2f;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        }
+
+        .gallery-btn:hover {
+        background-color: #b71c1c; 
+        }
+
+        .gallery-text-box h3 {
+        font-size: 1.5rem;
+        color: #d32f2f; /* Uses the Luvs brand red */
+        margin-bottom: 20px;
+        }
+
+        .gallery-text-box p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #555555;
+        }
+        /* ========================================= */
+    /* ABOUT US SECTION (DESKTOP)                */
+    /* ========================================= */
+    
+    .about-section {
+        padding: 60px 20px;
+        background-color: #f9f9f9;
     }
-</script>
+
+    .about-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .about-text {
+        flex: 1;
+    }
+
+    .about-text h2 {
+        font-size: 2.5rem;
+        color: #b22222; /* Matches the red from your logo */
+        margin-bottom: 20px;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .about-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-photo {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Adds a professional soft shadow */
+    }
+        /* ========================================= */
+    /* FOOTER STYLES                             */
+    /* ========================================= */
+    .footer-section {
+        background-color: #222222;
+        color: #ffffff;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .footer-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #e63946; /* Matching your red highlight color */
+    }
+
+    .footer-info p {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .footer-copyright {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        border-top: 1px solid #444444;
+        padding-top: 20px;
+        color: #aaaaaa;
+    }
+    /* ========================================= */
+    /* FORM ATTENTION PULSE ANIMATION            */
+    /* ========================================= */
+    @keyframes shinePulse {
+        0% { box-shadow: 0 0 0 0 rgba(237, 28, 36, 0.8); transform: scale(1); }
+        50% { box-shadow: 0 0 25px 15px rgba(237, 28, 36, 0); transform: scale(1.02); }
+        100% { box-shadow: 0 0 0 0 rgba(237, 28, 36, 0); transform: scale(1); }
+    }
+    
+    .form-shine {
+        animation: shinePulse 0.8s ease-out;
+    }
+    /* ========================================= */
+    /* NAV LINKS STAGGERED ENTRANCE ANIMATION    */
+    /* ========================================= */
+    @keyframes dropIn {
+        0% { opacity: 0; transform: translateY(-15px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-links a {
+        opacity: 0; /* Keeps them invisible until the animation starts */
+        animation: dropIn 0.6s ease-out forwards;
+        display: inline-block; /* Required for the transform to work */
+    }
+
+    /* The Stagger Effect: delaying each link by a fraction of a second */
+    .nav-links a:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links a:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links a:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links a:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links a:nth-child(5) { animation-delay: 0.5s; }
+
+    /* ========================================= */
+    /* DROPDOWN MENU STYLING FIX                 */
+    /* ========================================= */
+    .input-group select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f4f4f4; /* Matches your input backgrounds */
+        font-family: inherit;
+        font-size: 14px;
+        color: #333;
+        cursor: pointer;
+    }
+    
+    /* Makes sure the dropdown has the same focus outline as your inputs */
+    .input-group select:focus {
+        outline: 2px solid #ED1C24;
+    }
+     
+        /* ========================================= */
+  /* MOBILE RESPONSIVENESS (Screens under 768px) */
+  /* ========================================= */
+  @media (max-width: 768px) {
+    
+    .gallery-container {
+      flex-direction: column; /* Forces the video and text to stack vertically */
+      padding: 0 20px; /* Adds space on the left and right edges of the phone screen */
+    }
+
+    .gallery-video-box {
+      margin-bottom: 30px; /* Adds space below the video so it doesn't touch the text card */
+    }
+   /* Mobile Navigation Fixes */
+    .top-nav {
+      flex-direction: column !important; /* Forces layout to stack vertically */
+      padding: 15px 15px !important;     /* Shrinks the 50px side padding so elements fit */
+      height: auto !important;
+    }
+
+    .nav-logo, .nav-logo img {
+      transform: scale(1.3) !important;   /* Cancels the 1.4 desktop blow-up so it doesn't bleed */
+      height: 60px !important;          /* Keeps it sharp and tidy on small screens */
+      margin-top: 0 !important;
+    }
+
+    .nav-links {
+      display: flex !important;
+      flex-wrap: wrap !important;       /* Lets individual links drop to a new line if needed */
+      justify-content: center !important;
+      gap: 15px !important;             /* Lowers the gap spacing slightly for small screens */
+      margin-top: 15px !important;      /* Pushes links cleanly below the logo */
+      padding: 0 !important;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem !important;     /* Ensures text sizing fits iPhone screens perfectly */
+    }
+
+    /* ========================================= */
+    /* HERO SECTION MOBILE FIXES                 */
+    /* ========================================= */
+    
+    .hero-section {
+      height: auto !important;                  /* Allows the background to stretch downwards to fit the stacked content */
+      padding: 130px 15px 50px 15px !important; /* Reduces side padding to 15px and pushes content down below the nav bar */
+    }
+
+    .hero-content-wrapper {
+      display: flex !important;
+      flex-direction: column !important;        /* Stacks the text directly on top of the form */
+      align-items: center !important;           /* Centers both blocks perfectly */
+      gap: 40px !important;                     /* Adds 40 pixels of safe space between the text and the form */
+    }
+
+    .hero-content-left {
+      text-align: center !important;            /* Centers the headline and subheadline text for mobile readability */
+    }
+
+    .main-headline {
+      font-size: 2.2rem !important;             /* Shrinks the desktop font from 3.5rem down to 2.2rem */
+      line-height: 1.2 !important;              /* Tightens the vertical space between lines of text */
+    }
+    
+    .hero-content-right {
+      width: 100% !important;                   /* Ensures the form container uses the available space */
+      display: flex !important;
+      justify-content: center !important;
+    }
+  /* ========================================= */
+    /* SERVICES SECTION MOBILE FIXES (TUNED)     */
+    /* ========================================= */
+
+    .services-section {
+        padding-top: 20px !important;      /* Pulls the entire section higher up the screen */
+    }
+
+    .services-main-title {
+        font-size: 2rem !important;        /* Makes the main title bigger */
+        margin-top: 0 !important;          /* Eliminates invisible space pushing the title down */
+        margin-bottom: 20px !important;    
+    }
+
+    .services-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 18px !important;              /* Widens the gap between boxes slightly */
+    }
+
+    .service-card {
+        width: 100% !important;
+        max-width: 320px !important;
+        padding: 22px !important;          /* Makes the boxes thicker to fill screen space */
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem !important;      /* Slightly enlarges the red card titles */
+        margin-bottom: 8px !important;     
+    }
+
+    .service-card p {
+        font-size: 1rem !important;        /* Enlarges the paragraph text */
+        margin-bottom: 0 !important;
+    }
+    .about-container {
+        flex-direction: column !important; 
+        text-align: center !important; 
+        gap: 30px !important; 
+    }
+
+    .about-text {
+        padding: 0 15px !important; 
+    }
+
+    .about-photo {
+        width: 100% !important;
+        max-width: 320px !important; 
+        margin-top: 20px !important;
+    }
+    /* ========================================= */
+    /* MOBILE FOOTER ADJUSTMENTS                 */
+    /* ========================================= */
+    .footer-section {
+        padding: 30px 15px !important; /* Shrinks the giant desktop padding */
+    }
+
+    .footer-info h3 {
+        font-size: 1.5rem !important; /* Scales the red title down slightly */
+        margin-bottom: 15px !important;
+    }
+
+    .footer-info p {
+        font-size: 1rem !important; /* Scales the contact text down */
+        margin-bottom: 8px !important;
+    }
+
+    .footer-copyright {
+        margin-top: 30px !important;
+        padding-top: 15px !important;
+    }
+} /* <--- THE CRITICAL CLOSING BRACKET */
+    </style>
 </head>
 <body>
-     <div style="position: absolute; top: 0; width: 100%; z-index: 1000; height: auto;">
+    <!---a href="https://www.flaticon.com/free-icons/paintbrush" title="paintbrush icons">Paintbrush icons created by nawicon - Flaticon</a> --->
 
+    <!-- THE WHITE HEADER -->
+    <div class="top-nav">
+        <div class="nav-logo">
+            <img src="luv-paint-logo-new.jpg" alt="Luvs House Painting">
+        </div>
+        
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 15px;">
-        <div style="flex: 1; text-align: left;">
-        <a href="tel:3039130327" class="header-phone" style="color: #f5f5f5; text-decoration: none; white-space: nowrap;">📞 303-913-0327</a>
-        </div>
-        <div style="flex: 0 0 auto; text-align: center;">
-            <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo" style="height: 45px; flex: 0 1 auto;">
-        </div>
-        <div id="menu-icon" style=" flex: 1; display: flex; flex-direction: column; align-items: flex-end; cursor: pointer;">
-    <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
-    <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
-    <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
-    </div>
-    </div>
-    <!--<div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002229; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 1s ease;">
-    <div style="text-align: center; width: 100%; max-width: 600px; padding: 20px;">
-    <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" style="width: 80%; max-width: 300px; height: auto; display: block; margin: 0 auto;">
-    <div style="height: 3px; background: linear-gradient(90deg, transparent, #c5a059, transparent); width: 100%; margin: 15px auto 0 auto; animation: shimmer 2s infinite;"></div>
-    </div>
-    </div>-->
-     <div class="vibrant-line" style="margin: 0 auto; width: 80%; height: 1px; background: #c5a059"></div>
-        <p style="text-align: center; margin: 5px 0; color: #fff; letter-spacing: 2px; font-size: 0.9rem;">Denver & Lakewood Carpet Installations.</p>
-    <div class="sub-nav">
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="about.html">About</a>
-    </div>
-    </div>
-    <div id="nav-drawer" style="position: fixed; top: 0; right: -100%; width: 250px; height: 100%; background: #002229; transition: 0.5s; z-index: 2000; box-shadow: -5px 0 15px rgba(0,0,0,0.5); padding-top: 60px; font-family: 'Cinzel', serif;">
-    <div id="close-btn" style="position: absolute; top: 15px; right: 20px; color: #f5f5f5; font-size: 2rem; cursor: pointer; font-family: Arial, sans-serif;">&times</div>
-    <a href="gallery.html" style="display: block; padding: 15px; color: #f5f5f5; font-family: Arial, sans-serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Gallery</a>
-    <a href="about.html" style="display: block; padding: 15px; color: #f5f5f5; text-decoration: none; font-family: 'Playfair Display', serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">About Us</a>
-    <a href="services.html" style="display: block; color: white; padding: 20px; text-decoration: none; font-family: Arial, sans-serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Services</a>
-    <a href="#quote-form-container" class="hero-cta">Request a Quote</a>
-    </div>
-    <div class="video-wrapper" id="vid-1">
-            <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
-                <source src="living-room.mp4" type="video/mp4">
-                </video>
-            <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video">
-                <source src="elite_comfort_final.mp4" type="video/mp4">
-                </video>
-            <div class="video-label">
-                <span class="main-title">The Elite Comfort</span>
-                <span class="micro-desc">High-Ounce Plush & Heavy Soft Nylon</span>
-            <div class="video-details-dropdown">
-                <button class="details-trigger" onclick="toggleDetails('details-1')">Learn More</button>
-                <div id="details-1" class="details-content">
-                    <p>This is our premium, high-density flooring designed for ultimate comfort. Featuring the softest fibers and a heavy face weight, this carpet offers a "walking on clouds" feel with maximum durability. It's the perfect choice for homeowners who want long-lasting luxury in bedrooms and living areas.</p>
-    </div>
-    </div>
-    <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
-    </div>
+        <a href="tel:7202739038" class="phone-number">📞 720-273-9038</a>
     </div>
 
-    <div class="video-wrapper" id="vid-2">
-            <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
-                <source src="family-playing.mp4" type="video/mp4">
-                </video>
-            <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video">
-                <source src="every_dayhome.mp4" type="video/mp4">
-                </video>
-            <div class="video-label">
-                <span class="main-title">The EveryDay Home</span>
-                <span class="micro-desc">Our Most Popular Residential Blends</span>
-            <div class="video-details-dropdown">
-                <button class="details-trigger" onclick="toggleDetails('details-2')">Learn More</button>
-                <div id="details-2" class="details-content">
-                    <p>Our most popular option for busy families. This carpet balances high-quality performance with affordability. It is specifically engineered to resist stains and stand up to heavy foot traffic, making it the ideal, worry-free solution for kids, pets, and everyday life.</p>
-                </div>
-            </div>
-                <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
-            </div>
+    <!-- THE FULL SCREEN IMAGE AREA -->
+    <div class="hero-section" id="home">
+        <div class="hero-overlay"></div>
+  
+  <!-- NEW WRAPPER FOR 2-COLUMN LAYOUT -->
+  <div class="hero-content-wrapper">
+    
+    <!-- Left Side: Your existing text -->
+    <div class="hero-content-left">
+      <h1 class="main-headline" data-aos="fade-up" data-aos-duration="1500">Lakewood's Premier Interior & Exterior Painters.</h1>
+      <p class="sub-headline">"High Quality. Consistent Energy. Proudly Working Until The Task Is Perfect".</p>
+      <a href="javascript:void(0);" onclick="triggerFormShine()" class="btn-primary">Request a Free Estimate</a>
     </div>
-    <div class="video-wrapper" id="vid-3">
-            <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video property_pro">
-                <source src="property_pro_WIDE.mp4" type="video/mp4">
-                </video>
-            <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video property_pro">
-                <source src="property_pro.mp4" type="video/mp4">
-                </video>
-            <div class="video-label">
-                <span class="main-title">THE PROPERTY PRO</span>
-                <span class="micro-desc">Fast-Turnaround Solutions for Rentals</span>
-                <div class="video-details-dropdown">
-                    <button class="details-trigger" onclick="toggleDetails('details-3')">Learn More</button>
-                    <div id="details-3" class="details-content">
-                        <p>This is our most cost-effective flooring, built for fast turn around times and high-traffic rental use. It's the best way to get a clean, professional look for your property while keeping your project well under budget.</p>
-                    </div>
-                </div>
 
-                <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
-            </div>
-    </div>
-<section id="featured-work" class="featured-section">
-    <h2 class="featured-title">Our Craftsmanship</h2>
-    <div class="featured-grid">
-        <div class="featured-card">
-            <video src="carpet-steps.mp4" autoplay loop muted playsinline class="featured-media"></video>
-            <div class="featured-info">
-                <h3>Hollywod & Waterfall</h3>
-                <p>custom, tight wrapped perfectly on every step.</p>
-            </div>
+    <!-- Right Side: The new lead capture form -->
+    <div class="hero-content-right" id="quote">
+      <div class="lead-capture-card">
+        <h3>Get Your Free Estimate</h3>
+        <div class="input-group">
+            <label for="user-name">Full Name</label>
+            <input type="text" id="user-name" name="name" placeholder="John Doe" required>
         </div>
-    <div class="featured-card">
-        <video src="seam-video.mp4" autoplay loop muted playsinline class="featured-media"></video>
-        <div class="featured-info">
-            <h3>Pattern Matching</h3>
-            <p>Keeping complex patterns and seams completely straight.</p>
-       </div>
-    </div>
-    <div class="featured-card">
-        <video src="custom-stepz.mp4" autoplay loop muted playsinline class="featured-media"></video>
-        <div class="featured-info">
-            <h3>Tear-outs & Fresh Lay</h3>
-            <p>Ripping out old, worn out carpet & making the room brand new.</p>
+        
+        <div class="input-group">
+            <label for="user-email">Email Address</label>
+            <input type="email" id="user-email" name="email" placeholder="john@example.com" required>
         </div>
-    </div>
-     <div class="featured-card">
-            <img src="power-stretch.JPG" alt="Power-Stretched carpet installation" class="featured-media">
-            <div class="featured-info">
-                <h3>Power Stretched</h3>
-                <p>Stretched tight acroos the whole room so it never wrinkles.</p>
-            </div>
+
+        <div class="input-group">
+            <label for="user-phone">Phone Number</label>
+            <input type="tel" id="user-phone" name="phone" placeholder="(720) 000-0000" required>
         </div>
+
+        <div class="input-group">
+            <label for="user-service">Interested In:</label>
+            <select id="user-service" name="service" required>
+                <option value="" disabled selected>Select a Service...</option>
+                <option value="Interior Painting">Interior Painting</option>
+                <option value="Exterior Painting">Exterior Painting</option>
+                <option value="Drywall Repair">Drywall Repair</option>
+                <option value="Cabinet Painting">Cabinet Painting</option>
+            </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Request</button>
+      </div>
     </div>
-    <div class="gallery-btn-container">
-        <a href="gallery.html" class="gallery-btn">View Full Gallery</a>
+  </div>
+</div>
+
+<!-- ======================================= -->
+    <!-- SERVICES SECTION (THE REUSABLE MVP)     -->
+    <!-- ======================================= -->
+    <section class="services-section" id="services">
+      <div class="services-container">
+        <h2 class="services-main-title">Our Professional Services</h2>
+
+        <div class="services-grid">
+          <!-- Card 1: Interior -->
+          <div class="service-card">
+            <h3>Interior Painting</h3>
+            <p>Low odor, easy to clean, and beautiful finishes for any room in your home.</p>
+          </div>
+
+          <!-- Card 2: Exterior -->
+          <div class="service-card">
+            <h3>Exterior Painting</h3>
+            <p>Weather-resistant, highly durable paints designed to protect and revitalize your home's exterior.</p>
+          </div>
+
+          <!-- Card 3: Drywall -->
+          <div class="service-card">
+            <h3>Drywall & Texture</h3>
+            <p>Professional hang, tape, and finish services for perfectly smooth or textured walls.</p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+        <!-- GALLERY SECTION -->
+    <section id="gallery" class="gallery-section">
+         <h2>Project Gallery</h2>
+    <div class="gallery-container">
+    
+    <!-- Left Side: Video -->
+    <div class="gallery-video-box">
+      <!-- "autoplay loop muted" makes it play automatically like a GIF -->
+      <video autoplay loop muted playsinline class="gallery-video">
+        <source src="kitchen-small.mp4" type="video/mp4">
+      </video>
     </div>
+
+    <!-- Right Side: Text Description -->
+    <div class="gallery-text-box">
+      <h3>Modern Kitchen Transformation</h3>
+      <p>We bring new life to outdated spaces. Watch how our premium cabinet painting process completely revitalized this kitchen, featuring crisp white finishes that beautifully complement the modern gold hardware.</p>
+      <a href="#" class="gallery-btn">View Full Gallery</a>
+    </div>
+
+  </div>
 </section>
-
-    <section id="quote-form-container">
-        <div class="quote-box-inner">
-            <h2 id="quote-title">Request a Free Quote</h2>
-            <form id="actual-quote-form" action="https://formspree.io/f/maqleybw" method="POST">
-                <input type="hidden" name="_next" value="https://emmanuel-valencia.github.io/thank-you.html">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                <input type="email" name="email" placeholder="Email Adress" required>
-                <select name="carpet-selection" required>
-                    <option value="" disabled selected>Carpet option interested in?</option>
-                    <option value="Elite Comfort">The Elite Comfort (Premium Berber)</option>
-                    <option value="Everyday Home">The Everyday Home (Residential Blend)</option>
-                    <option value="Property Pro">The Property Pro (Fast-Turnarounds)</option>
-                </select>
-                <button type="submit" class="hero-cta">Submit Request</button>
-            </form>
+    <!-- ========================================= -->
+    <!-- ABOUT US SECTION                          -->
+    <!-- ========================================= -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>About Luvs House Painting</h2>
+                <p>Painting Denver for over 40 years, a skilled team of Denver painters transform homes and businesses in Denver, Colorado. Affordable quality, with a dedication to perfection and an eye for design, they specialize in interior and exterior painting, leaving every surface radiant and refreshed.</p>
+            </div>
+            <div class="about-image">
+                <!-- We will replace this gray box with a real image later -->
+                <img src="owner.png" alt="Owner of Luvs House Painting" class="about-photo">
+            </div>
         </div>
     </section>
-    <footer style="text-align: center; padding: 40px 20px; color: #c5a059; border-top: 1px solid rgba(197, 160, 89, 0.3); margin-top: 50px;">
-    <p style="margin: 0; font-weight: bold; letter-spacing: 2px; font-family: 'Cinzel', serif;">FLOOR HARMONY</p>
-    <p style="font-size: 0.9em; color: #aaa; margin: 10px 0;">Professional Installation * Serving Denver & Lakewood Metro</p>
-    <p style="font-size: 0.8em; color: #666;">&copy; 2026 All Rights Reserved</p>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script> 
-    function toggleDetails(id) {
-        const box = document.getElementById(id);
-        if (box.style.display === "none" || box.style.display === "") {
-            box.style.display = "block";
-            gsap.from(box, {
-            opacity: 0,
-            y: 20,
-            duration: 1.2,
-            ease: "power2.out"
-        });
-     } else  {
-        box.style.display = "none";
-     }
-    }
-    /* Java for the disney curtain (loading screen)** 
-    window.addEventListener('load', function() {
-    const curtain = document.getElementById('splash-screen');
-    if (sessionStorage.getItem( 'curtainShown ')) {
-        curtain.style.display = 'none';
-        return; 
-    }
-        setTimeout(() => {
-            curtain.style.opacity ='0';
-        setTimeout(() => { 
-            curtain.style.display = 'none';
-        }, 400);
-        sessionStorage.setItem( 'curtainShown', 'true' );
-        }, 300);
-    }); */
-
-    const propertyVideos = document.querySelectorAll(".property_pro");
-    propertyVideos.forEach(function(video) {
-        video.playbackRate = 0.5;
-    });
-
-    const menuBtn = document.getElementById( 'menu-icon');
-    const drawer = document.getElementById( 'nav-drawer');
-    const closeBtn = document.getElementById( 'close-btn');
-    if (menuBtn && drawer) {
-        menuBtn.onclick = function() {
-            drawer.classList.add('open');
-        };
-    }
-    if (closeBtn && drawer) {
-        closeBtn.onclick = function() {
-            drawer.classList.remove( 'open');
-        };
-    }
-    const contactForm = document.getElementById( 'actual-quote-form' );
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = "thank-you.html";
-                } else {
-                    alert("Oops there was a problem with the submission.");
-                }
-            }).catch(error => {
-                console.error("Form Error:", error);
-            });
-        });
-    }
-    const cinematicVideos = document.querySelectorAll('.featured-media');
-    cinematicVideos.forEach(video => {
-        video.playbackRate = 0.65;
-    });
-    </script>
+        <!-- ========================================= -->
+    <!-- CONTACT & FOOTER SECTION                  -->
+    <!-- ========================================= -->
+    <footer id="contact" class="footer-section">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Contact Luvs House Painting</h3>
+                <p>Phone: (720) 555-0199</p>
+                <p>Email: info@luvshousepainting.com</p>
+                <p>Hours: Mon - Fri, 8:00 AM - 6:00 PM</p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Luvs House Painting. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
-    </div>
-    </body>
-    </html>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show-card');
+      }
+    });
+  }, { threshold: 0.2 }); 
+
+  const hiddenCards = document.querySelectorAll('.service-card');
+  hiddenCards.forEach((card) => observer.observe(card));
+</script>
+<!-- Custom Script for Form Animation -->
+    <script>
+        function triggerFormShine() {
+            // 1. Identify the form box and the name input field
+            const formBox = document.getElementById('quote');
+            const nameInput = document.getElementById('user-name');
+            
+            // 2. Put the typing cursor immediately inside the box
+            nameInput.focus();
+            
+            // 3. Add the 'form-shine' CSS class to make the box glow and expand
+            formBox.classList.add('form-shine');
+            
+            // 4. Remove the class after 800 milliseconds so the animation can repeat if clicked again
+            setTimeout(() => {
+                formBox.classList.remove('form-shine');
+            }, 800);
+        }
+    </script>
+</body>
+</html>
