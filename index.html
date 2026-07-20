@@ -11,15 +11,10 @@
         body {
             cursor: url('paintbrush.png'), auto;
         }
+       
         html {
             scroll-behavior: smooth;
-        /* ========================================= */
-        /* ANCHOR LINK BUFFER FIX                    */
-        /* ========================================= */
-        [id] {
-            scroll-margin-top: 110px; 
-        }
-
+            scroll-padding-top: 95px !important;
         }
         a, button {
             cursor: url('paintbrush.png'), pointer;
@@ -542,14 +537,12 @@
     .input-group select:focus {
         outline: 2px solid #ED1C24;
     }
+
      
         /* ========================================= */
   /* MOBILE RESPONSIVENESS (Screens under 768px) */
   /* ========================================= */
   @media (max-width: 768px) {
-    #home, #services, #gallery, #about, #contact {
-        scroll-margin-top: 90px !important;
-    }
     
     .gallery-container {
       flex-direction: column; /* Forces the video and text to stack vertically */
