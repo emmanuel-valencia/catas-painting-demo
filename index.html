@@ -620,7 +620,7 @@
         flex-direction: column !important;
         justify-content: flex-start !important; 
         min-height: 100vh !important;
-        padding-top: 25px !important; /* Safe clearance below your white header */
+        padding-top: 85px !important; /* Safe clearance below your white header */
         padding-bottom: 30px !important; 
     }
 
@@ -856,21 +856,21 @@
             </div>
         </div>
     </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show-card');
-      }
-    });
-  }, { threshold: 0.2 }); 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show-card');
+          }
+        });
+      }, { threshold: 0.2 }); 
 
-  const hiddenCards = document.querySelectorAll('.service-card');
-  hiddenCards.forEach((card) => observer.observe(card));
-</script>
-<!-- Custom Script for Form Animation -->
+      const hiddenCards = document.querySelectorAll('.service-card');
+      hiddenCards.forEach((card) => observer.observe(card));
+    </script>
+    <!-- Custom Script for Form Animation -->
     <script>
         function triggerFormShine() {
             // 1. Identify the form box and the name input field
@@ -888,6 +888,14 @@
                 formBox.classList.remove('form-shine');
             }, 800);
         }
+    </script>
+
+    <!-- Custom Script to Force Scroll to Top on Refresh -->
+    <script>
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
     </script>
 </body>
 </html>
