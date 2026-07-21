@@ -15,8 +15,9 @@
         html {
             scroll-behavior: smooth;
         }
-        #services, #gallery, #about, #contact {
-        padding-top: 95px !important; /* Stretches backgrounds under the white header */
+        /* THE UNIVERSAL BUMPER FIX: Forces all sections to respect the fixed header on link clicks AND page refreshes */
+        section, footer, div[id] {
+            scroll-margin-top: 110px !important;
         }
         a, button {
             cursor: url('paintbrush.png'), pointer;
@@ -305,11 +306,10 @@
         color: #666;
         line-height: 1.6;
         }
-            /* Placeholder Section Styling */
+        /* Placeholder Section Styling */
         .services-section, .gallery-section, .about-section, .contact-section {
         padding: 40px 20px;
         text-align: center;
-        scroll-margin-top: 100px;
         }
 
         .gallery-section {
@@ -620,7 +620,7 @@
         flex-direction: column !important;
         justify-content: flex-start !important; 
         min-height: 100vh !important;
-        padding-top: 85px !important; /* Safe clearance below your white header */
+        padding-top: 25px !important; /* Safe clearance below your white header */
         padding-bottom: 30px !important; 
     }
 
