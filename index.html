@@ -894,12 +894,27 @@
         }
     </script>
 
-    <!-- Custom Script to Force Scroll to Top on Refresh -->
+   <!-- Custom Script for Perfect Refresh Anchoring -->
     <script>
+        // 1. Turn off Safari's buggy pixel memory
         if (history.scrollRestoration) {
             history.scrollRestoration = 'manual';
         }
-        window.scrollTo(0, 0);
+        
+        // 2. Wait until all images and code are fully loaded
+        window.addEventListener('load', () => {
+            // 3. Check if the URL has a section tag (like #about or #services)
+            if (window.location.hash) {
+                const targetSection = document.querySelector(window.location.hash);
+                if (targetSection) {
+                    // 4. If it does, snap exactly to it now that the image hasn't shifted the page
+                    targetSection.scrollIntoView(); 
+                }
+            } else {
+                // 5. If there is no tag (just the main homepage), go to the top
+                window.scrollTo(0, 0);
+            }
+        });
     </script>
 </body>
 </html>
