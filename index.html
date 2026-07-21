@@ -613,8 +613,15 @@
   /* ========================================= */
     /* SERVICES SECTION MOBILE FIXES (TUNED)     */
     /* ========================================= */
+
+
+    /* Forces the content to snap to the top instead of hovering in the middle */
     #services {
-        padding-top: 60px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important; 
+        padding-top: 140px !important; /* Safe clearance for your white header */
+        padding-bottom: 40px !important; /* Bottom breathing room */
     }
     .services-main-title {
         font-size: 2rem !important;        /* Makes the main title bigger */
@@ -626,13 +633,13 @@
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 8px !important;              /* Widens the gap between boxes slightly */
+        gap: 25px !important;  /* Widens the gap between boxes slightly */
     }
 
     .service-card {
         width: 100% !important;
         max-width: 320px !important;
-        padding: 10px !important;          /* Makes the boxes thicker to fill screen space */
+        padding: 18px !important;          /* Makes the boxes thicker to fill screen space */
     }
 
     .service-card h3 {
