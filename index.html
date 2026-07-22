@@ -710,6 +710,45 @@
         margin-top: 30px !important;
         padding-top: 15px !important;
     }
+    /* ========================================= */
+/* MOBILE STICKY ACTION BAR                  */
+/* ========================================= */
+
+.mobile-sticky-bar {
+    display: none; /* Hides it by default on desktop */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* White background behind button */
+    padding: 10px 15px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow above bar */
+    z-index: 9999; /* Forces it to stay on top of all other content */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.sticky-btn {
+    display: block;
+    width: 100%;
+    background-color: #d13030; /* Your brand red */
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 15px 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+   .mobile-sticky-bar {
+        display: block; 
+    }
+    
+    /* Adds extra padding to the bottom of the body so the footer isn't covered by the sticky bar */
+    body {
+        padding-bottom: 70px !important; 
+    }
 } /* <--- THE CRITICAL CLOSING BRACKET */
     </style>
 </head>
@@ -864,6 +903,10 @@
             </div>
         </div>
     </footer>
+    <!-- MOBILE STICKY ACTION BAR -->
+<div class="mobile-sticky-bar">
+    <a href="#quote" class="sticky-btn">Get a Free Estimate</a>
+</div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
