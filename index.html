@@ -394,17 +394,19 @@
 
     /* Feature Card */
     .feature-card {
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-    overflow: hidden;
-    margin-bottom: 40px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      overflow: hidden;
+      margin: 0 auto 40px auto; /* Centers the card horizontally and adds space below */
+      max-width: 400px; /* Shrinks the card to the width of a standard phone */
     }
+    
     .video-wrapper {
-    width: 100%;
-    height: 600px;
-    overflow: hidden;
-    background: #000;
+      width: 100%;
+      aspect-ratio: 9 / 16; /* Locks the box into a vertical shape to prevent cropping */
+      overflow: hidden;
+      background: #000;
     }
     .gallery-video {
     width: 100%;
@@ -810,12 +812,20 @@
         font-size: 0.9rem !important;        
         margin-bottom: 0 !important;
     }
-    /* --- NEW GALLERY MOBILE FIXES --- */
-    .video-wrapper {
-      height: 450px !important; /* Made significantly taller to reveal the video vertically */
+   /* --- NEW GALLERY MOBILE FIXES --- */
+    .feature-card {
+      max-width: 100% !important; /* Lets the card fill the phone screen naturally */
+      margin-bottom: 30px !important;
     }
     
-    .gallery-swipe-track {
+    .video-wrapper {
+      width: 100% !important;
+      aspect-ratio: 9 / 16 !important; /* Maintains the uncropped vertical shape on phones */
+      height: auto !important; /* Removes any forced heights */
+    }
+    
+    /* Carousel just for the 6 little pictures */
+    .gallery-grid {
       display: flex !important;
       overflow-x: auto !important;
       scroll-snap-type: x mandatory !important;
@@ -824,19 +834,14 @@
       -webkit-overflow-scrolling: touch !important;
     }
     
-    .gallery-swipe-track::-webkit-scrollbar {
+    .gallery-grid::-webkit-scrollbar {
       display: none;
     }
 
-    .gallery-grid {
-      display: contents !important; /* Magic trick: strips the grid wrapper so the 6 cards join the swipe track */
-    }
-
-    .feature-card, .grid-card {
+    .grid-card {
       min-width: 85% !important;
       flex-shrink: 0 !important;
       scroll-snap-align: center !important;
-      margin-bottom: 0 !important; /* Removes the extra spacing at the bottom of the video card */
     }
     
     .feature-text {
@@ -1052,9 +1057,6 @@
     <h2 class="gallery-title">Project Gallery</h2>
     <p class="gallery-subtitle">PROJECT GALLERY - OUR TRANSFORMATIONS IN MOTION</p>
 
-  <!-- Gallery Swipe Track Wrapper -->
-    <div class="gallery-swipe-track">
-      
       <!-- Main Feature Slider Card -->
       <div class="feature-card">
         <div class="video-wrapper">
@@ -1077,8 +1079,6 @@
         <div class="grid-card"><div class="grid-img" style="background-color: #d1cfc7;"></div><div class="grid-info"><span>Exterior Siding Update</span><span class="heart">♡</span></div></div>
         <div class="grid-card"><div class="grid-img" style="background-color: #4b6173;"></div><div class="grid-info"><span>Exterior Siding Update</span><span class="heart">♡</span></div></div>
       </div>
-
-    </div> <!-- End Swipe Track -->
 
     <div class="gallery-btn-wrapper">
       <a href="#" class="view-gallery-btn">VIEW FULL GALLERY</a>
