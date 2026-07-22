@@ -545,16 +545,19 @@
     }
     .mobile-sticky-bar {
     display: none; /* Hidden on desktop */
-}
-.mobile-quote-wrapper {
-    display:none;
-}
-.desktop-quote-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end; /* This forces the form to the right side*/
-}
-     
+    }
+    .mobile-quote-wrapper {
+        display:none;
+    }
+    .desktop-quote-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end; /* This forces the form to the right side*/
+    }
+    .mobile-action-btn {
+        display: none !important;
+    }
+        
         /* ========================================= */
   /* MOBILE RESPONSIVENESS (Screens under 768px) */
   /* ========================================= */
@@ -776,6 +779,12 @@
     .mobile-quote-wrapper {
         display: block !important; 
     }
+    .desktop-action-btn {
+        display: none !important;
+    }
+    .mobile-action-btn {
+        display: inline-block !important;
+    }
 } /* <--- THE CRITICAL CLOSING BRACKET */
     </style>
 </head>
@@ -810,7 +819,8 @@
     <div class="hero-content-left">
       <h1 class="main-headline" data-aos="fade-up" data-aos-duration="1500">Lakewood's Premier Interior & Exterior Painters.</h1>
       <p class="sub-headline">"High Quality. Consistent Energy. Proudly Working Until The Task Is Perfect".</p>
-      <a href="javascript:void(0);" onclick="triggerFormShine()" class="btn-primary">Request a Free Estimate</a>
+      <a href="javascript:void(0);" onclick="triggerFormShine()" class="btn-primary desktop-action-btn">Request a Free Estimate</a>
+      <a href="#mobile-quote" class="btn-primary mobile-action-btn">Request a Free Estimate</a>
     </div>
     <div class="desktop-quote-wrapper">
     <!-- Right Side: The new lead capture form -->
