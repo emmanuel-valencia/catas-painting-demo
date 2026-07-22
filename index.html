@@ -647,7 +647,7 @@
     
     .hero-content-right {
       width: 100% !important;                   /* Ensures the form container uses the available space */
-      display: none !important;
+      display: flex !important;
       justify-content: center !important;
     }
   /* ========================================= */
@@ -951,26 +951,26 @@
      <div class="mobile-quote-wrapper">
     <!-- Right Side: The new lead capture form -->
     <div class="hero-content-right" id="mobile-quote">
-      <div class="lead-capture-card">
+     <div class="lead-capture-card">
         <h3>Get Your Free Estimate</h3>
         <div class="input-group">
-            <label for="user-name">Full Name</label>
-            <input type="text" id="user-name" name="name" placeholder="John Doe" required>
+            <label for="mobile-user-name">Full Name</label>
+            <input type="text" id="mobile-user-name" name="name" placeholder="John Doe" required>
         </div>
         
         <div class="input-group">
-            <label for="user-email">Email Address</label>
-            <input type="email" id="user-email" name="email" placeholder="john@example.com" required>
+            <label for="mobile-user-email">Email Address</label>
+            <input type="email" id="mobile-user-email" name="email" placeholder="john@example.com" required>
         </div>
 
         <div class="input-group">
-            <label for="user-phone">Phone Number</label>
-            <input type="tel" id="user-phone" name="phone" placeholder="(720) 000-0000" required>
+            <label for="mobile-user-phone">Phone Number</label>
+            <input type="tel" id="mobile-user-phone" name="phone" placeholder="(720) 000-0000" required>
         </div>
 
         <div class="input-group">
-            <label for="user-service">Interested In:</label>
-            <select id="user-service" name="service" required>
+            <label for="mobile-user-service">Interested In:</label>
+            <select id="mobile-user-service" name="service" required>
                 <option value="" disabled selected>Select a Service...</option>
                 <option value="Interior Painting">Interior Painting</option>
                 <option value="Exterior Painting">Exterior Painting</option>
@@ -980,8 +980,6 @@
         </div>
         <button type="submit" class="submit-btn">Send Request</button>
       </div>
-    </div>
-  </div>
     <!-- ========================================= -->
     <!-- CONTACT & FOOTER SECTION                  -->
     <!-- ========================================= -->
