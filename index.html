@@ -92,13 +92,28 @@
             width: 100%;
             height: 100vh;
             margin-top: 90px; /* Pushes the image down so it isn't hidden behind the top nav */
-            background-image: url('luv-hero-pic.jpg');
-            background-size: cover;
-            background-position: center;
             position: relative;
             display: flex;
             align-items: center;
             padding: 0 50px;
+        }
+        /* UNIVERSAL PARALLAX EFFECT (DESKTOP & MOBILE) */
+        .hero-section::before {
+            content: "";
+            background-image: url('luv-hero-pic.jpg');
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1; 
+        }
+
+        /* Prevents the image from bleeding into other sections */
+        body {
+            background-color: #ffffff;
         }
 
 
