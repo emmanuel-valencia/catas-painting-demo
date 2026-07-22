@@ -574,6 +574,51 @@
     .mobile-action-btn {
         display: none !important;
     }
+     /* --- Advanced Shooting Star Animation --- */
+    .star-wrapper {
+        display: inline-flex;
+    }
+    
+    .shoot-star {
+        color: #FFD700;
+        font-size: 1.2rem;
+        opacity: 0;
+        display: inline-block;
+        animation: shootingStarAnim 1.0s ease-out forwards; /* 1.0s Duration: The travel time */
+        animation-delay: var(--delay); /* Pulls the Wait Time from your HTML lines 884-888 */
+    }
+
+    .trust-text {
+        opacity: 0; 
+        animation: textFadeIn 0.5s ease-in forwards;
+        animation-delay: 1.6s; /* 1.6s Delay: Waits for the final star to finish its 1.0s flight */
+    }
+
+    @keyframes shootingStarAnim {
+        0% {
+            transform: translate(-30px, -30px) scale(0);
+            opacity: 0;
+            text-shadow: 0 0 0 transparent;
+        }
+        50% {
+            opacity: 1;
+            text-shadow: 0 0 15px #FFD700, 0 0 25px #ffffff;
+        }
+        100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+        }
+    }
+
+    @keyframes textFadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
         
         /* ========================================= */
   /* MOBILE RESPONSIVENESS (Screens under 768px) */
@@ -668,51 +713,7 @@
         border-color: #4a4a4a !important; /* Ensures the border matches the background */
         color: #ffffff !important; /* Keeps the text stark white for contrast */
     }
-    /* --- Advanced Shooting Star Animation --- */
-    .star-wrapper {
-        display: inline-flex;
-    }
-    
-    .shoot-star {
-        color: #FFD700;
-        font-size: 1.2rem;
-        opacity: 0;
-        display: inline-block;
-        animation: shootingStarAnim 1.0s ease-out forwards; /* 1.0s Duration: The travel time */
-        animation-delay: var(--delay); /* Pulls the Wait Time from your HTML lines 884-888 */
-    }
-
-    .trust-text {
-        opacity: 0; 
-        animation: textFadeIn 0.5s ease-in forwards;
-        animation-delay: 1.6s; /* 1.6s Delay: Waits for the final star to finish its 1.0s flight */
-    }
-
-    @keyframes shootingStarAnim {
-        0% {
-            transform: translate(-30px, -30px) scale(0);
-            opacity: 0;
-            text-shadow: 0 0 0 transparent;
-        }
-        50% {
-            opacity: 1;
-            text-shadow: 0 0 15px #FFD700, 0 0 25px #ffffff;
-        }
-        100% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
-            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
-        }
-    }
-
-    @keyframes textFadeIn {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
+   
   /* ========================================= */
     /* SERVICES SECTION MOBILE FIXES (TUNED)     */
     /* ========================================= */
