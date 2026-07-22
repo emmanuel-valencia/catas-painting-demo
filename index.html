@@ -710,45 +710,60 @@
         margin-top: 30px !important;
         padding-top: 15px !important;
     }
-    /* ========================================= */
-/* MOBILE STICKY ACTION BAR                  */
+   /* ========================================= */
+/* PREMIUM FLOATING MOBILE BAR               */
 /* ========================================= */
 
 .mobile-sticky-bar {
-    display: none; /* Hides it by default on desktop */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff; /* White background behind button */
-    padding: 10px 15px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow above bar */
-    z-index: 9999; /* Forces it to stay on top of all other content */
-    text-align: center;
-    box-sizing: border-box;
+    display: none; /* Hidden on desktop */
 }
 
-.sticky-btn {
-    display: block;
-    width: 100%;
-    background-color: #d13030; /* Your brand red */
-    color: #ffffff !important;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 15px 0;
-    border-radius: 5px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-   .mobile-sticky-bar {
-        display: block; 
+@media screen and (max-width: 768px) {
+    .mobile-sticky-bar {
+        display: flex;
+        position: fixed;
+        bottom: 25px; /* Floats the buttons up off the bottom edge */
+        left: 0;
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+        z-index: 9999;
+        justify-content: space-between; 
+        align-items: center;
+        gap: 12px; 
+        pointer-events: none; /* Allows the user to touch the website through the empty spaces */
     }
     
-    /* Adds extra padding to the bottom of the body so the footer isn't covered by the sticky bar */
-    body {
-        padding-bottom: 70px !important; 
+    .mobile-sticky-bar > a {
+        pointer-events: auto; /* Re-enables clicking on the actual buttons */
     }
+
+    .sticky-phone-btn {
+        background-color: #111111; /* Black circle */
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        flex-shrink: 0; 
+    }
+
+    .sticky-btn {
+        background-color: #d13030; /* Kept your brand red, but shaped like Pappas */
+        color: #ffffff !important;
+        text-decoration: none;
+        font-size: 1.05rem;
+        font-weight: bold;
+        padding: 16px 0;
+        border-radius: 30px; /* Pill shape */
+        text-transform: capitalize;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        flex-grow: 1; /* Fills the rest of the bar */
+        text-align: center;
+    }
+}
 } /* <--- THE CRITICAL CLOSING BRACKET */
     </style>
 </head>
@@ -903,9 +918,9 @@
             </div>
         </div>
     </footer>
-    <!-- MOBILE STICKY ACTION BAR -->
+  <!-- MOBILE STICKY ACTION BAR -->
 <div class="mobile-sticky-bar">
-    <a href="#quote" class="sticky-btn">Get a Free Estimate</a>
+    <a href="#quote-section" class="sticky-btn">Get a Free Estimate</a>
 </div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
