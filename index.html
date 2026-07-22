@@ -672,30 +672,45 @@
     .star-wrapper {
         display: inline-flex;
     }
-
+    
     .shoot-star {
         color: #FFD700;
         font-size: 1.2rem;
-        opacity: 0; /* Keeps them invisible until the animation starts */
+        opacity: 0;
         display: inline-block;
-        animation: shootingStarAnim 0.6s ease-out forwards;
-        animation-delay: var(--delay); /* Uses the custom timing we put in the HTML */
+        animation: shootingStarAnim 1.0s ease-out forwards; /* 1.0s Duration: The travel time */
+        animation-delay: var(--delay); /* Pulls the Wait Time from your HTML lines 884-888 */
+    }
+
+    .trust-text {
+        opacity: 0; 
+        animation: textFadeIn 0.5s ease-in forwards;
+        animation-delay: 1.6s; /* 1.6s Delay: Waits for the final star to finish its 1.0s flight */
     }
 
     @keyframes shootingStarAnim {
         0% {
-            transform: translate(-30px, -30px) scale(0); /* Starts small and up to the left */
+            transform: translate(-30px, -30px) scale(0);
             opacity: 0;
             text-shadow: 0 0 0 transparent;
         }
         50% {
             opacity: 1;
-            text-shadow: 0 0 15px #FFD700, 0 0 25px #ffffff; /* Creates a bright white/gold glow */
+            text-shadow: 0 0 15px #FFD700, 0 0 25px #ffffff;
         }
         100% {
-            transform: translate(0, 0) scale(1); /* Lands perfectly in place */
+            transform: translate(0, 0) scale(1);
             opacity: 1;
-            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); /* Leaves a soft permanent glow */
+            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+        }
+    }
+
+    @keyframes textFadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
         }
     }
   /* ========================================= */
@@ -887,7 +902,7 @@
             <span class="shoot-star" style="--delay: 0.45s">★</span>
             <span class="shoot-star" style="--delay: 0.6s">★</span>
         </div>
-    <span style="color: #ffffff; font-size: 0.9rem; font-weight: bold;">5-Star Local Painters</span>
+    <span class="trust-text" style="color: #ffffff; font-size: 0.9rem; font-weight: bold;">5-Star Local Painters</span>
     </div>
       <a href="javascript:void(0);" onclick="triggerFormShine()" class="btn-primary desktop-action-btn">Request a Free Estimate</a>
       <a href="#mobile-quote" class="btn-primary mobile-action-btn">Request a Free Estimate</a>
