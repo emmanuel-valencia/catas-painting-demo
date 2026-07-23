@@ -367,59 +367,58 @@
         
         }
 
-            /* --- NEW PREMIUM GALLERY SECTION (GLOBAL) --- */
-   .new-gallery-section {
+ /* --- NEW PREMIUM GALLERY SECTION (GLOBAL) --- */
+    .new-gallery-section {
       background-color: #f4f4f4;
-      padding: 95px 20px; /* Top padding shrunk from 80px down to 40px */
+      padding: 95px 20px;
       font-family: Arial, sans-serif;
     }
     
     #gallery {
-      scroll-margin-top: 120px !important; /* Perfect bumper for your white navigation bar */
-      padding-top: 0px !important; /* Removes the excess padding causing the giant gap */
+      scroll-margin-top: 120px !important;
+      padding-top: 0px !important;
     }
+
+    /* The New Stacked Container */
     .gallery-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    }
-    .gallery-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 5px;
-    }
-    .gallery-subtitle {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #666;
-    letter-spacing: 1.5px;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    }
-
-    /* Feature Card */
-   /* Desktop Side-by-Side Layout */
-    .gallery-desktop-split {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 30px;
-      margin-bottom: 40px;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      max-width: 1100px; /* Fixed your 11000x typo here! */
+      margin: 0 auto;
     }
 
-    /* Left Side Video Card */
+    .gallery-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .gallery-subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 1.5px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    /* Top Side: Video Card */
     .feature-card {
-      background: #ffffff;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 900px;
+      border-radius: 12px;
       overflow: hidden;
-      width: 35%; /* Takes up 35% of the split */
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     
     .video-wrapper {
       width: 100%;
-      aspect-ratio: 9 / 16;
-      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      position: relative;
       background: #000;
     }
     
@@ -446,12 +445,12 @@
       margin: 0;
     }
 
-    /* Right Side 6-Grid */
+    /* Bottom Side: 3-Column Grid */
     .gallery-grid {
-      width: 60%; /* Takes up the remaining 60% of the split */
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 columns looks best next to the video */
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: 100%;
     }
     
     .grid-card {
@@ -460,8 +459,9 @@
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
+
     .grid-img {
-      height: 180px; /* Inflates the colored placeholder block */
+      height: 180px; 
       width: 100%;
       background-size: cover;
       background-position: center;
@@ -490,21 +490,24 @@
 
     /* Button */
     .gallery-btn-wrapper {
-    text-align: center;
+      text-align: center;
+      width: 100%;
     }
+
     .view-gallery-btn {
-    background-color: #cc0000;
-    color: #fff;
-    text-decoration: none;
-    padding: 15px 40px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    display: inline-block;
-    transition: background 0.3s;
+      background-color: #cc0000;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 40px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      display: inline-block;
+      transition: background 0.3s;
     }
+
     .view-gallery-btn:hover {
-    background-color: #aa0000;
+      background-color: #aa0000;
     }
         /* ========================================= */
     /* ABOUT US SECTION (DESKTOP)                */
@@ -844,11 +847,6 @@
         margin-bottom: 0 !important;
     }
    /* --- NEW GALLERY MOBILE FIXES --- */
-    .gallery-desktop-split {
-      display: flex !important;
-      flex-direction: column !important; /* Forces the split back into a vertical stack on phones */
-      gap: 0 !important;
-    }
 
     .feature-card {
       width: 100% !important; 
@@ -1099,45 +1097,41 @@
         
       </div>
     </section>
-    <!--GALLERY NEW SECTION---------------------------------------------->
+  <!--GALLERY NEW SECTION---------------------------------------------->
     <section id="gallery" class="new-gallery-section">
-  <div class="gallery-container">
-    <h2 class="gallery-title">Project Gallery</h2>
-    <p class="gallery-subtitle">PROJECT GALLERY - OUR TRANSFORMATIONS IN MOTION</p>
+      <div class="gallery-container">
+        <h2 class="gallery-title">Project Gallery</h2>
+        <p class="gallery-subtitle">PROJECT GALLERY - OUR TRANSFORMATIONS IN MOTION</p>
 
-     <!-- Main Desktop Split Container -->
-    <div class="gallery-desktop-split">
-        
-      <!-- Left Side: Video -->
-      <div class="feature-card">
-        <div class="video-wrapper">
-          <video autoplay loop muted playsinline class="gallery-video">
-            <source src="kid-paint.mp4" type="video/mp4">
-          </video>
+        <!-- Top Side: Video Card -->
+        <div class="feature-card">
+          <div class="video-wrapper">
+            <video autoplay loop muted playsinline class="gallery-video">
+              <source src="kid-paint.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="feature-text">
+            <h3>MODERN KITCHEN TRANSFORMATION</h3>
+            <p>We bring new life to outdated spaces. Watch how our premium wall painting process completely revitalize these homes.</p>
+          </div>
         </div>
-        <div class="feature-text">
-          <h3>MODERN KITCHEN TRANSFORMATION</h3>
-          <p>We bring new life to outdated spaces. Watch how our premium wall painting process completely revitalize these homes.</p>
+
+        <!-- Bottom Side: 3-Column Grid -->
+        <div class="gallery-grid">
+          <div class="grid-card"><div class="grid-img" style="background-color: #ddd;"></div><div class="grid-info"><span>Classic Colonial Exterior</span><span class="heart">♡</span></div></div>
+          <div class="grid-card"><div class="grid-img" style="background-color: #556b7d;"></div><div class="grid-info"><span>Living Room Accent Wall</span><span class="heart">♡</span></div></div>
+          <div class="grid-card"><div class="grid-img" style="background-color: #2b3a4a;"></div><div class="grid-info"><span>Cabinet Refresh</span><span class="heart">♡</span></div></div>
+          <div class="grid-card"><div class="grid-img" style="background-color: #2b3a4a;"></div><div class="grid-info"><span>Cabinet Refresh</span><span class="heart">♡</span></div></div>
+          <div class="grid-card"><div class="grid-img" style="background-color: #d1cfc7;"></div><div class="grid-info"><span>Exterior Siding Update</span><span class="heart">♡</span></div></div>
+          <div class="grid-card"><div class="grid-img" style="background-color: #4b6173;"></div><div class="grid-info"><span>Exterior Siding Update</span><span class="heart">♡</span></div></div>
+        </div>
+
+        <!-- View Gallery Button -->
+        <div class="gallery-btn-wrapper">
+          <a href="#" class="view-gallery-btn">VIEW FULL GALLERY</a>
         </div>
       </div>
-
-      <!-- Right Side: 6-Grid -->
-      <div class="gallery-grid">
-        <div class="grid-card"><div class="grid-img" style="background-color: #ddd;"></div><div class="grid-info"><span>Classic Colonial Exterior</span><span class="heart">♡</span></div></div>
-        <div class="grid-card"><div class="grid-img" style="background-color: #556b7d;"></div><div class="grid-info"><span>Living Room Accent Wall</span><span class="heart">♡</span></div></div>
-        <div class="grid-card"><div class="grid-img" style="background-color: #2b3a4a;"></div><div class="grid-info"><span>Cabinet Refresh</span><span class="heart">♡</span></div></div>
-        <div class="grid-card"><div class="grid-img" style="background-color: #2b3a4a;"></div><div class="grid-info"><span>Cabinet Refresh</span><span class="heart">♡</span></div></div>
-        <div class="grid-card"><div class="grid-img" style="background-color: #d1cfc7;"></div><div class="grid-info"><span>Exterior Siding Update</span><span class="heart">♡</span></div></div>
-        <div class="grid-card"><div class="grid-img" style="background-color: #4b6173;"></div><div class="grid-info"><span>Exterior Siding Update</span><span class="heart">♡</span></div></div>
-      </div>
-
-    </div> <!-- End Split Container -->
-
-    <div class="gallery-btn-wrapper">
-      <a href="#" class="view-gallery-btn">VIEW FULL GALLERY</a>
-    </div>
-  </div>
-</section>
+    </section>
     <!-- ========================================= -->
     <!-- ABOUT US SECTION                          -->
     <!-- ========================================= -->
