@@ -373,6 +373,9 @@
     padding: 80px 20px;
     font-family: Arial, sans-serif;
     }
+    #gallery {
+        scroll-margin-top: 140px !important;
+    }
     .gallery-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -393,71 +396,67 @@
     }
 
     /* Feature Card */
+   /* Desktop Side-by-Side Layout */
+    .gallery-desktop-split {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    /* Left Side Video Card */
     .feature-card {
       background: #ffffff;
       border-radius: 20px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.08);
       overflow: hidden;
-      margin: 0 auto 40px auto; /* Centers the card horizontally and adds space below */
-      max-width: 400px; /* Shrinks the card to the width of a standard phone */
+      width: 35%; /* Takes up 35% of the split */
     }
     
     .video-wrapper {
       width: 100%;
-      aspect-ratio: 9 / 16; /* Locks the box into a vertical shape to prevent cropping */
+      aspect-ratio: 9 / 16;
       overflow: hidden;
       background: #000;
     }
+    
     .gallery-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+    
     .feature-text {
-    padding: 30px;
+      padding: 30px;
     }
+    
     .feature-text h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.5rem;
-    color: #222;
-    text-transform: uppercase;
+      margin: 0 0 10px 0;
+      font-size: 1.5rem;
+      color: #222;
+      text-transform: uppercase;
     }
+    
     .feature-text p {
-    color: #555;
-    line-height: 1.6;
-    margin: 0;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
     }
 
-    /* 6-Grid */
+    /* Right Side 6-Grid */
     .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 40px;
+      width: 60%; /* Takes up the remaining 60% of the split */
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns looks best next to the video */
+      gap: 20px;
     }
+    
     .grid-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
-    .grid-img {
-    height: 180px;
-    width: 100%;
-    }
-    .grid-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #333;
-    }
-    .heart {
-    color: #cc0000;
-    font-size: 1.2rem;
-    cursor: pointer;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
 
     /* Button */
@@ -813,20 +812,28 @@
         margin-bottom: 0 !important;
     }
    /* --- NEW GALLERY MOBILE FIXES --- */
+    .gallery-desktop-split {
+      display: flex !important;
+      flex-direction: column !important; /* Forces the split back into a vertical stack on phones */
+      gap: 0 !important;
+    }
+
     .feature-card {
-      max-width: 100% !important; /* Lets the card fill the phone screen naturally */
+      width: 100% !important; 
+      max-width: 100% !important; 
       margin-bottom: 30px !important;
     }
     
     .video-wrapper {
       width: 100% !important;
-      aspect-ratio: 9 / 16 !important; /* Maintains the uncropped vertical shape on phones */
-      height: auto !important; /* Removes any forced heights */
+      aspect-ratio: 9 / 16 !important;
+      height: auto !important; 
     }
     
     /* Carousel just for the 6 little pictures */
     .gallery-grid {
-      display: flex !important;
+      width: 100% !important;
+      display: flex !important; /* Turns grid off, flex on for horizontal swiping */
       overflow-x: auto !important;
       scroll-snap-type: x mandatory !important;
       gap: 15px !important;
@@ -1057,7 +1064,10 @@
     <h2 class="gallery-title">Project Gallery</h2>
     <p class="gallery-subtitle">PROJECT GALLERY - OUR TRANSFORMATIONS IN MOTION</p>
 
-      <!-- Main Feature Slider Card -->
+     <!-- Main Desktop Split Container -->
+    <div class="gallery-desktop-split">
+        
+      <!-- Left Side: Video -->
       <div class="feature-card">
         <div class="video-wrapper">
           <video autoplay loop muted playsinline class="gallery-video">
@@ -1070,7 +1080,7 @@
         </div>
       </div>
 
-      <!-- 6-Grid Thumbnails -->
+      <!-- Right Side: 6-Grid -->
       <div class="gallery-grid">
         <div class="grid-card"><div class="grid-img" style="background-color: #ddd;"></div><div class="grid-info"><span>Classic Colonial Exterior</span><span class="heart">♡</span></div></div>
         <div class="grid-card"><div class="grid-img" style="background-color: #556b7d;"></div><div class="grid-info"><span>Living Room Accent Wall</span><span class="heart">♡</span></div></div>
@@ -1079,6 +1089,8 @@
         <div class="grid-card"><div class="grid-img" style="background-color: #d1cfc7;"></div><div class="grid-info"><span>Exterior Siding Update</span><span class="heart">♡</span></div></div>
         <div class="grid-card"><div class="grid-img" style="background-color: #4b6173;"></div><div class="grid-info"><span>Exterior Siding Update</span><span class="heart">♡</span></div></div>
       </div>
+
+    </div> <!-- End Split Container -->
 
     <div class="gallery-btn-wrapper">
       <a href="#" class="view-gallery-btn">VIEW FULL GALLERY</a>
