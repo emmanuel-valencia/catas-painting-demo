@@ -455,6 +455,8 @@
       flex-shrink: 0; /* Prevents the buttons from squishing together */
     }
 
+
+
     .filter-btn.active, .filter-btn:hover {
       background: #c83833; 
       color: #fff;
@@ -1024,6 +1026,16 @@
     }
     .mobile-action-btn {
         display: none !important;
+    }
+    /* ========================================= */
+    /* GALLERY FILTER SWIPE FIX FOR MOBILE       */
+    /* ========================================= */
+    .filter-tabs {
+        width: 100vw !important; /* Breaks out of the parent container */
+        margin-left: -20px !important; /* Pulls track to the absolute left edge */
+        padding-left: 20px !important; /* Pushes the first button back in line */
+        padding-right: 40px !important; /* Adds extra breathing room after the Exterior button */
+        flex-wrap: nowrap !important; /* Refuses to let buttons stack */
     }
 
 } /* <--- THE CRITICAL CLOSING BRACKET */
