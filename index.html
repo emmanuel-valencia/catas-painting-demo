@@ -370,13 +370,13 @@
  /* --- NEW PREMIUM GALLERY SECTION (GLOBAL) --- */
     .new-gallery-section {
       background-color: #f4f4f4;
-      padding: 95px 20px;
+      padding: 80px 20px; /* Restores inner space so the title drops down from the roof */
       font-family: Arial, sans-serif;
     }
     
     #gallery {
-      scroll-margin-top: 120px !important;
-      padding-top: 0px !important;
+      scroll-margin-top: 100px !important; /* Perfect bumper for your white nav bar */
+      /* Note: We deleted the 0px padding override so the gray background covers the red bleed */
     }
 
     /* The New Stacked Container */
@@ -384,8 +384,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 50px;
-      max-width: 1100px; /* Fixed your 11000x typo here! */
+      gap: 30px; /* Shrunk from 50px to pull the picture grid closer to the video */
+      max-width: 900px; /* Shrunk from 1100px to make the entire section more compact */
       margin: 0 auto;
     }
 
@@ -408,13 +408,12 @@
     /* Top Side: Video Card */
     .feature-card {
       width: 100%;
-      max-width: 900px;
+      max-width: 750px; /* Shrunk from 900px so the video fits beautifully on screen */
       border-radius: 12px;
       overflow: hidden;
       background: #fff;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    
     .video-wrapper {
       width: 100%;
       aspect-ratio: 16 / 9;
