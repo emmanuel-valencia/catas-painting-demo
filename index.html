@@ -426,9 +426,18 @@
       margin-bottom: 8px;
     }
 
-    .filter-tabs {
+   .filter-tabs {
       display: flex;
       gap: 12px;
+      overflow-x: auto; /* Makes the buttons swipeable on mobile */
+      scrollbar-width: none; /* Hides the ugly scrollbar on Firefox */
+      -webkit-overflow-scrolling: touch; /* Makes the swiping smooth on iPhones */
+      padding-bottom: 5px; 
+    }
+    
+    /* Hides the ugly scrollbar on Chrome/Safari */
+    .filter-tabs::-webkit-scrollbar {
+      display: none; 
     }
 
     .filter-btn {
@@ -442,6 +451,8 @@
       align-items: center;
       gap: 6px;
       transition: all 0.2s ease;
+      white-space: nowrap; /* Forces text to stay on one line */
+      flex-shrink: 0; /* Prevents the buttons from squishing together */
     }
 
     .filter-btn.active, .filter-btn:hover {
@@ -1291,58 +1302,83 @@
 </div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init();
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show-card');
-          }
-        });
-      }, { threshold: 0.2 }); 
+        // --- AOS & Scroll Animations ---
+        AOS.init();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-card');
+                }
+            });
+        }, { threshold: 0.2 }); 
 
-      const hiddenCards = document.querySelectorAll('.service-card');
-      hiddenCards.forEach((card) => observer.observe(card));
-    </script>
-    <!-- Custom Script for Form Animation -->
-    <script>
+        const hiddenCards = document.querySelectorAll('.service-card');
+        hiddenCards.forEach((card) => observer.observe(card));
+
+        // --- Form Animation ---
         function triggerFormShine() {
-            // 1. Identify the form box and the name input field
             const formBox = document.getElementById('quote');
             const nameInput = document.getElementById('user-name');
-            
-            // 2. Put the typing cursor immediately inside the box
             nameInput.focus();
-            
-            // 3. Add the 'form-shine' CSS class to make the box glow and expand
             formBox.classList.add('form-shine');
-            
-            // 4. Remove the class after 800 milliseconds so the animation can repeat if clicked again
             setTimeout(() => {
                 formBox.classList.remove('form-shine');
             }, 800);
         }
-    </script>
 
-   <!-- Custom Script for Perfect Refresh Anchoring -->
-    <script>
-        // 1. Turn off Safari's buggy pixel memory
+        // --- Perfect Refresh Anchoring ---
         if (history.scrollRestoration) {
             history.scrollRestoration = 'manual';
         }
-        
-        // 2. Wait until all images and code are fully loaded
         window.addEventListener('load', () => {
-            // 3. Check if the URL has a section tag (like #about or #services)
             if (window.location.hash) {
                 const targetSection = document.querySelector(window.location.hash);
                 if (targetSection) {
-                    // 4. If it does, snap exactly to it now that the image hasn't shifted the page
                     targetSection.scrollIntoView(); 
                 }
             } else {
-                // 5. If there is no tag (just the main homepage), go to the top
                 window.scrollTo(0, 0);
             }
+        });
+
+        // --- Gallery Interactivity (Pitch Ready) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. MAKE THE FILTER BUTTONS CLICKABLE
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // 2. MAKE THE DOTS FOLLOW THE SWIPING
+            const track = document.querySelector('.carousel-track');
+            const dots = document.querySelectorAll('.dot');
+            
+            track.addEventListener('scroll', () => {
+                const cardWidth = track.firstElementChild.offsetWidth + 25; 
+                let activeIndex = Math.round(track.scrollLeft / cardWidth);
+                activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
+                
+                dots.forEach(dot => dot.classList.remove('active'));
+                if(dots[activeIndex]) {
+                    dots[activeIndex].classList.add('active');
+                }
+            });
+
+            // 3. MAKE THE LOAD MORE BUTTON DO A COOL TRICK FOR THE PITCH
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            loadMoreBtn.addEventListener('click', () => {
+                loadMoreBtn.innerText = 'Loading...';
+                loadMoreBtn.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    loadMoreBtn.innerText = 'All Projects Loaded ✓';
+                    loadMoreBtn.style.opacity = '1';
+                    loadMoreBtn.style.backgroundColor = '#28a745'; 
+                }, 1000);
+            });
         });
     </script>
 </body>
