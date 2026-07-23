@@ -258,75 +258,120 @@
         background-color: rgba(0, 0, 0, 0.4); /* The 0.4 means it's only 40% dark */
         z-index: 1; /* Keeps the dark film behind your text and form */
         }
-        /* --- SERVICES SECTION GRID --- */
-        .services-section {
-        padding: 60px 20px;
-        min-height: 100vh;
-        background: linear-gradient(to bottom, #ffffff 0%, #d93838 100%);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        }
+        /* --- REDESIGNED SERVICES SECTION --- */
+.services-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
 
-        .services-main-title {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 32px;
-        color: #333;
-        }
+.services-main-title {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: #222;
+}
 
-        .services-grid {
-        display: flex;
-        flex-direction:column;
-        gap: 20px; /* Space between the cards */
-        max-width: 1000px;
-        margin: 0 auto;
-        width: 100%;
-        }
-        /* Pushes Card 1 and 3 to the left side */
-        .service-card:nth-child(odd) {
-        align-self: flex-start;
-        width: 45%; 
-        }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-        /* Pushes Card 2 to the right side */
-        .service-card:nth-child(even) {
-        align-self: flex-end;
-        width: 45%; 
-        }
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .service-card {
-        background-color: #f8f8f8;
-        padding: 30px;
-        border-radius: 10px;
-        text-align: center;
-        border: 1px solid #eeeeee;
-        opacity: 0;
-        transform: translate(100px, 100px);
-        transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .service-card h3 {
-        margin-bottom: 15px;
-        color: #d93838;
-        }
-        /* The Active State: Fully visible and back in its normal spot */
-        .service-card.show-card {
-        opacity: 1;
-        transform: translate(0, 0); 
-        }
-        .service-card.show-card:hover {
-            transform: translateY(-10px);
-        }
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
 
-        /* The Stagger Effect: Makes them slide in one after the other */
-        .service-card:nth-child(1) { transition-delay: 0.1s; }
-        .service-card:nth-child(2) { transition-delay: 0.3s; }
-        .service-card:nth-child(3) { transition-delay: 0.5s; }
+/* OVERLAPPING INSET IMAGE WRAPPER */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
 
-        .service-card p {
-        color: #666;
-        line-height: 1.6;
-        }
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inset-img {
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  border: 4px solid #ffffff;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.service-content {
+  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-title h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #222;
+  margin-bottom: 0.75rem;
+}
+
+.service-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.service-content ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.quote-btn {
+  display: block;
+  margin-top: auto;
+  padding: 12px 20px;
+  background-color: #4A7C75;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.quote-btn:hover {
+  background-color: #385e59;
+}
+
+.orange-btn {
+  background-color: #D66E53;
+}
+
+.orange-btn:hover {
+  background-color: #b8543b;
+}
         /* Placeholder Section Styling */
         .services-section, .gallery-section, .about-section, .contact-section {
         padding: 40px 20px;
@@ -877,30 +922,16 @@
         color: #ffffff !important; /* Keeps the text stark white for contrast */
     }
    
-  /* ========================================= */
-    /* SERVICES SECTION MOBILE FIXES (TUNED)     */
+ /* ========================================= */
+    /* SERVICES SECTION MOBILE FIXES (NEW)       */
     /* ========================================= */
 
-    /* 1. Sets the outer section to fill the screen and start at the top */
     #services {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important; 
-        min-height: 100vh !important;
-        padding-top: 85px !important; /* Safe clearance below your white header */
-        padding-bottom: 30px !important; 
+        padding-top: 85px !important; 
+        padding-bottom: 40px !important; 
     }
 
-    /* 2. THE FIX: Commands the middle container to stretch full height and push text to the top */
-    .services-container {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        width: 100% !important;
-        height: 100% !important;
-        flex-grow: 1 !important; /* Forces this box to fill all remaining empty space */
-    }
-   /* Applies header clearance to About and Contact, but keeps Gallery tight */
+    /* Applies header clearance to About and Contact, but keeps Gallery tight */
     #about, #contact {
         padding-top: 85px !important;
     }
@@ -908,37 +939,36 @@
         padding-top: 60px !important; 
         scroll-margin-top: 90px !important;
     }
-    /* 3. Snaps the title right to the top of that container */
+
     .services-main-title {
         font-size: 2rem !important;        
         margin-top: 0 !important;          
-        margin-bottom: 20px !important; /* Gives 20px of breathing room before the boxes start */   
+        margin-bottom: 30px !important;   
     }
 
-    /* 4. Spreads the boxes out evenly in the remaining space */
     .services-grid {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 20px !important;  
+        gap: 30px !important;  
         width: 100% !important;
     }
 
-    /* 5. Keeps the boxes thick and professional */
     .service-card {
         width: 100% !important;
-        max-width: 320px !important;
-        padding: 18px !important;          
+        max-width: 350px !important;
     }
 
-    .service-card h3 {
-        font-size: 1.3rem !important;      
-        margin-bottom: 8px !important;     
+    /* Scales the overlapping images down cleanly for phone screens */
+    .image-wrapper {
+        height: 180px !important;
     }
 
-    .service-card p {
-        font-size: 0.9rem !important;        
-        margin-bottom: 0 !important;
+    .inset-img {
+        width: 70px !important;
+        height: 70px !important;
+        bottom: -15px !important;
+        right: 15px !important;
     }
 
     .about-container {
@@ -1125,30 +1155,61 @@
 <!-- ======================================= -->
     <!-- SERVICES SECTION (THE REUSABLE MVP)     -->
     <!-- ======================================= -->
-    <section class="services-section" id="services">
+   <section class="services-section" id="services">
       <div class="services-container">
         <h2 class="services-main-title">Our Professional Services</h2>
 
         <div class="services-grid">
-          <!-- Card 1: Interior -->
+          
+          <!-- Card 1: Interior Painting -->
           <div class="service-card">
-            <h3>Interior Painting</h3>
-            <p>Low odor, easy to clean, and beautiful finishes for any room in your home.</p>
+            <div class="image-wrapper">
+              <img src="https://images.pexels.com/photos/6474123/pexels-photo-6474123.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Interior Painting" class="main-img">
+              <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Paint Brushes" class="inset-img">
+            </div>
+            <div class="service-content">
+              <div class="service-title">
+                <h3>INTERIOR PAINTING</h3>
+              </div>
+              <p>Low odor, easy to clean, and beautiful finishes for any room in your home.</p>
+              <ul>
+                <li>Premium, low-VOC finishes</li>
+              </ul>
+              <a href="#contact" class="quote-btn">Request a Quote</a>
+            </div>
           </div>
 
-          <!-- Card 2: Exterior -->
+          <!-- Card 2: Exterior Painting -->
           <div class="service-card">
-            <h3>Exterior Painting</h3>
-            <p>Weather-resistant, highly durable paints designed to protect and revitalize your home's exterior.</p>
+            <div class="image-wrapper">
+              <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Exterior Painting" class="main-img">
+              <img src="https://images.pexels.com/photos/221502/pexels-photo-221502.jpeg?auto=compress&cs=tinysrgb&w=300" alt="House Detail" class="inset-img">
+            </div>
+            <div class="service-content">
+              <div class="service-title">
+                <h3>EXTERIOR PAINTING</h3>
+              </div>
+              <p>Weather-resistant, highly durable paints designed to protect and revitalize your home's exterior.</p>
+              <a href="#contact" class="quote-btn">Request a Quote</a>
+            </div>
           </div>
 
-          <!-- Card 3: Drywall -->
+          <!-- Card 3: Drywall & Texture -->
           <div class="service-card">
-            <h3>Drywall & Texture</h3>
-            <p>Professional hang, tape, and finish services for perfectly smooth or textured walls.</p>
+            <div class="image-wrapper">
+              <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Drywall Texture" class="main-img">
+              <img src="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Texture Tool" class="inset-img">
+            </div>
+            <div class="service-content">
+              <div class="service-title">
+                <h3>DRYWALL & TEXTURE</h3>
+              </div>
+              <p>Unique designed, hand-troweled finishes, taping/finish, smoothed or textured finish.</p>
+              <a href="#contact" class="quote-btn orange-btn">Request a Quote</a>
+            </div>
           </div>
+
         </div>
-        
       </div>
     </section>
   <!-- NEW HORIZONTAL SLIDER GALLERY SECTION -->
