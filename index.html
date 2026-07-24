@@ -187,11 +187,11 @@
         background-color: rgba(255, 255, 255, 0.45); /* Lowered to 45% solid so it's more transparent */
         -webkit-backdrop-filter: blur(8px); /* Forces Safari to apply the blur */
         backdrop-filter: blur(8px); /* Standard rule for Chrome/Edge */
-        padding: 35px;
+        padding: 30px 45px;
         border-radius: 8px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Adds a professional drop shadow */
         width: 100%;
-        max-width: 420px;
+        max-width: 500px;
         margin-left: auto; /* Pushes the card perfectly to the right edge of its container */
         }
 
@@ -209,7 +209,7 @@
         .input-group {
         display: flex;
         flex-direction: column;
-        margin-bottom: 18px;
+        margin-bottom: 12px;
         }
 
         /* The text above the input box */
@@ -223,7 +223,7 @@
 
         /* The actual typing area */
         .input-group input {
-        padding: 14px;
+        padding: 12px;
         border: 1px solid #cccccc;
         border-radius: 5px;
         font-size: 16px;
@@ -1451,6 +1451,31 @@
                 }, 1000);
             });
         });
+        // --- Auto-Format Phone Numbers ---
+        function formatPhoneNumber(e) {
+            const input = e.target;
+            // 1. Strip all non-numeric characters from the input
+            let cleaned = ('' + input.value).replace(/\D/g, '');
+            
+            // 2. Mathematically group the numbers into sections of 3, 3, and 4
+            let match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
+            
+            // 3. Rebuild the string with dashes
+            if (match) {
+                input.value = !match[2] ? match[1] : match[1] + '-' + match[2] + (match[3] ? '-' + match[3] : '');
+            }
+        }
+
+        // Apply the listener to both the desktop and mobile phone inputs
+        const desktopPhoneInput = document.getElementById('user-phone');
+        const mobilePhoneInput = document.getElementById('mobile-user-phone');
+
+        if (desktopPhoneInput) {
+            desktopPhoneInput.addEventListener('input', formatPhoneNumber);
+        }
+        if (mobilePhoneInput) {
+            mobilePhoneInput.addEventListener('input', formatPhoneNumber);
+        }
     </script>
 </body>
 </html>
