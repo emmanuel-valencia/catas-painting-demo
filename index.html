@@ -183,23 +183,24 @@
         width: 40%;
         }
         /* --- LEAD CAPTURE CARD STYLING --- */
-        .lead-capture-card {
-        background-color: rgba(255, 255, 255, 0.45); /* Lowered to 45% solid so it's more transparent */
-        -webkit-backdrop-filter: blur(8px); /* Forces Safari to apply the blur */
-        backdrop-filter: blur(8px); /* Standard rule for Chrome/Edge */
-        padding: 30px 45px;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Adds a professional drop shadow */
-        width: 100%;
-        max-width: 500px;
-        margin-left: auto; /* Pushes the card perfectly to the right edge of its container */
+       .lead-capture-card {
+            background-color: rgba(255, 255, 255, 0.45); 
+            -webkit-backdrop-filter: blur(8px); 
+            backdrop-filter: blur(8px); 
+            padding: 20px 40px !important; /* Shaved top/bottom to 20px, left/right wider to 40px */
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            width: 100%;
+            min-width: 440px !important; /* FORCES the 40% cage to stretch open to at least 440px */
+            max-width: 450px !important;
+            margin-left: auto; 
         }
 
         /* Form Title */
         .lead-capture-card h3 {
         color: #333333;
         margin-top: 0;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         font-size: 24px;
         font-family: Arial, sans-serif;
         text-align: center;
@@ -209,7 +210,7 @@
         .input-group {
         display: flex;
         flex-direction: column;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         }
 
         /* The text above the input box */
@@ -223,10 +224,10 @@
 
         /* The actual typing area */
         .input-group input {
-        padding: 12px;
+        padding: 10px !important;
         border: 1px solid #cccccc;
         border-radius: 5px;
-        font-size: 16px;
+        font-size: 15px;
         background-color: #f9f9f9;
         }
 
@@ -762,13 +763,13 @@
     /* ========================================= */
     .input-group select {
         width: 100%;
-        padding: 12px;
+        padding: 10px;
         margin-top: 5px;
         border: none;
         border-radius: 4px;
         background-color: #f4f4f4; /* Matches your input backgrounds */
         font-family: inherit;
-        font-size: 14px;
+        font-size: 15px;
         color: #333;
         cursor: pointer;
     }
