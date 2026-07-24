@@ -262,17 +262,18 @@
 /* --- REDESIGNED SERVICES SECTION --- */
 .services-section {
   text-align: center;
-  /* This creates the warm AI background and stops the hero image from bleeding through */
   background: linear-gradient(to bottom, #fdfbf7 0%, #f2d9c4 45%, #85a39f 100%);
   position: relative;
   z-index: 5;
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column; 
   
-  /* NEW RULES TO FILL THE SCREEN */
-  min-height: 100vh; /* Forces the background to stretch all the way to the bottom of the screen */
-  display: flex; /* Activates flexbox */
-  flex-direction: column; /* Stacks the content vertically */
-  justify-content: center; /* Pushes the title and cards perfectly into the vertical center of the screen */
-  padding: 4rem 2rem !important; /* Protects our padding from being overwritten */
+  /* CHANGED: This pushes the content to the top instead of the middle */
+  justify-content: flex-start; 
+  
+  /* CHANGED: 150px at the top clears your white navbar, leaving all the empty space at the bottom */
+  padding: 150px 2rem 4rem 2rem !important; 
 }
 
 .services-main-title {
