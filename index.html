@@ -298,30 +298,25 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* OVERLAPPING INSET IMAGE WRAPPER */
+/* OVERLAPPING INSET IMAGE WRAPPER - REDESIGNED AS BADGES */
 .image-wrapper {
   position: relative;
   width: 100%;
-  height: 220px;
-}
-
-.main-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px; /* Rounds the inner image now that it's padded */
+  height: 110px; /* Shrunk from 220px to remove the empty space */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Pushes the badge to sit nicely above the text */
+  margin-top: 15px;
 }
 
 .inset-img {
-  position: absolute;
-  bottom: -20px;
-  right: 20px;
-  width: 80px;
-  height: 80px;
+  position: relative; /* Removes the absolute overlap glitch */
+  width: 100px;
+  height: 100px;
   border: 4px solid #ffffff;
-  border-radius: 12px;
+  border-radius: 50%; /* Turns the square into a perfect circular badge */
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .service-content {
@@ -966,17 +961,6 @@
         max-width: 350px !important;
     }
 
-    /* Scales the overlapping images down cleanly for phone screens */
-    .image-wrapper {
-        height: 180px !important;
-    }
-
-    .inset-img {
-        width: 70px !important;
-        height: 70px !important;
-        bottom: -15px !important;
-        right: 15px !important;
-    }
 
     .about-container {
         flex-direction: column !important; 
@@ -1172,7 +1156,6 @@
           <!-- Card 1: Interior Painting -->
           <div class="service-card">
             <div class="image-wrapper">
-              <img src="https://images.pexels.com/photos/6474123/pexels-photo-6474123.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Interior Painting" class="main-img">
               <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Paint Brushes" class="inset-img">
             </div>
             <div class="service-content">
@@ -1191,7 +1174,7 @@
           <!-- Card 2: Exterior Painting -->
           <div class="service-card">
             <div class="image-wrapper">
-              <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Exterior Painting" class="main-img">
+
               <img src="https://images.pexels.com/photos/221502/pexels-photo-221502.jpeg?auto=compress&cs=tinysrgb&w=300" alt="House Detail" class="inset-img">
             </div>
             <div class="service-content">
@@ -1207,7 +1190,7 @@
           <!-- Card 3: Drywall & Texture -->
           <div class="service-card">
             <div class="image-wrapper">
-              <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Drywall Texture" class="main-img">
+             
               <img src="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Texture Tool" class="inset-img">
             </div>
             <div class="service-content">
