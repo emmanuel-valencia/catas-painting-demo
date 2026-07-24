@@ -849,6 +849,25 @@ h1, h2, h3, .services-main-title {
             opacity: 1;
         }
     }
+        /* Fix mobile Safari phone link styling */
+    a[href^="tel"],
+    .footer-phone-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    }
+    /* Makes the glow fade in smoothly */
+.carousel-card {
+    transition: all 0.4s ease-in-out;
+}
+
+/* The actual red glow and slight lift */
+.glow-active {
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.6);
+    transform: scale(1.03);
+    border: 1px solid rgba(220, 38, 38, 0.8);
+    z-index: 10;
+    position: relative; 
+}
         
         /* ========================================= */
   /* MOBILE RESPONSIVENESS (Screens under 768px) */
@@ -1074,12 +1093,7 @@ h1, h2, h3, .services-main-title {
     }
 
 } /* <--- THE CRITICAL CLOSING BRACKET */
-/* Fix mobile Safari phone link styling */
-a[href^="tel"],
-.footer-phone-link {
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
+
     </style>
 </head>
 <body>
@@ -1237,10 +1251,10 @@ a[href^="tel"],
           <div class="filter-wrapper">
             <span class="filter-label">Filter by Service</span>
             <div class="filter-tabs">
-              <button class="filter-btn active"><span>🍳</span> Kitchens</button>
-              <button class="filter-btn"><span>🚪</span> Cabinets</button>
-              <button class="filter-btn"><span>🛋️</span> Interior</button>
-              <button class="filter-btn"><span>🏡</span> Exterior</button>
+              <button class="filter-btn" data-filter="kitchens"><span>🍳</span> Kitchens</button>
+              <button class="filter-btn" data-filter="cabinets"><span>🚪</span> Cabinets</button>
+              <button class="filter-btn" data-filter="interior"><span>🛋️</span> Interior</button>
+              <button class="filter-btn" data-filter="exterior"><span>🏡</span> Exterior</button>
             </div>
           </div>
           <div class="projects-count">
@@ -1256,7 +1270,7 @@ a[href^="tel"],
         <div class="carousel-track">
           
           <!-- Card 1: Video Card -->
-          <div class="carousel-card video-card">
+          <div class="carousel-card video-card" data-category="kitchens">
             <div class="card-media">
               <video autoplay loop muted playsinline class="card-video">
                 <source src="kid-paint.mp4" type="video/mp4">
@@ -1270,7 +1284,7 @@ a[href^="tel"],
 
           
           <!-- Card 2 -->
-          <div class="carousel-card">
+          <div class="carousel-card" data-category="cabinets">
             <div class="card-media">
             <img src="luvs-cabinet.jpg" style="width: 100%; height: 100%; object-fit: cover">
             </div>
@@ -1282,7 +1296,7 @@ a[href^="tel"],
 
 
           <!-- Card 3 -->
-          <div class="carousel-card">
+          <div class="carousel-card" data-category="interior">
             <div class="card-media">
                 <img src="interior-painting.jpg" style="width: 100%; height: 100%; object-fit: cover;">
             
@@ -1294,7 +1308,7 @@ a[href^="tel"],
           </div>
 
           <!-- Card 4 -->
-          <div class="carousel-card">
+          <div class="carousel-card" data-category="exterior">
             <div class="card-media">
                 <img src="luvs-ext.jpg" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
@@ -1390,110 +1404,142 @@ a[href^="tel"],
     <a href="#mobile-quote" class="sticky-btn">Get a Free Estimate</a>
 </div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // --- AOS & Scroll Animations ---
-        AOS.init();
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show-card');
-                }
-            });
-        }, { threshold: 0.2 }); 
-
-        const hiddenCards = document.querySelectorAll('.service-card');
-        hiddenCards.forEach((card) => observer.observe(card));
-
-        // --- Form Animation ---
-        function triggerFormShine() {
-            const formBox = document.getElementById('quote');
-            const nameInput = document.getElementById('user-name');
-            nameInput.focus();
-            formBox.classList.add('form-shine');
-            setTimeout(() => {
-                formBox.classList.remove('form-shine');
-            }, 800);
-        }
-
-        // --- Perfect Refresh Anchoring ---
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
-        window.addEventListener('load', () => {
-            if (window.location.hash) {
-                const targetSection = document.querySelector(window.location.hash);
-                if (targetSection) {
-                    targetSection.scrollIntoView(); 
-                }
-            } else {
-                window.scrollTo(0, 0);
+<script>
+    // ==========================================
+    // 1. SCROLL ANIMATIONS (AOS & Custom Observer)
+    // ==========================================
+    // This starts the AOS library (makes elements fade in as you scroll down the page).
+    AOS.init();
+    
+    // This watches your screen. When a ".service-card" enters the bottom 20% of your screen, it adds the "show-card" class to trigger its animation.
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show-card');
             }
         });
+    }, { threshold: 0.2 }); 
 
-        // --- Gallery Interactivity (Pitch Ready) ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. MAKE THE FILTER BUTTONS CLICKABLE
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
+    const hiddenCards = document.querySelectorAll('.service-card');
+    hiddenCards.forEach((card) => observer.observe(card));
+
+
+    // ==========================================
+    // 2. FORM SHINE ANIMATION
+    // ==========================================
+    // When a user clicks "Get a Quote", this snaps the screen to the form, selects the Name box so they can start typing, and makes the whole form flash with a glowing shadow for a split second.
+    function triggerFormShine() {
+        const formBox = document.getElementById('quote');
+        const nameInput = document.getElementById('user-name');
+        nameInput.focus();
+        formBox.classList.add('form-shine');
+        setTimeout(() => {
+            formBox.classList.remove('form-shine');
+        }, 800);
+    }
+
+
+    // ==========================================
+    // 3. PAGE REFRESH ANCHORING
+    // ==========================================
+    // This stops the browser from getting confused and loading halfway down the page when you hit refresh. It forces the page to start exactly at the top, unless you clicked a specific anchor link.
+    if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+    }
+    window.addEventListener('load', () => {
+        if (window.location.hash) {
+            const targetSection = document.querySelector(window.location.hash);
+            if (targetSection) {
+                targetSection.scrollIntoView(); 
+            }
+        } else {
+            window.scrollTo(0, 0);
+        }
+    });
+
+
+    // ==========================================
+    // 4. PHONE NUMBER AUTO-FORMATTER
+    // ==========================================
+    // This watches the phone number typing boxes. As you type, it strips out letters/symbols and automatically adds the dashes mathematically (e.g., changing 7205555555 to 720-555-5555).
+    function formatPhoneNumber(e) {
+        const input = e.target;
+        let cleaned = ('' + input.value).replace(/\D/g, '');
+        let match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
+        if (match) {
+            input.value = !match[2] ? match[1] : match[1] + '-' + match[2] + (match[3] ? '-' + match[3] : '');
+        }
+    }
+
+    // Connects the math above to both the desktop and mobile phone inputs.
+    const desktopPhoneInput = document.getElementById('user-phone');
+    const mobilePhoneInput = document.getElementById('mobile-user-phone');
+    if (desktopPhoneInput) desktopPhoneInput.addEventListener('input', formatPhoneNumber);
+    if (mobilePhoneInput) mobilePhoneInput.addEventListener('input', formatPhoneNumber);
+
+
+    // ==========================================
+    // 5. GALLERY INTERACTIVITY (All Gallery Logic Combined)
+    // ==========================================
+    // The "DOMContentLoaded" line means: "Wait until the whole website HTML is fully loaded before running any of this gallery logic."
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- A. FILTER BUTTONS & GLOW EFFECT ---
+        const filterButtons = document.querySelectorAll('.filter-btn'); 
+        const galleryCards = document.querySelectorAll('.carousel-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                
+                // 1. Turn off the red background on all buttons, then turn it on for the clicked one
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // 2. Read the invisible nametag (data-filter) of the button we just clicked
+                const selectedFilter = button.getAttribute('data-filter');
+
+                // 3. Look at every picture card to see if the nametags match
+                galleryCards.forEach(card => {
+                    card.classList.remove('glow-active'); // Turn off all glows first
+                    
+                    // If the picture's nametag matches the button's nametag, turn on the red glow
+                    if (card.getAttribute('data-category') === selectedFilter) {
+                        card.classList.add('glow-active'); 
+                    }
                 });
             });
-
-            // 2. MAKE THE DOTS FOLLOW THE SWIPING
-            const track = document.querySelector('.carousel-track');
-            const dots = document.querySelectorAll('.dot');
-            
-            track.addEventListener('scroll', () => {
-                const cardWidth = track.firstElementChild.offsetWidth + 25; 
-                let activeIndex = Math.round(track.scrollLeft / cardWidth);
-                activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
-                
-                dots.forEach(dot => dot.classList.remove('active'));
-                if(dots[activeIndex]) {
-                    dots[activeIndex].classList.add('active');
-                }
-            });
-
-            // 3. MAKE THE LOAD MORE BUTTON DO A COOL TRICK FOR THE PITCH
-            const loadMoreBtn = document.querySelector('.load-more-btn');
-            loadMoreBtn.addEventListener('click', () => {
-                loadMoreBtn.innerText = 'Loading...';
-                loadMoreBtn.style.opacity = '0.7';
-                
-                setTimeout(() => {
-                    loadMoreBtn.innerText = 'All Projects Loaded ✓';
-                    loadMoreBtn.style.opacity = '1';
-                    loadMoreBtn.style.backgroundColor = '#28a745'; 
-                }, 1000);
-            });
         });
-        // --- Auto-Format Phone Numbers ---
-        function formatPhoneNumber(e) {
-            const input = e.target;
-            // 1. Strip all non-numeric characters from the input
-            let cleaned = ('' + input.value).replace(/\D/g, '');
+
+        // --- B. CAROUSEL DOTS SYNC ---
+        // As you swipe horizontally on the pictures, this calculates which picture is currently in the middle of the screen and turns the corresponding little dot red below it.
+        const track = document.querySelector('.carousel-track');
+        const dots = document.querySelectorAll('.dot');
+        
+        track.addEventListener('scroll', () => {
+            const cardWidth = track.firstElementChild.offsetWidth + 25; 
+            let activeIndex = Math.round(track.scrollLeft / cardWidth);
+            activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
             
-            // 2. Mathematically group the numbers into sections of 3, 3, and 4
-            let match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
-            
-            // 3. Rebuild the string with dashes
-            if (match) {
-                input.value = !match[2] ? match[1] : match[1] + '-' + match[2] + (match[3] ? '-' + match[3] : '');
+            dots.forEach(dot => dot.classList.remove('active'));
+            if(dots[activeIndex]) {
+                dots[activeIndex].classList.add('active');
             }
-        }
+        });
 
-        // Apply the listener to both the desktop and mobile phone inputs
-        const desktopPhoneInput = document.getElementById('user-phone');
-        const mobilePhoneInput = document.getElementById('mobile-user-phone');
-
-        if (desktopPhoneInput) {
-            desktopPhoneInput.addEventListener('input', formatPhoneNumber);
-        }
-        if (mobilePhoneInput) {
-            mobilePhoneInput.addEventListener('input', formatPhoneNumber);
-        }
-    </script>
+        // --- C. "LOAD MORE" BUTTON TRICK ---
+        // A visual trick for pitch presentations. When clicked, it pretends to load for 1 second, then turns green to show a success state.
+        const loadMoreBtn = document.querySelector('.load-more-btn');
+        loadMoreBtn.addEventListener('click', () => {
+            loadMoreBtn.innerText = 'Loading...';
+            loadMoreBtn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                loadMoreBtn.innerText = 'All Projects Loaded ✓';
+                loadMoreBtn.style.opacity = '1';
+                loadMoreBtn.style.backgroundColor = '#28a745'; 
+            }, 1000);
+        });
+    });
+</script>
 </body>
 </html>
