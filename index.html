@@ -868,6 +868,16 @@ h1, h2, h3, .services-main-title {
     z-index: 10;
     position: relative; 
 }
+/* 
+   NAVIGATION PHONE FIX
+   This tells the website: "Keep phone numbers white everywhere else, 
+   but if a phone number is inside the top header/navigation, force it to be dark grey." 
+*/
+header a[href^="tel:"], 
+nav a[href^="tel:"],
+.nav a[href^="tel:"] {
+    color: #333333 !important; 
+}
         
         /* ========================================= */
   /* MOBILE RESPONSIVENESS (Screens under 768px) */
