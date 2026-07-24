@@ -259,14 +259,20 @@
         background-color: rgba(0, 0, 0, 0.4); /* The 0.4 means it's only 40% dark */
         z-index: 1; /* Keeps the dark film behind your text and form */
         }
-        /* --- REDESIGNED SERVICES SECTION --- */
+/* --- REDESIGNED SERVICES SECTION --- */
 .services-section {
-  padding: 4rem 2rem;
   text-align: center;
   /* This creates the warm AI background and stops the hero image from bleeding through */
   background: linear-gradient(to bottom, #fdfbf7 0%, #f2d9c4 45%, #85a39f 100%);
   position: relative;
   z-index: 5;
+  
+  /* NEW RULES TO FILL THE SCREEN */
+  min-height: 100vh; /* Forces the background to stretch all the way to the bottom of the screen */
+  display: flex; /* Activates flexbox */
+  flex-direction: column; /* Stacks the content vertically */
+  justify-content: center; /* Pushes the title and cards perfectly into the vertical center of the screen */
+  padding: 4rem 2rem !important; /* Protects our padding from being overwritten */
 }
 
 .services-main-title {
