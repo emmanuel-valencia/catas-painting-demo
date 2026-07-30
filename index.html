@@ -294,6 +294,11 @@
     .lead-capture-card, 
     .btn-primary, 
     .top-nav { pointer-events: auto; }
+    /* MOBILE HERO BACKGROUND ANIMATION BLUEPRINT */
+    @keyframes gentleZoom { 
+        0% { transform: scale(1); } 
+        100% { transform: scale(1.15); } 
+    }
 
     /* MOBILE RESPONSIVENESS */
     @media (max-width: 768px) {
@@ -302,6 +307,11 @@
         .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 15px !important; margin-top: 15px !important; padding: 0 !important; }
         .hero-section { height: auto !important; min-height: 100vh !important; align-items: flex-start !important; padding: 220px 15px 50px 15px !important; }
         #fluid-canvas { display: none !important; }
+        /* Trigger the cinematic zoom on the background image for mobile only */
+        .hero-section::before { 
+            animation: gentleZoom 20s ease-in-out infinite alternate; 
+            transform-origin: center bottom;
+        }
         .hero-content-wrapper { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 40px !important; position: relative !important; z-index: 10 !important; }
         .hero-content-left { text-align: left !important; width: 100% !important; }
         .main-headline { font-size: 1.8rem !important; line-height: 1.2 !important; margin-bottom: 20px !important; }
@@ -362,8 +372,8 @@
  
  <!-- Left Side -->
  <div class="hero-content-left">
- <h1 class="main-headline" data-aos="fade-up" data-aos-duration="1500">Denver's Premium Interior & Exterior Painters.</h1>
- <p class="sub-headline">"High Quality. Consistent Energy. Proudly Working Until The Task Is Perfect".</p>
+ <h1 class="main-headline" data-aos="fade-up" data-aos-duration="1500">Masterful Painting & Flawless Finishes.</h1>
+ <p class="sub-headline">"Elevating your space with precision, care, and a commitment to absolute excellence."</p>
  <div class="trust-indicator" style="margin-top: 15px; display: flex; align-items: center; gap: 5px;">
  <div class="star-wrapper">
  <span class="shoot-star" style="--delay: 0s">★</span>
