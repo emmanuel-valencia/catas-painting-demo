@@ -38,18 +38,19 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  /* 1. THE CRISP WHITE NAVIGATION BAR */
  .top-nav {
  width: 100%;
- background-color: #ffffff;
+ background-color: rgba(255, 255, 255, 0.88); /* Makes the white 12% transparent */
+ -webkit-backdrop-filter: blur(15px); /* Adds the frosted glass blur for Apple/Safari */
+ backdrop-filter: blur(15px); /* Adds the frosted glass blur for Chrome/Edge */
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding: 5px 50px; /* Reduced vertical cushion from 15px to 5px */
+ padding: 5px 50px; 
  height: auto;
  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
  position: fixed; 
  top: 0;
  z-index: 1000;
  }
-
  .nav-logo {
  height: 85px; /* Increased from 70px to give the logo a taller container */
  display: flex;
@@ -100,11 +101,11 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  padding: 0 50px;
  }
 
- .hero-section::before {
+.hero-section::before {
  content: "";
- background-image: url('luv-hero-pic.jpg');
+ background-image: url('luv-hero-pic.jpg'); /* Ensure this matches your image file name */
  background-size: cover;
- background-position: center;
+ background-position: center 85%; /* THIS IS THE FIX: Anchors the image 85% down, pulling the bottom houses up into view */
  position: fixed;
  top: 0;
  left: 0;
@@ -112,7 +113,6 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  height: 100vh;
  z-index: -1; 
  }
-
  .hero-content {
  position: relative;
  z-index: 2; 
