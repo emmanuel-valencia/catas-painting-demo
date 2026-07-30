@@ -36,19 +36,25 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  }
 
  /* 1. THE CRISP WHITE NAVIGATION BAR */
+/* 1. THE FLOATING GLASS PILL NAVIGATION */
  .top-nav {
- width: 100%;
- background-color: rgba(255, 255, 255, 0.20); /* Makes the white 12% transparent */
- -webkit-backdrop-filter: blur(15px); /* Adds the frosted glass blur for Apple/Safari */
- backdrop-filter: blur(15px); /* Adds the frosted glass blur for Chrome/Edge */
+ width: 90%;
+ max-width: 1400px;
+ left: 50%;
+ transform: translateX(-50%);
+ background-color: rgba(255, 255, 255, 0.65); /* Richer glass base */
+ -webkit-backdrop-filter: blur(20px); 
+ backdrop-filter: blur(20px); 
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding: 5px 50px; 
+ padding: 5px 40px; 
  height: auto;
- box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+ box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Softer, deeper drop shadow */
+ border: 1px solid rgba(255, 255, 255, 0.4); /* Thin white glass edge */
+ border-radius: 50px; /* Turns it into a sleek pill shape */
  position: fixed; 
- top: 0;
+ top: 25px; /* Floats it down from the very top */
  z-index: 1000;
  }
  .nav-logo {
@@ -186,7 +192,7 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  min-width: 440px !important; 
  max-width: 450px !important;
  margin-left: auto;
- animation: gentleFloat 6s ease-in-out infinite; 
+ 
  }
 
  .lead-capture-card h3 {
@@ -642,6 +648,7 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  <!-- THE FULL SCREEN IMAGE AREA -->
  <div class="hero-section" id="home">
  <div class="hero-overlay"></div>
+ <canvas id="fluid-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
  
  <div class="hero-content-wrapper">
  
@@ -666,7 +673,7 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  <div class="desktop-quote-wrapper">
  <!-- Right Side -->
  <div class="hero-content-right" id="quote">
- <div class="lead-capture-card">
+ <div class="lead-capture-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.25">
  <h3>Get Your Free Estimate</h3>
  <div class="input-group">
  <label for="user-name">Full Name</label>
@@ -999,8 +1006,33 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
 <!-- GSAP & ScrollTrigger for Advanced Animations -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<!-- Vanilla Tilt for 3D Mouse Tracking -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<!-- WebGL Fluid Simulation Engine -->
+<script src="https://cdn.jsdelivr.net/npm/webgl-fluid-simulation@1.0.1/dist/webgl-fluid.min.js"></script>
 
 <script>
+    // AWWWARDS-LEVEL WEBGL FLUID SIMULATION
+    document.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('fluid-canvas');
+        
+        // Initialize the advanced fluid dynamics
+        WebGLFluid(canvas, {
+            IMMEDIATE: true, // Starts instantly
+            TRIGGER: 'hover', // Reacts to the mouse
+            SIM_RESOLUTION: 128, // High fidelity simulation
+            DYE_RESOLUTION: 512, // High-res colors
+            DENSITY_DISSIPATION: 1.5, // How fast the paint fades (lower = stays longer)
+            VELOCITY_DISSIPATION: 0.9, // How fast the movement stops
+            PRESSURE: 0.8, // How "thick" the fluid feels
+            SPLAT_RADIUS: 0.25, // Size of the paint ripples
+            // Using Cata's brand colors: Orange, Blue, Green
+            COLOR_PALETTE: ['#FF7A00', '#0066CC', '#00A859'], 
+            BACK_COLOR: 'transparent', // Keeps your background image visible
+            TRANSPARENT: true
+        });
+    });
+
  // 1. AWWWARDS SMOOTH SCROLL (LENIS)
  const lenis = new Lenis({
      duration: 1.2,
