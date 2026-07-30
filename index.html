@@ -38,7 +38,7 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  /* 1. THE CRISP WHITE NAVIGATION BAR */
  .top-nav {
  width: 100%;
- background-color: rgba(255, 255, 255, 0.88); /* Makes the white 12% transparent */
+ background-color: rgba(255, 255, 255, 0.20); /* Makes the white 12% transparent */
  -webkit-backdrop-filter: blur(15px); /* Adds the frosted glass blur for Apple/Safari */
  backdrop-filter: blur(15px); /* Adds the frosted glass blur for Chrome/Edge */
  display: flex;
@@ -185,7 +185,8 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  width: 100%;
  min-width: 440px !important; 
  max-width: 450px !important;
- margin-left: auto; 
+ margin-left: auto;
+ animation: gentleFloat 6s ease-in-out infinite; 
  }
 
  .lead-capture-card h3 {
@@ -570,6 +571,12 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  .carousel-card { transition: all 0.4s ease-in-out; }
  .glow-active { box-shadow: 0 0 25px rgba(0, 102, 204, 0.4); transform: scale(1.03); border: 1px solid rgba(0, 102, 204, 0.6); z-index: 10; position: relative; }
  .top-nav a[href^="tel:"] { color: #0066CC !important; }
+
+ @keyframes gentleFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+ }
  
  /* ========================================= */
  /* MOBILE RESPONSIVENESS */
