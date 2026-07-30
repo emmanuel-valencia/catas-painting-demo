@@ -179,6 +179,21 @@
     .green-btn { background-color: var(--brand-green); }
     .green-btn:hover { background-color: #008040; }
 
+    /* OUR PROCESS TIMELINE SECTION */
+    .process-section { padding: 100px 20px; background-color: #151515; border-top: 1px solid #333; text-align: center; }
+    .process-container { max-width: 1200px; margin: 0 auto; }
+    .process-title { font-size: 2.8rem; color: var(--text-primary); margin-bottom: 15px; font-family: 'Georgia', serif !important; }
+    .process-title span { color: var(--brand-orange); }
+    .process-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; position: relative; }
+    
+    .step-card { background: var(--bg-glass); border: 1px solid var(--glass-border); padding: 40px 20px; border-radius: 12px; position: relative; transition: transform 0.3s ease; }
+    .step-card:hover { transform: translateY(-10px); border-color: var(--brand-blue); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+    .step-number { font-size: 4rem; font-weight: 900; color: rgba(255, 255, 255, 0.05); position: absolute; top: 10px; left: 20px; line-height: 1; z-index: 0; font-family: 'Georgia', serif; }
+    .step-card h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 15px; position: relative; z-index: 1; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; }
+    .step-card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; position: relative; z-index: 1; }
+
     /* CAROUSEL GALLERY SECTION */
     .slider-gallery-section { background: var(--bg-chalky-dark); padding: 60px 20px; font-family: Arial, sans-serif; overflow: hidden; border-top: 1px solid #333; }
     #gallery { scroll-margin-top: 90px !important; }
@@ -341,6 +356,13 @@
         .mobile-action-btn { display: block !important; width: fit-content !important; }
         .filter-tabs { width: 100vw !important; margin-left: -20px !important; padding-left: 20px !important; padding-right: 40px !important; flex-wrap: nowrap !important; }
     } 
+    /* Mobile Process Override */
+        .process-title { 
+            font-size: 2.2rem !important; 
+        }
+        .process-steps { 
+            grid-template-columns: 1fr !important; 
+            }
 </style>
 </head>
 <body>
@@ -497,6 +519,43 @@
 
  </div>
  </div>
+ </section>
+
+ <!-- ========================================= -->
+ <!-- OUR PROCESS TIMELINE SECTION -->
+ <!-- ========================================= -->
+ <section id="process" class="process-section">
+    <div class="process-container">
+        <h2 class="process-title" data-aos="fade-up">Our Simple <span>Process</span></h2>
+        <p class="process-subtitle" data-aos="fade-up" data-aos-delay="100">From the first call to the final walkthrough, we make transforming your space effortless.</p>
+        
+        <div class="process-steps">
+            <!-- Step 1 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-number">01</div>
+                <h3>Free Estimate</h3>
+                <p>We evaluate your project, discuss your vision, and provide a transparent, detailed quote with no hidden fees.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-number">02</div>
+                <h3>Color Selection</h3>
+                <p>Not sure which shade? We help you choose the perfect premium colors and finishes for your specific lighting.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="step-number">03</div>
+                <h3>Prep & Paint</h3>
+                <p>We protect your furniture, repair surface damage, and apply flawless coats of premium paint.</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="step-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="step-number">04</div>
+                <h3>Final Walk</h3>
+                <p>We clean up completely and walk through the space with you to ensure absolute perfection.</p>
+            </div>
+        </div>
+    </div>
  </section>
 
  <!-- HORIZONTAL SLIDER GALLERY SECTION -->
