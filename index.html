@@ -42,7 +42,7 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding: 15px 50px;
+ padding: 5px 50px; /* Reduced vertical cushion from 15px to 5px */
  height: auto;
  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
  position: fixed; 
@@ -51,15 +51,16 @@ h1, h2, h3, .services-main-title, .about-advanced-content h2, .service-area-cont
  }
 
  .nav-logo {
- height: 70px;
+ height: 85px; /* Increased from 70px to give the logo a taller container */
  display: flex;
  align-items: center;
  }
  
  .nav-logo img {
-    max-height: 50px; /* Gives the logo breathing room in the nav */
+    height: 100%; /* Forces the logo to take up the full 85px */
     width: auto;
     object-fit: contain;
+    transform: scale(1.15); /* Slightly scales the logo up so it overlaps the edges just a bit */
  }
 
  .nav-links {
