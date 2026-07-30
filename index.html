@@ -1,1553 +1,1456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luvs House Painting | Denver, CO</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        /* --- GLOBAL TYPOGRAPHY --- */
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Cata's Painting | Premium Interior & Exterior Painters in Denver</title>
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+ <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+ <style>
+ /* --- GLOBAL TYPOGRAPHY --- */
 h1, h2, h3, .services-main-title {
-  /* PASTE YOUR GALLERY FONT-FAMILY HERE AND ADD !important BEFORE THE SEMICOLON */
-  font-family: 'Georgia', serif !important; 
+ font-family: 'Georgia', serif !important; 
 }
-        /* THE RESET */
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-        body {
-            cursor: url('paintbrush.png'), auto;
-        }
-       
-        html {
-            scroll-behavior: smooth;
-        }
-        /* THE UNIVERSAL BUMPER FIX: Forces all sections to respect the fixed header on link clicks AND page refreshes */
-        section, footer, div[id] {
-            scroll-margin-top: 110px !important;
-        }
-        a, button {
-            cursor: url('paintbrush.png'), pointer;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+ /* THE RESET */
+ html, body {
+ max-width: 100%;
+ overflow-x: hidden;
+ }
+ body {
+ cursor: url('paintbrush.png'), auto;
+ }
+ 
+ /* Removed scroll-behavior: smooth; because Lenis will handle the smooth scrolling beautifully now! */
+ 
+ /* THE UNIVERSAL BUMPER FIX: Forces all sections to respect the fixed header on link clicks AND page refreshes */
+ section, footer, div[id] {
+ scroll-margin-top: 110px !important;
+ }
+ a, button {
+ cursor: url('paintbrush.png'), pointer;
+ }
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Montserrat', sans-serif;
+ }
 
-        /* 1. THE CRISP WHITE NAVIGATION BAR */
-        .top-nav {
-            width: 100%;
-            background-color: #FDFBF7;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            height: auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            position: fixed; /* This glues the menu to the top even when scrolling */
-            top: 0;
-            z-index: 1000;
-        }
+ /* 1. THE CRISP WHITE NAVIGATION BAR */
+ .top-nav {
+ width: 100%;
+ background-color: #FDFBF7;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 15px 50px;
+ height: auto;
+ box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+ position: fixed; 
+ top: 0;
+ z-index: 1000;
+ }
 
-           .nav-logo {
-            height: 70px;
-            display: flex;
-            align-items: center;
-        }
+ .nav-logo {
+ height: 70px;
+ display: flex;
+ align-items: center;
+ font-size: 1.8rem;
+ font-weight: 900;
+ color: #333;
+ font-family: 'Georgia', serif !important;
+ }
+ 
+ .nav-logo span {
+ color: #ED1C24;
+ }
 
-        .nav-logo, .nav-logo img {
-            height: 70px; 
-            width: auto;
-            transform: scale(1.4);
-            margin-top: 12px;
-        }
+ .nav-links {
+ display: flex;
+ gap: 25px;
+ }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
+ .nav-links a {
+ color: #333333;
+ text-decoration: none;
+ font-weight: 700;
+ font-size: 0.9rem;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ transition: color 0.3s ease-in-out;
+ }
 
-        .nav-links a {
-            color: #333333;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease-in-out;
-        }
+ .nav-links a:hover {
+ color: #d63031;
+ }
 
-        .nav-links a:hover {
-            color: #d63031;
-        }
+ .phone-number {
+ color: #d63031;
+ font-weight: 900;
+ font-size: 1.2rem;
+ text-decoration: none;
+ }
 
-        .phone-number {
-            color: #d63031;
-            font-weight: 900;
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
+ /* 2. THE BACKGROUND IMAGE SECTION */
+ .hero-section {
+ width: 100%;
+ height: 100vh;
+ margin-top: 90px; 
+ position: relative;
+ display: flex;
+ align-items: center;
+ padding: 0 50px;
+ }
+ /* UNIVERSAL PARALLAX EFFECT (DESKTOP & MOBILE) */
+ .hero-section::before {
+ content: "";
+ background-image: url('luv-hero-pic.jpg');
+ background-size: cover;
+ background-position: center;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100vh;
+ z-index: -1; 
+ }
 
-        /* 2. THE BACKGROUND IMAGE SECTION */
-        .hero-section {
-            width: 100%;
-            height: 100vh;
-            margin-top: 90px; /* Pushes the image down so it isn't hidden behind the top nav */
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 0 50px;
-        }
-        /* UNIVERSAL PARALLAX EFFECT (DESKTOP & MOBILE) */
-        .hero-section::before {
-            content: "";
-            background-image: url('luv-hero-pic.jpg');
-            background-size: cover;
-            background-position: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1; 
-        }
+ body {
+ background-color: #ffffff;
+ }
 
-        /* Prevents the image from bleeding into other sections */
-        body {
-            background-color: #ffffff;
-        }
+ /* 4. THE LEFT-ALIGNED TEXT */
+ .hero-content {
+ position: relative;
+ z-index: 2; 
+ max-width: 800px;
+ }
 
+ .main-headline {
+ color: #ffffff;
+ font-size: 3.5rem;
+ font-weight: 900;
+ line-height: 1.1;
+ margin-bottom: 20px;
+ text-transform: uppercase;
+ }
 
-        /* 4. THE LEFT-ALIGNED TEXT */
-        .hero-content {
-            position: relative;
-            z-index: 2; /* Brings the text above the dark shadow */
-            max-width: 800px;
-        }
+ .sub-headline {
+ color: #f5f5f5;
+ font-size: 1.2rem;
+ font-weight: 700;
+ letter-spacing: 1px;
+ margin-bottom: 40px;
+ border-left: 4px solid #d63031; 
+ padding-left: 15px;
+ }
 
-        .main-headline {
-            color: #ffffff;
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
+ /* THE CALL TO ACTION BUTTON */
+ .btn-primary {
+ background-color: #d63031;
+ color: white;
+ padding: 15px 35px;
+ text-decoration: none;
+ font-weight: 900;
+ font-size: 1.1rem;
+ text-transform: uppercase;
+ border-radius: 4px;
+ display: inline-block;
+ transition: 0.3s ease;
+ }
 
-        .sub-headline {
-            color: #f5f5f5;
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 40px;
-            border-left: 4px solid #d63031; /* Adds a professional red accent line */
-            padding-left: 15px;
-        }
+ .btn-primary:hover {
+ background-color: #b30000;
+ transform: translateY(-2px);
+ }
 
-        /* THE CALL TO ACTION BUTTON */
-        .btn-primary {
-            background-color: #d63031;
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            border-radius: 4px;
-            display: inline-block;
-            transition: 0.3s ease;
-        }
+ .hero-content-wrapper {
+ position: relative; 
+ z-index: 10; 
+ display: flex; 
+ justify-content: space-between; 
+ align-items: center; 
+ width: 100%;
+ }
 
-        .btn-primary:hover {
-            background-color: #b30000;
-            transform: translateY(-2px);
-        }
-        /* Fixes the dimness and creates the left/right split */
-        .hero-content-wrapper {
-        position: relative; 
-        z-index: 10; 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        width: 100%;
-        }
+ .hero-content-left {
+ width: 50%;
+ position: relative;
+ z-index: 20;
+ }
 
-        /* Restricts the text to the left side */
-        .hero-content-left {
-        width: 50%;
-        position: relative;
-        z-index: 20;
-        }
+ .hero-content-right {
+ width: 100%;
+ }
+ /* --- LEAD CAPTURE CARD STYLING --- */
+ .lead-capture-card {
+ background-color: rgba(255, 255, 255, 0.45); 
+ -webkit-backdrop-filter: blur(8px); 
+ backdrop-filter: blur(8px); 
+ padding: 20px 40px !important; 
+ border-radius: 8px;
+ box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+ width: 100%;
+ min-width: 440px !important; 
+ max-width: 450px !important;
+ margin-left: auto; 
+ }
 
-        /* Restricts the quote form to the right side */
-        .hero-content-right {
-        width: 100%;
-        }
-        /* --- LEAD CAPTURE CARD STYLING --- */
-       .lead-capture-card {
-            background-color: rgba(255, 255, 255, 0.45); 
-            -webkit-backdrop-filter: blur(8px); 
-            backdrop-filter: blur(8px); 
-            padding: 20px 40px !important; /* Shaved top/bottom to 20px, left/right wider to 40px */
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
-            width: 100%;
-            min-width: 440px !important; /* FORCES the 40% cage to stretch open to at least 440px */
-            max-width: 450px !important;
-            margin-left: auto; 
-        }
+ .lead-capture-card h3 {
+ color: #333333;
+ margin-top: 0;
+ margin-bottom: 15px;
+ font-size: 24px;
+ font-family: Arial, sans-serif;
+ text-align: center;
+ }
 
-        /* Form Title */
-        .lead-capture-card h3 {
-        color: #333333;
-        margin-top: 0;
-        margin-bottom: 15px;
-        font-size: 24px;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        }
+ .input-group {
+ display: flex;
+ flex-direction: column;
+ margin-bottom: 10px;
+ }
 
-        /* Stacking the labels and inputs vertically */
-        .input-group {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-        }
+ .input-group label {
+ color: #555555;
+ margin-bottom: 8px;
+ font-weight: bold;
+ font-size: 14px;
+ font-family: Arial, sans-serif;
+ }
 
-        /* The text above the input box */
-        .input-group label {
-        color: #555555;
-        margin-bottom: 8px;
-        font-weight: bold;
-        font-size: 14px;
-        font-family: Arial, sans-serif;
-        }
+ .input-group input {
+ padding: 10px !important;
+ border: 1px solid #cccccc;
+ border-radius: 5px;
+ font-size: 15px;
+ background-color: #f9f9f9;
+ }
 
-        /* The actual typing area */
-        .input-group input {
-        padding: 10px !important;
-        border: 1px solid #cccccc;
-        border-radius: 5px;
-        font-size: 15px;
-        background-color: #f9f9f9;
-        }
+ .submit-btn {
+ width: 100%;
+ padding: 16px;
+ background-color: #d93838; 
+ color: #ffffff;
+ border: none;
+ border-radius: 5px;
+ font-size: 16px;
+ font-weight: bold;
+ cursor: pointer;
+ margin-top: 10px;
+ transition: 0.3s;
+ }
 
-        /* The Send Request Button */
-        .submit-btn {
-        width: 100%;
-        padding: 16px;
-        background-color: #d93838; /* Matches your left-side button */
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 10px;
-        transition: 0.3s;
-        }
+ .submit-btn:hover {
+ background-color: #b52c2c; 
+ }
+ /* --- SUBTLE BACKGROUND DIM --- */
+ .hero-overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.4); 
+ z-index: 1; 
+ }
 
-        .submit-btn:hover {
-        background-color: #b52c2c; /* Darkens slightly when hovered */
-        }
-        /* --- SUBTLE BACKGROUND DIM --- */
-        .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4); /* The 0.4 means it's only 40% dark */
-        z-index: 1; /* Keeps the dark film behind your text and form */
-        }
+ /* ========================================= */
+ /* NEW: AWWWARDS TRUST BAR (LAYER 3) */
+ /* ========================================= */
+ .trust-bar {
+ background-color: #111;
+ color: #fff;
+ padding: 20px 0;
+ display: flex;
+ justify-content: center;
+ gap: 50px;
+ flex-wrap: wrap;
+ position: relative;
+ z-index: 10;
+ border-bottom: 4px solid #ED1C24;
+ }
+
+ .trust-item {
+ font-weight: 700;
+ font-size: 0.95rem;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ }
+ 
+ .trust-item span { color: #ED1C24; font-size: 1.2rem;}
+
 /* --- REDESIGNED SERVICES SECTION --- */
 .services-section {
-  text-align: center;
-  background: linear-gradient(to bottom, #fdfbf7 0%, #f2d9c4 45%, #85a39f 100%);
-  position: relative;
-  z-index: 5;
-  min-height: 100vh;
-  display: flex; 
-  flex-direction: column; 
-  
-  /* CHANGED: This pushes the content to the top instead of the middle */
-  justify-content: flex-start; 
-  
-  /* CHANGED: 150px at the top clears your white navbar, leaving all the empty space at the bottom */
-  padding: 90px 2rem 4rem 2rem !important; 
+ text-align: center;
+ background: linear-gradient(to bottom, #fdfbf7 0%, #f2d9c4 45%, #85a39f 100%);
+ position: relative;
+ z-index: 5;
+ min-height: 100vh;
+ display: flex; 
+ flex-direction: column; 
+ justify-content: flex-start; 
+ padding: 90px 2rem 4rem 2rem !important; 
 }
 
 .services-main-title {
-  font-size: 2.2rem;
-  margin-bottom: 2.5rem;
-  color: #222;
+ font-size: 2.2rem;
+ margin-bottom: 2.5rem;
+ color: #222;
 }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 2rem;
+ max-width: 1200px;
+ margin: 0 auto;
 }
 
 .service-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px; /* This creates the white border inside the card */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+ background: #ffffff;
+ border-radius: 16px;
+ padding: 16px; 
+ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+ text-align: left;
+ display: flex;
+ flex-direction: column;
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+ transform: translateY(-5px);
+ box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* OVERLAPPING INSET IMAGE WRAPPER - REDESIGNED AS BADGES */
 .image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 110px; /* Shrunk from 220px to remove the empty space */
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; /* Pushes the badge to sit nicely above the text */
-  margin-top: 15px;
+ position: relative;
+ width: 100%;
+ height: 110px; 
+ display: flex;
+ justify-content: center;
+ align-items: flex-end; 
+ margin-top: 15px;
 }
 
 .inset-img {
-  position: relative; /* Removes the absolute overlap glitch */
-  width: 100px;
-  height: 100px;
-  border: 4px solid #ffffff;
-  border-radius: 50%; /* Turns the square into a perfect circular badge */
-  object-fit: cover;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+ position: relative; 
+ width: 100px;
+ height: 100px;
+ border: 4px solid #ffffff;
+ border-radius: 50%; 
+ object-fit: cover;
+ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .service-content {
-  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+ padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+ display: flex;
+ flex-direction: column;
+ flex-grow: 1;
 }
 
 .service-title h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #222;
-  margin-bottom: 0.75rem;
+ font-size: 1.15rem;
+ font-weight: 700;
+ letter-spacing: 0.5px;
+ color: #222;
+ margin-bottom: 0.75rem;
 }
 
 .service-content p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #555;
-  margin-bottom: 1rem;
+ font-size: 0.95rem;
+ line-height: 1.5;
+ color: #555;
+ margin-bottom: 1rem;
 }
 
 .service-content ul {
-  padding-left: 1.2rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-  color: #666;
+ padding-left: 1.2rem;
+ margin-bottom: 1.5rem;
+ font-size: 0.9rem;
+ color: #666;
 }
 
 .quote-btn {
-  display: inline-block; /* Stops the button from stretching full width */
-  margin: 0 auto; /* Centers the button perfectly */
-  margin-top: auto;
-  padding: 10px 24px;
-  background-color: #4A7C75;
-  color: #ffffff;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 20px; /* Rounds the button like the AI image */
-  font-weight: 600;
-  transition: background-color 0.2s ease;
+ display: inline-block; 
+ margin: 0 auto; 
+ margin-top: auto;
+ padding: 10px 24px;
+ background-color: #4A7C75;
+ color: #ffffff;
+ text-decoration: none;
+ text-align: center;
+ border-radius: 20px; 
+ font-weight: 600;
+ transition: background-color 0.2s ease;
 }
 
 .quote-btn:hover {
-  background-color: #385e59;
+ background-color: #385e59;
 }
 
 .orange-btn {
-  background-color: #D66E53;
+ background-color: #D66E53;
 }
 
 .orange-btn:hover {
-  background-color: #b8543b;
-}
-        /* Placeholder Section Styling */
-        .services-section, .gallery-section, .about-section, .contact-section {
-        padding: 40px 20px;
-        text-align: center;
-        }
-
-        .gallery-section {
-        background-color: #f4f4f9; 
-        }
-
-        .about-section {
-        background-color: #f8f8f8; 
-        }
-
-        .contact-section {
-        background-color: #ffffff; 
-        }
-
-        .about-section h2, .contact-section h2 {
-        font-size: 3rem; /* Makes the title significantly larger and bolder */
-        color: #333333;
-        margin-bottom: 50px; /* Pushes the gallery card down so it doesn't crowd the title */
-        position: relative;
-        display: inline-block; /* Keeps the decoration tightly wrapped to the width of the words */
-        }
-
-        /* The "Decoration" - Creates a red accent line under the titles */
-        .about-section h2::after, .contact-section h2::after {
-                content: "";
-        position: absolute;
-        left: 50%;
-        bottom: -15px; 
-        transform: translateX(-50%); 
-        width: 350px; /* Makes the line much longer to frame the words */
-        height: 6px; /* Slightly thinner so it looks like a glass neon tube */
-        background-color: #ff4d4d; /* A brighter, punchier red for the core of the light */
-        border-radius: 10px; /* Rounds the ends of the tube */
-        
-        }
-
-        /* --- REDESIGNED CAROUSEL GALLERY SECTION (GLOBAL) --- */
-    .slider-gallery-section {
-      background: #f7f5f0; 
-      padding: 60px 20px;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
-
-    #gallery {
-      scroll-margin-top: 90px !important;
-    }
-
-    .slider-gallery-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .slider-gallery-title {
-      text-align: center;
-      font-size: 2.8rem;
-      color: #2b2b2b;
-      margin: 0 0 5px 0;
-      font-family: 'Georgia', serif;
-    }
-
-    .slider-gallery-subtitle {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #555;
-      letter-spacing: 1.5px;
-      margin-bottom: 35px;
-      text-transform: uppercase;
-      line-height: 1.4;
-    }
-
-    .slider-gallery-subtitle span {
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: 0.95rem;
-      color: #777;
-    }
-
-    /* Filter & Info Bar */
-    .gallery-controls-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 25px;
-      padding: 0 10px;
-    }
-
-    .filter-label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 8px;
-    }
-
-   .filter-tabs {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto; /* Makes the buttons swipeable on mobile */
-      scrollbar-width: none; /* Hides the ugly scrollbar on Firefox */
-      -webkit-overflow-scrolling: touch; /* Makes the swiping smooth on iPhones */
-      padding-bottom: 5px; 
-    }
-    
-    /* Hides the ugly scrollbar on Chrome/Safari */
-    .filter-tabs::-webkit-scrollbar {
-      display: none; 
-    }
-
-    .filter-btn {
-      background: transparent;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      padding: 6px 16px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-      white-space: nowrap; /* Forces text to stay on one line */
-      flex-shrink: 0; /* Prevents the buttons from squishing together */
-    }
-
-
-
-    .filter-btn.active, .filter-btn:hover {
-      background: #c83833; 
-      color: #fff;
-      border-color: #c83833;
-    }
-
-    .projects-count {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: #444;
-    }
-
-    .projects-count strong {
-      display: block;
-      font-size: 0.9rem;
-    }
-
-    /* Carousel Track */
-    .carousel-track {
-      display: flex;
-      gap: 25px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 15px 5px 25px 5px;
-      -webkit-overflow-scrolling: touch;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .carousel-track::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Carousel Cards */
-    .carousel-card {
-      flex: 0 0 340px; 
-      scroll-snap-align: start;
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease;
-    }
-
-    .carousel-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card-media {
-      width: 100%;
-      height: 220px;
-      position: relative;
-      background: #eee;
-    }
-
-    .card-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex-grow: 1;
-    }
-
-    .card-content h3 {
-      font-size: 0.95rem;
-      margin: 0;
-      color: #222;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .play-badge {
-      font-size: 0.75rem;
-      background: #c83833;
-      color: #fff;
-      border-radius: 50%;
-      width: 22px;
-      height: 22px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card-content p {
-      font-size: 0.82rem;
-      color: #666;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    /* Bottom Slider Controls */
-    .slider-bottom-bar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .load-more-btn {
-      background: #c83833;
-      color: #fff;
-      border: none;
-      padding: 10px 32px;
-      border-radius: 25px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(200, 56, 51, 0.3);
-      transition: background 0.2s ease;
-    }
-
-    .load-more-btn:hover {
-      background: #a62b27;
-    }
-
-    .carousel-dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ccc;
-    }
-
-    .dot.active {
-      background: #c83833;
-      width: 10px;
-      height: 10px;
-    }
-        /* ========================================= */
-    /* ABOUT US SECTION (DESKTOP)                */
-    /* ========================================= */
-    
-    .about-section {
-        padding: 60px 20px;
-        background-color: #f9f9f9;
-    }
-
-    .about-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
-    }
-
-    .about-text {
-        flex: 1;
-    }
-
-    .about-text h2 {
-        font-size: 2.5rem;
-        color: #b22222; /* Matches the red from your logo */
-        margin-bottom: 20px;
-    }
-
-    .about-text p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #333;
-    }
-
-    .about-image {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-    }
-
-    .about-photo {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Adds a professional soft shadow */
-    }
-        /* ========================================= */
-    /* FOOTER STYLES                             */
-    /* ========================================= */
-    .footer-section {
-        background-color: #222222;
-        color: #ffffff;
-        padding: 50px 20px;
-        text-align: center;
-    }
-
-    .footer-info h3 {
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-        color: #e63946; /* Matching your red highlight color */
-    }
-
-    .footer-info p {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-    }
-
-    .footer-copyright {
-        margin-top: 40px;
-        font-size: 0.9rem;
-        border-top: 1px solid #444444;
-        padding-top: 20px;
-        color: #aaaaaa;
-    }
-    /* ========================================= */
-    /* FORM ATTENTION PULSE ANIMATION            */
-    /* ========================================= */
-    @keyframes shinePulse {
-        0% { box-shadow: 0 0 0 0 rgba(237, 28, 36, 0.8); transform: scale(1); }
-        50% { box-shadow: 0 0 25px 15px rgba(237, 28, 36, 0); transform: scale(1.02); }
-        100% { box-shadow: 0 0 0 0 rgba(237, 28, 36, 0); transform: scale(1); }
-    }
-    
-    .form-shine {
-        animation: shinePulse 0.8s ease-out;
-    }
-    /* ========================================= */
-    /* NAV LINKS STAGGERED ENTRANCE ANIMATION    */
-    /* ========================================= */
-    @keyframes dropIn {
-        0% { opacity: 0; transform: translateY(-15px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .nav-links a {
-        opacity: 0; /* Keeps them invisible until the animation starts */
-        animation: dropIn 0.6s ease-out forwards;
-        display: inline-block; /* Required for the transform to work */
-    }
-
-    /* The Stagger Effect: delaying each link by a fraction of a second */
-    .nav-links a:nth-child(1) { animation-delay: 0.1s; }
-    .nav-links a:nth-child(2) { animation-delay: 0.2s; }
-    .nav-links a:nth-child(3) { animation-delay: 0.3s; }
-    .nav-links a:nth-child(4) { animation-delay: 0.4s; }
-    .nav-links a:nth-child(5) { animation-delay: 0.5s; }
-
-    /* ========================================= */
-    /* DROPDOWN MENU STYLING FIX                 */
-    /* ========================================= */
-    .input-group select {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: none;
-        border-radius: 4px;
-        background-color: #f4f4f4; /* Matches your input backgrounds */
-        font-family: inherit;
-        font-size: 15px;
-        color: #333;
-        cursor: pointer;
-    }
-    
-    /* Makes sure the dropdown has the same focus outline as your inputs */
-    .input-group select:focus {
-        outline: 2px solid #ED1C24;
-    }
-    .mobile-sticky-bar {
-    display: none; /* Hidden on desktop */
-    }
-    .mobile-quote-wrapper {
-        display:none;
-    }
-    .desktop-quote-wrapper {
-        width: 50%;
-        display: flex;
-        justify-content: flex-end; /* This forces the form to the right side*/
-    }
-    .mobile-action-btn {
-        display: none !important;
-    }
-     /* --- Advanced Shooting Star Animation --- */
-    .star-wrapper {
-        display: inline-flex;
-    }
-    
-    .shoot-star {
-        color: #FFD700;
-        font-size: 1.2rem;
-        opacity: 0;
-        display: inline-block;
-        animation: shootingStarAnim 1.0s ease-out forwards; /* 1.0s Duration: The travel time */
-        animation-delay: var(--delay); /* Pulls the Wait Time from your HTML lines 884-888 */
-    }
-
-    .trust-text {
-        opacity: 0; 
-        animation: textFadeIn 0.5s ease-in forwards;
-        animation-delay: 1.6s; /* 1.6s Delay: Waits for the final star to finish its 1.0s flight */
-    }
-
-    @keyframes shootingStarAnim {
-        0% {
-            transform: translate(-30px, -30px) scale(0);
-            opacity: 0;
-            text-shadow: 0 0 0 transparent;
-        }
-        50% {
-            opacity: 1;
-            text-shadow: 0 0 15px #FFD700, 0 0 25px #ffffff;
-        }
-        100% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
-            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
-        }
-    }
-
-    @keyframes textFadeIn {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-        /* Fix mobile Safari phone link styling */
-    a[href^="tel"],
-    .footer-phone-link {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    }
-    /* Makes the glow fade in smoothly */
-.carousel-card {
-    transition: all 0.4s ease-in-out;
+ background-color: #b8543b;
 }
 
-/* The actual red glow and slight lift */
-.glow-active {
-    box-shadow: 0 0 25px rgba(220, 38, 38, 0.6);
-    transform: scale(1.03);
-    border: 1px solid rgba(220, 38, 38, 0.8);
-    z-index: 10;
-    position: relative; 
-}
-/* 
-   NAVIGATION PHONE FIX
-   This tells the website: "Keep phone numbers white everywhere else, 
-   but if a phone number is inside the top header/navigation, force it to be dark grey." 
-*/
-.top-nav a[href^="tel:"] {
-    color: #ED1C24 !important; 
-}
-        
-        /* ========================================= */
-  /* MOBILE RESPONSIVENESS (Screens under 768px) */
-  /* ========================================= */
-  @media (max-width: 768px) {
-    
-   /* Mobile Navigation Fixes */
-    .top-nav {
-      flex-direction: column !important; /* Forces layout to stack vertically */
-      padding: 15px 15px !important;     /* Shrinks the 50px side padding so elements fit */
-      height: auto !important;
-    }
+ /* Placeholder Section Styling */
+ .services-section, .gallery-section, .about-section, .contact-section {
+ padding: 40px 20px;
+ text-align: center;
+ }
 
-    .nav-logo, .nav-logo img {
-      transform: scale(1.3) !important;   /* Cancels the 1.4 desktop blow-up so it doesn't bleed */
-      height: 60px !important;          /* Keeps it sharp and tidy on small screens */
-      margin-top: 0 !important;
-    }
+ .gallery-section {
+ background-color: #f4f4f9; 
+ }
 
-    .nav-links {
-      display: flex !important;
-      flex-wrap: wrap !important;       /* Lets individual links drop to a new line if needed */
-      justify-content: center !important;
-      gap: 15px !important;             /* Lowers the gap spacing slightly for small screens */
-      margin-top: 15px !important;      /* Pushes links cleanly below the logo */
-      padding: 0 !important;
-    }
+ .about-section {
+ background-color: #f8f8f8; 
+ }
 
-    .nav-links a {
-      font-size: 0.8rem !important;     /* Ensures text sizing fits iPhone screens perfectly */
-    }
+ .contact-section {
+ background-color: #ffffff; 
+ }
 
-    /* ========================================= */
-    /* HERO SECTION MOBILE FIXES                 */
-    /* ========================================= */
-    
-    .hero-section {
-      height: auto !important;
-      min-height: 100vh !important;
-      align-items: flex-start !important;
-      padding: 120px 15px 50px 15px !important; /* Reduces side padding to 15px and pushes content down below the nav bar */
-    }
+ .about-section h2, .contact-section h2 {
+ font-size: 3rem; 
+ color: #333333;
+ margin-bottom: 50px; 
+ position: relative;
+ display: inline-block; 
+ }
 
-    .hero-content-wrapper {
-      display: flex !important;
-      flex-direction: column !important;        /* Stacks the text directly on top of the form */
-      align-items: center !important;           /* Centers both blocks perfectly */
-      gap: 40px !important;                     /* Adds 40 pixels of safe space between the text and the form */
-      position: relative !important;
-      z-index: 10 !important;
-    }
+ .about-section h2::after, .contact-section h2::after {
+ content: "";
+ position: absolute;
+ left: 50%;
+ bottom: -15px; 
+ transform: translateX(-50%); 
+ width: 350px; 
+ height: 6px; 
+ background-color: #ff4d4d; 
+ border-radius: 10px; 
+ }
 
-    .hero-content-left {
-      text-align: left !important;            /* lefters the headline and subheadline text for mobile readability */
-      width: 100% !important;
-    }
+ /* --- REDESIGNED CAROUSEL GALLERY SECTION (GLOBAL) --- */
+ .slider-gallery-section {
+ background: #f7f5f0; 
+ padding: 60px 20px;
+ font-family: Arial, sans-serif;
+ overflow: hidden;
+ }
 
-    .main-headline {
-      font-size: 1.8rem !important;             /* Shrinks the desktop font from 3.5rem down to 2.2rem */
-      line-height: 1.2 !important;              /* Tightens the vertical space between lines of text */
-      margin-bottom: 20px !important;
-    }
-    
-    .hero-content-right {
-      width: 100% !important;                   /* Ensures the form container uses the available space */
-      display: flex !important;
-      justify-content: center !important;
-    }
-   #mobile-quote {
-        scroll-margin-top: 160px !important;
-        margin-bottom: 120px !important; /* Creates a 120px invisible forcefield below the form */
-    }
-    
-    .lead-capture-card {
-        padding: 15px 25px 25px 25px !important; /* Top: 15px, Right: 25px, Bottom: 25px, Left: 25px */
-    }
-    
-    .lead-capture-card h3 {
-        margin-bottom: 15px !important; /* Pulls the input boxes slightly closer to the title */
-    }
-    .lead-capture-card button[type="submit"], 
-    .lead-capture-card .btn {
-        background-color: #4a4a4a !important; /* Changes the background to a darkish grey */
-        border-color: #4a4a4a !important; /* Ensures the border matches the background */
-        color: #ffffff !important; /* Keeps the text stark white for contrast */
-    }
-   
+ #gallery {
+ scroll-margin-top: 90px !important;
+ }
+
+ .slider-gallery-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+
+ .slider-gallery-title {
+ text-align: center;
+ font-size: 2.8rem;
+ color: #2b2b2b;
+ margin: 0 0 5px 0;
+ font-family: 'Georgia', serif;
+ }
+
+ .slider-gallery-subtitle {
+ text-align: center;
+ font-size: 0.85rem;
+ color: #555;
+ letter-spacing: 1.5px;
+ margin-bottom: 35px;
+ text-transform: uppercase;
+ line-height: 1.4;
+ }
+
+ .slider-gallery-subtitle span {
+ text-transform: none;
+ letter-spacing: 0;
+ font-size: 0.95rem;
+ color: #777;
+ }
+
+ .gallery-controls-bar {
+ display: flex;
+ justify-content: space-between;
+ align-items: flex-end;
+ margin-bottom: 25px;
+ padding: 0 10px;
+ }
+
+ .filter-label {
+ display: block;
+ font-size: 0.85rem;
+ font-weight: bold;
+ color: #333;
+ margin-bottom: 8px;
+ }
+
+ .filter-tabs {
+ display: flex;
+ gap: 12px;
+ overflow-x: auto; 
+ scrollbar-width: none; 
+ -webkit-overflow-scrolling: touch; 
+ padding-bottom: 5px; 
+ }
+ 
+ .filter-tabs::-webkit-scrollbar {
+ display: none; 
+ }
+
+ .filter-btn {
+ background: transparent;
+ border: 1px solid #ccc;
+ border-radius: 20px;
+ padding: 6px 16px;
+ font-size: 0.85rem;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ transition: all 0.2s ease;
+ white-space: nowrap; 
+ flex-shrink: 0; 
+ }
+
+ .filter-btn.active, .filter-btn:hover {
+ background: #c83833; 
+ color: #fff;
+ border-color: #c83833;
+ }
+
+ .projects-count {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ font-size: 0.8rem;
+ color: #444;
+ }
+
+ .projects-count strong {
+ display: block;
+ font-size: 0.9rem;
+ }
+
+ .carousel-track {
+ display: flex;
+ gap: 25px;
+ overflow-x: auto;
+ scroll-snap-type: x mandatory;
+ padding: 15px 5px 25px 5px;
+ -webkit-overflow-scrolling: touch;
+ -ms-overflow-style: none;
+ scrollbar-width: none;
+ }
+
+ .carousel-track::-webkit-scrollbar {
+ display: none;
+ }
+
+ .carousel-card {
+ flex: 0 0 340px; 
+ scroll-snap-align: start;
+ background: #fff;
+ border-radius: 16px;
+ overflow: hidden;
+ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+ display: flex;
+ flex-direction: column;
+ transition: transform 0.2s ease;
+ }
+
+ .carousel-card:hover {
+ transform: translateY(-4px);
+ }
+
+ .card-media {
+ width: 100%;
+ height: 220px;
+ position: relative;
+ background: #eee;
+ }
+
+ .card-video {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ }
+
+ .card-content {
+ padding: 20px;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ flex-grow: 1;
+ }
+
+ .card-content h3 {
+ font-size: 0.95rem;
+ margin: 0;
+ color: #222;
+ font-weight: bold;
+ letter-spacing: 0.5px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+
+ .play-badge {
+ font-size: 0.75rem;
+ background: #c83833;
+ color: #fff;
+ border-radius: 50%;
+ width: 22px;
+ height: 22px;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ }
+
+ .card-content p {
+ font-size: 0.82rem;
+ color: #666;
+ line-height: 1.5;
+ margin: 0;
+ }
+
+ .slider-bottom-bar {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 15px;
+ margin-top: 20px;
+ }
+
+ .load-more-btn {
+ background: #c83833;
+ color: #fff;
+ border: none;
+ padding: 10px 32px;
+ border-radius: 25px;
+ font-weight: bold;
+ font-size: 0.9rem;
+ cursor: pointer;
+ box-shadow: 0 4px 12px rgba(200, 56, 51, 0.3);
+ transition: background 0.2s ease;
+ }
+
+ .load-more-btn:hover {
+ background: #a62b27;
+ }
+
+ .carousel-dots {
+ display: flex;
+ gap: 8px;
+ }
+
+ .dot {
+ width: 8px;
+ height: 8px;
+ border-radius: 50%;
+ background: #ccc;
+ }
+
+ .dot.active {
+ background: #c83833;
+ width: 10px;
+ height: 10px;
+ }
+
  /* ========================================= */
-    /* SERVICES SECTION MOBILE FIXES (NEW)       */
-    /* ========================================= */
+ /* NEW: AWWWARDS-STYLE TESTIMONIALS */
+ /* ========================================= */
+ .testimonial-section {
+ background: #0a0a0a;
+ color: #fff;
+ padding: 100px 20px;
+ text-align: center;
+ overflow: hidden; /* Important for GSAP animations */
+ }
+ 
+ .test-title {
+ font-size: 2.8rem;
+ margin-bottom: 50px;
+ font-family: 'Georgia', serif !important; 
+ }
+ 
+ .test-title span { 
+ color: #ED1C24; 
+ }
+ 
+ .test-grid {
+ display: flex;
+ justify-content: center;
+ gap: 30px;
+ max-width: 1200px;
+ margin: 0 auto;
+ flex-wrap: wrap;
+ }
+ 
+ .test-card-gsap {
+ background: #1a1a1a;
+ padding: 40px 30px;
+ border-radius: 12px;
+ width: 350px;
+ text-align: left;
+ border-top: 4px solid #ED1C24;
+ box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+ }
 
-   #services {
-        padding-top: 85px !important; 
-        padding-bottom: 60px !important; 
-        padding-left: 20px !important; /* Pushes the cards away from the left edge */
-        padding-right: 20px !important; /* Pushes the cards away from the right edge */
-    }
-    /* Applies header clearance to About and Contact, but keeps Gallery tight */
-    #about, #contact {
-        padding-top: 85px !important;
-    }
-    #gallery {
-        padding-top: 60px !important; 
-        scroll-margin-top: 90px !important;
-    }
+ .stars {
+ color: #FFD700;
+ font-size: 1.2rem;
+ margin-bottom: 15px;
+ }
 
-    .services-main-title {
-        font-size: 2rem !important;        
-        margin-top: 0 !important;          
-        margin-bottom: 30px !important;   
-    }
+ .test-card-gsap p {
+ font-size: 1rem;
+ line-height: 1.6;
+ color: #d1d1d1;
+ margin-bottom: 20px;
+ font-style: italic;
+ }
 
-    .services-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 30px !important;  
-        width: 100% !important;
-    }
+ .test-author {
+ font-weight: bold;
+ color: #fff;
+ font-size: 0.9rem;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ }
 
-    .service-card {
-        width: 100% !important;
-        max-width: 350px !important;
-    }
+ /* ========================================= */
+ /* ABOUT US SECTION (DESKTOP) */
+ /* ========================================= */
+ .about-section {
+ padding: 60px 20px;
+ background-color: #f9f9f9;
+ }
 
+ .about-container {
+ max-width: 1000px;
+ margin: 0 auto;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 40px;
+ }
 
-    .about-container {
-        flex-direction: column !important; 
-        text-align: center !important; 
-        gap: 30px !important; 
-    }
+ .about-text {
+ flex: 1;
+ text-align: left;
+ }
 
-    .about-text {
-        padding: 0 15px !important; 
-    }
+ .about-text h2 {
+ font-size: 2.5rem;
+ color: #b22222; 
+ margin-bottom: 20px;
+ text-align: left;
+ }
 
-    .about-photo {
-        width: 100% !important;
-        max-width: 320px !important; 
-        margin-top: 20px !important;
-    }
-    /* ========================================= */
-    /* MOBILE FOOTER ADJUSTMENTS                 */
-    /* ========================================= */
-    .footer-section {
-        padding: 30px 15px 100px 15px !important; /* Shrinks the giant desktop padding */
-    }
+ .about-text p {
+ font-size: 1.1rem;
+ line-height: 1.6;
+ color: #333;
+ }
 
-    .footer-info h3 {
-        font-size: 1.5rem !important; /* Scales the red title down slightly */
-        margin-bottom: 15px !important;
-    }
+ .about-image {
+ flex: 1;
+ display: flex;
+ justify-content: center;
+ }
 
-    .footer-info p {
-        font-size: 1rem !important; /* Scales the contact text down */
-        margin-bottom: 8px !important;
-    }
+ .about-photo {
+ width: 100%;
+ max-width: 400px;
+ height: auto;
+ border-radius: 12px;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+ }
 
-    .footer-copyright {
-        margin-top: 30px !important;
-        padding-top: 15px !important;
-    }
-   /* ========================================= */
-/* PREMIUM FLOATING MOBILE BAR               */
-/* ========================================= */
-    .mobile-sticky-bar {
-        display: flex;
-        position: fixed;
-        bottom: 25px; /* Floats the buttons up off the bottom edge */
-        left: 0;
-        width: 100%;
-        padding: 0 15px;
-        box-sizing: border-box;
-        z-index: 9999;
-        justify-content: space-between; 
-        align-items: center;
-        gap: 12px; 
-        pointer-events: none; /* Allows the user to touch the website through the empty spaces */
-    }
-    
-    .mobile-sticky-bar > a {
-        pointer-events: auto; /* Re-enables clicking on the actual buttons */
-    }
+ /* ========================================= */
+ /* FOOTER STYLES */
+ /* ========================================= */
+ .footer-section {
+ background-color: #222222;
+ color: #ffffff;
+ padding: 50px 20px;
+ text-align: center;
+ }
 
-    .sticky-btn {
-        background-color: #d13030; /* Kept your brand red, but shaped like Pappas */
-        color: #ffffff !important;
-        text-decoration: none;
-        font-size: 1.05rem;
-        font-weight: bold;
-        padding: 16px 0;
-        border-radius: 30px; /* Pill shape */
-        text-transform: capitalize;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        flex-grow: 1; /* Fills the rest of the bar */
-        text-align: center;
-    }
-    /* Make the top hero form invisible */
-    .desktop-quote-wrapper {
-        display: none !important; 
-    }
-    
-    /* Reveal the bottom footer form */
-    .mobile-quote-wrapper {
-        display: block !important; 
-    }
-    .desktop-action-btn {
-        display: none !important;
-    }
-    .mobile-action-btn {
-        display: block !important;
-        width: fit-content !important;
-    }
-    /* ========================================= */
-    /* GALLERY FILTER SWIPE FIX FOR MOBILE       */
-    /* ========================================= */
-    .filter-tabs {
-        width: 100vw !important; /* Breaks out of the parent container */
-        margin-left: -20px !important; /* Pulls track to the absolute left edge */
-        padding-left: 20px !important; /* Pushes the first button back in line */
-        padding-right: 40px !important; /* Adds extra breathing room after the Exterior button */
-        flex-wrap: nowrap !important; /* Refuses to let buttons stack */
-    }
+ .footer-info h3 {
+ font-size: 1.8rem;
+ margin-bottom: 20px;
+ color: #e63946; 
+ }
 
-} /* <--- THE CRITICAL CLOSING BRACKET */
+ .footer-info p {
+ font-size: 1.1rem;
+ margin-bottom: 10px;
+ }
 
-    </style>
+ .footer-copyright {
+ margin-top: 40px;
+ font-size: 0.9rem;
+ border-top: 1px solid #444444;
+ padding-top: 20px;
+ color: #aaaaaa;
+ }
+
+ /* ========================================= */
+ /* ANIMATIONS */
+ /* ========================================= */
+ @keyframes shinePulse {
+ 0% { box-shadow: 0 0 0 0 rgba(237, 28, 36, 0.8); transform: scale(1); }
+ 50% { box-shadow: 0 0 25px 15px rgba(237, 28, 36, 0); transform: scale(1.02); }
+ 100% { box-shadow: 0 0 0 0 rgba(237, 28, 36, 0); transform: scale(1); }
+ }
+ 
+ .form-shine {
+ animation: shinePulse 0.8s ease-out;
+ }
+
+ @keyframes dropIn {
+ 0% { opacity: 0; transform: translateY(-15px); }
+ 100% { opacity: 1; transform: translateY(0); }
+ }
+
+ .nav-links a {
+ opacity: 0; 
+ animation: dropIn 0.6s ease-out forwards;
+ display: inline-block; 
+ }
+
+ .nav-links a:nth-child(1) { animation-delay: 0.1s; }
+ .nav-links a:nth-child(2) { animation-delay: 0.2s; }
+ .nav-links a:nth-child(3) { animation-delay: 0.3s; }
+ .nav-links a:nth-child(4) { animation-delay: 0.4s; }
+ .nav-links a:nth-child(5) { animation-delay: 0.5s; }
+
+ .input-group select {
+ width: 100%;
+ padding: 10px;
+ margin-top: 5px;
+ border: none;
+ border-radius: 4px;
+ background-color: #f4f4f4; 
+ font-family: inherit;
+ font-size: 15px;
+ color: #333;
+ cursor: pointer;
+ }
+ 
+ .input-group select:focus {
+ outline: 2px solid #ED1C24;
+ }
+ .mobile-sticky-bar { display: none; }
+ .mobile-quote-wrapper { display:none; }
+ .desktop-quote-wrapper {
+ width: 50%;
+ display: flex;
+ justify-content: flex-end; 
+ }
+ .mobile-action-btn { display: none !important; }
+
+ .star-wrapper { display: inline-flex; }
+ 
+ .shoot-star {
+ color: #FFD700;
+ font-size: 1.2rem;
+ opacity: 0;
+ display: inline-block;
+ animation: shootingStarAnim 1.0s ease-out forwards; 
+ animation-delay: var(--delay); 
+ }
+
+ .trust-text {
+ opacity: 0; 
+ animation: textFadeIn 0.5s ease-in forwards;
+ animation-delay: 1.6s; 
+ }
+
+ @keyframes shootingStarAnim {
+ 0% { transform: translate(-30px, -30px) scale(0); opacity: 0; text-shadow: 0 0 0 transparent; }
+ 50% { opacity: 1; text-shadow: 0 0 15px #FFD700, 0 0 25px #ffffff; }
+ 100% { transform: translate(0, 0) scale(1); opacity: 1; text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
+ }
+
+ @keyframes textFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+ a[href^="tel"], .footer-phone-link { color: #ffffff !important; text-decoration: none !important; }
+ .carousel-card { transition: all 0.4s ease-in-out; }
+ .glow-active {
+ box-shadow: 0 0 25px rgba(220, 38, 38, 0.6);
+ transform: scale(1.03);
+ border: 1px solid rgba(220, 38, 38, 0.8);
+ z-index: 10;
+ position: relative; 
+ }
+ .top-nav a[href^="tel:"] { color: #ED1C24 !important; }
+ 
+ /* ========================================= */
+ /* MOBILE RESPONSIVENESS (Screens under 768px) */
+ /* ========================================= */
+ @media (max-width: 768px) {
+ .top-nav { flex-direction: column !important; padding: 15px 15px !important; height: auto !important; }
+ .nav-logo { font-size: 1.4rem !important; height: 50px !important; margin-top: 0 !important; }
+ .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 15px !important; margin-top: 15px !important; padding: 0 !important; }
+ .nav-links a { font-size: 0.8rem !important; }
+ .hero-section { height: auto !important; min-height: 100vh !important; align-items: flex-start !important; padding: 120px 15px 50px 15px !important; }
+ .hero-content-wrapper { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 40px !important; position: relative !important; z-index: 10 !important; }
+ .hero-content-left { text-align: left !important; width: 100% !important; }
+ .main-headline { font-size: 1.8rem !important; line-height: 1.2 !important; margin-bottom: 20px !important; }
+ .hero-content-right { width: 100% !important; display: flex !important; justify-content: center !important; }
+ #mobile-quote { scroll-margin-top: 160px !important; margin-bottom: 120px !important; }
+ .lead-capture-card { padding: 15px 25px 25px 25px !important; }
+ .lead-capture-card h3 { margin-bottom: 15px !important; }
+ .lead-capture-card button[type="submit"], .lead-capture-card .btn { background-color: #4a4a4a !important; border-color: #4a4a4a !important; color: #ffffff !important; }
+ 
+ .trust-bar { padding: 15px !important; gap: 15px !important; flex-direction: column; align-items: center; }
+
+ #services { padding-top: 85px !important; padding-bottom: 60px !important; padding-left: 20px !important; padding-right: 20px !important; }
+ #about, #contact { padding-top: 85px !important; }
+ #gallery { padding-top: 60px !important; scroll-margin-top: 90px !important; }
+ .services-main-title { font-size: 2rem !important; margin-top: 0 !important; margin-bottom: 30px !important; }
+ .services-grid { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 30px !important; width: 100% !important; }
+ .service-card { width: 100% !important; max-width: 350px !important; }
+ .about-container { flex-direction: column !important; text-align: center !important; gap: 30px !important; }
+ .about-text { padding: 0 15px !important; text-align: center !important;}
+ .about-text h2 { text-align: center !important; }
+ .about-photo { width: 100% !important; max-width: 320px !important; margin-top: 20px !important; }
+ .footer-section { padding: 30px 15px 100px 15px !important; }
+ .footer-info h3 { font-size: 1.5rem !important; margin-bottom: 15px !important; }
+ .footer-info p { font-size: 1rem !important; margin-bottom: 8px !important; }
+ .footer-copyright { margin-top: 30px !important; padding-top: 15px !important; }
+ .mobile-sticky-bar { display: flex; position: fixed; bottom: 25px; left: 0; width: 100%; padding: 0 15px; box-sizing: border-box; z-index: 9999; justify-content: space-between; align-items: center; gap: 12px; pointer-events: none; }
+ .mobile-sticky-bar > a { pointer-events: auto; }
+ .sticky-btn { background-color: #d13030; color: #ffffff !important; text-decoration: none; font-size: 1.05rem; font-weight: bold; padding: 16px 0; border-radius: 30px; text-transform: capitalize; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); flex-grow: 1; text-align: center; }
+ .desktop-quote-wrapper { display: none !important; }
+ .mobile-quote-wrapper { display: block !important; }
+ .desktop-action-btn { display: none !important; }
+ .mobile-action-btn { display: block !important; width: fit-content !important; }
+ .filter-tabs { width: 100vw !important; margin-left: -20px !important; padding-left: 20px !important; padding-right: 40px !important; flex-wrap: nowrap !important; }
+ } 
+ </style>
 </head>
 <body>
-    <!---a href="https://www.flaticon.com/free-icons/paintbrush" title="paintbrush icons">Paintbrush icons created by nawicon - Flaticon</a> --->
 
-    <!-- THE WHITE HEADER -->
-    <div class="top-nav">
-        <div class="nav-logo">
-            <img src="luv-paint-logo-new.jpg" alt="Luvs House Painting">
-        </div>
-        
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </div>
+ <!-- THE WHITE HEADER -->
+ <div class="top-nav">
+ <div class="nav-logo">
+ Cata's <span>Painting</span>
+ </div>
+ 
+ <div class="nav-links">
+ <a href="#home">Home</a>
+ <a href="#services">Services</a>
+ <a href="#gallery">Gallery</a>
+ <a href="#about">About</a>
+ <a href="#contact">Contact</a>
+ </div>
 
-        <a href="tel:7202739038" class="phone-number">📞 720-273-9038</a>
-    </div>
+ <a href="tel:7204537767" class="phone-number">📞 (720) 453-7767</a>
+ </div>
 
-    <!-- THE FULL SCREEN IMAGE AREA -->
-    <div class="hero-section" id="home">
-        <div class="hero-overlay"></div>
-  
-  <!-- NEW WRAPPER FOR 2-COLUMN LAYOUT -->
-  <div class="hero-content-wrapper">
-    
-    <!-- Left Side: Your existing text -->
-    <div class="hero-content-left">
-      <h1 class="main-headline" data-aos="fade-up" data-aos-duration="1500">Denver's Premier Interior & Exterior Painters.</h1>
-      <p class="sub-headline">"High Quality. Consistent Energy. Proudly Working Until The Task Is Perfect".</p>
-      <div class="trust-indicator" style="margin-top: 15px; display: flex; align-items: center; gap: 5px;">
-      <div class="star-wrapper">
-            <span class="shoot-star" style="--delay: 0s">★</span>
-            <span class="shoot-star" style="--delay: 0.15s">★</span>
-            <span class="shoot-star" style="--delay: 0.3s">★</span>
-            <span class="shoot-star" style="--delay: 0.45s">★</span>
-            <span class="shoot-star" style="--delay: 0.6s">★</span>
-        </div>
-    <span class="trust-text" style="color: #ffffff; font-size: 0.9rem; font-weight: bold;">5-Star Local Painters</span>
-    </div>
-      <a href="javascript:void(0);" onclick="triggerFormShine()" class="btn-primary desktop-action-btn">Request a Free Estimate</a>
-      <a href="#mobile-quote" class="btn-primary mobile-action-btn">Request a Free Estimate</a>
-    </div>
-    <div class="desktop-quote-wrapper">
-    <!-- Right Side: The new lead capture form -->
-    <div class="hero-content-right" id="quote">
-      <div class="lead-capture-card">
-        <h3>Get Your Free Estimate</h3>
-        <div class="input-group">
-            <label for="user-name">Full Name</label>
-            <input type="text" id="user-name" name="name" placeholder="John Doe" required>
-        </div>
-        
-        <div class="input-group">
-            <label for="user-email">Email Address</label>
-            <input type="email" id="user-email" name="email" placeholder="john@example.com" required>
-        </div>
+ <!-- THE FULL SCREEN IMAGE AREA -->
+ <div class="hero-section" id="home">
+ <div class="hero-overlay"></div>
+ 
+ <div class="hero-content-wrapper">
+ 
+ <!-- Left Side -->
+ <div class="hero-content-left">
+ <h1 class="main-headline" data-aos="fade-up" data-aos-duration="1500">Denver's Premium Interior & Exterior Painters.</h1>
+ <p class="sub-headline">"High Quality. Consistent Energy. Proudly Working Until The Task Is Perfect".</p>
+ <div class="trust-indicator" style="margin-top: 15px; display: flex; align-items: center; gap: 5px;">
+ <div class="star-wrapper">
+ <span class="shoot-star" style="--delay: 0s">★</span>
+ <span class="shoot-star" style="--delay: 0.15s">★</span>
+ <span class="shoot-star" style="--delay: 0.3s">★</span>
+ <span class="shoot-star" style="--delay: 0.45s">★</span>
+ <span class="shoot-star" style="--delay: 0.6s">★</span>
+ </div>
+ <span class="trust-text" style="color: #ffffff; font-size: 0.9rem; font-weight: bold;">5-Star Rated in Denver</span>
+ </div>
+ <a href="javascript:void(0);" onclick="triggerFormShine()" class="btn-primary desktop-action-btn">Request a Free Estimate</a>
+ <a href="#mobile-quote" class="btn-primary mobile-action-btn">Request a Free Estimate</a>
+ </div>
+ 
+ <div class="desktop-quote-wrapper">
+ <!-- Right Side -->
+ <div class="hero-content-right" id="quote">
+ <div class="lead-capture-card">
+ <h3>Get Your Free Estimate</h3>
+ <div class="input-group">
+ <label for="user-name">Full Name</label>
+ <input type="text" id="user-name" name="name" placeholder="John Doe" required>
+ </div>
+ 
+ <div class="input-group">
+ <label for="user-email">Email Address</label>
+ <input type="email" id="user-email" name="email" placeholder="john@example.com" required>
+ </div>
 
-        <div class="input-group">
-            <label for="user-phone">Phone Number</label>
-            <input type="tel" id="user-phone" name="phone" placeholder="(720) 000-0000" required>
-        </div>
+ <div class="input-group">
+ <label for="user-phone">Phone Number</label>
+ <input type="tel" id="user-phone" name="phone" placeholder="(720) 000-0000" required>
+ </div>
 
-        <div class="input-group">
-            <label for="user-service">Interested In:</label>
-            <select id="user-service" name="service" required>
-                <option value="" disabled selected>Select a Service...</option>
-                <option value="Interior Painting">Interior Painting</option>
-                <option value="Exterior Painting">Exterior Painting</option>
-                <option value="Drywall Repair">Drywall Repair</option>
-                <option value="Cabinet Painting">Cabinet Painting</option>
-            </select>
-        </div>
-        <button type="submit" class="submit-btn">Send Request</button>
-      </div>
-    </div>
-  </div>
-  </div>
+ <div class="input-group">
+ <label for="user-service">Interested In:</label>
+ <select id="user-service" name="service" required>
+ <option value="" disabled selected>Select a Service...</option>
+ <option value="Interior Painting">Interior Painting</option>
+ <option value="Exterior Painting">Exterior Painting</option>
+ <option value="Drywall Repair">Drywall Repair</option>
+ <option value="Stucco Repair">Stucco Repair</option>
+ </select>
+ </div>
+ <button type="submit" class="submit-btn">Send Request</button>
+ </div>
+ </div>
+ </div>
+ </div>
 </div>
 
 <!-- ======================================= -->
-    <!-- SERVICES SECTION (THE REUSABLE MVP)     -->
-    <!-- ======================================= -->
-   <section class="services-section" id="services">
-      <div class="services-container">
-        <h2 class="services-main-title">Our Professional Services</h2>
-
-        <div class="services-grid">
-          
-          <!-- Card 1: Interior Painting -->
-          <div class="service-card">
-            <div class="image-wrapper">
-              <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Paint Brushes" class="inset-img">
-            </div>
-            <div class="service-content">
-              <div class="service-title">
-                <h3>INTERIOR PAINTING</h3>
-              </div>
-              <p>Low odor, easy to clean, and beautiful finishes for any room in your home.</p>
-              <ul>
-                <li>Premium, low-VOC finishes</li>
-              </ul>
-              <a href="javascript:void(0);" onclick="triggerFormShine()" class="quote-btn desktop-action-btn">Request a Quote</a>
-            <a href="#mobile-quote" class="quote-btn mobile-action-btn">Request a Quote</a>
-            </div>
-          </div>
-
-          <!-- Card 2: Exterior Painting -->
-          <div class="service-card">
-            <div class="image-wrapper">
-
-              <img src="luvs-ext.jpg" alt="House Detail" class="inset-img">
-            </div>
-            <div class="service-content">
-              <div class="service-title">
-                <h3>EXTERIOR PAINTING</h3>
-              </div>
-              <p>Weather-resistant, highly durable paints designed to protect and revitalize your home's exterior.</p>
-              <a href="javascript:void(0);" onclick="triggerFormShine()" class="quote-btn desktop-action-btn">Request a Quote</a>
-                <a href="#mobile-quote" class="quote-btn mobile-action-btn">Request a Quote</a>
-            </div>
-          </div>
-
-         <!-- Card 3: Drywall & Texture -->
-          <div class="service-card">
-            <div class="image-wrapper">
-              <img src="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Texture Tool" class="inset-img">
-            </div>
-            <div class="service-content">
-              <div class="service-title">
-                <h3>DRYWALL & TEXTURE</h3>
-              </div>
-              <p>Complete drywall hanging, taping, and finishing. We offer smooth finishes or custom hand-troweled textures.</p>
-              <a href="javascript:void(0);" onclick="triggerFormShine()" class="quote-btn orange-btn desktop-action-btn">Request a Quote</a>
-              <a href="#mobile-quote" class="quote-btn orange-btn mobile-action-btn">Request a Quote</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  <!-- NEW HORIZONTAL SLIDER GALLERY SECTION -->
-    <section id="gallery" class="slider-gallery-section">
-      <div class="slider-gallery-container">
-        
-        <!-- Header -->
-        <h2 class="slider-gallery-title">Project Gallery</h2>
-        <p class="slider-gallery-subtitle">EXPLORE OUR TRANSFORMATIONS IN MOTION:<br><span>A curated showcase of color and craft</span></p>
-
-        <!-- Filter Tabs & Stats Bar -->
-        <div class="gallery-controls-bar">
-          <div class="filter-wrapper">
-            <span class="filter-label">Filter by Service</span>
-            <div class="filter-tabs">
-              <button class="filter-btn" data-filter="kitchens"><span>🍳</span> Kitchens</button>
-              <button class="filter-btn" data-filter="cabinets"><span>🚪</span> Cabinets</button>
-              <button class="filter-btn" data-filter="interior"><span>🛋️</span> Interior</button>
-              <button class="filter-btn" data-filter="exterior"><span>🏡</span> Exterior</button>
-            </div>
-          </div>
-          <div class="projects-count">
-            <span class="count-icon">⭐</span>
-            <div>
-              <strong>40+ Years</strong>
-              <small>of Denver experience</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Horizontal Carousel -->
-        <div class="carousel-track">
-          
-          <!-- Card 1: Video Card -->
-          <div class="carousel-card video-card" data-category="kitchens">
-            <div class="card-media">
-              <video autoplay loop muted playsinline class="card-video">
-                <source src="kid-paint.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-content">
-              <h3>THE ORANGE REVIVE: A VIBRANT KITCHEN <span class="play-badge">▶</span></h3>
-              <p>Watch our premium wall painting process completely revitalize this wall. We bring new life to outdated spaces.</p>
-            </div>
-          </div>
-
-          
-          <!-- Card 2 -->
-          <div class="carousel-card" data-category="cabinets">
-            <div class="card-media">
-            <img src="luvs-cabinet.jpg" style="width: 100%; height: 100%; object-fit: cover">
-            </div>
-            <div class="card-content">
-              <h3>Cabinet Harmony: </h3>
-              <p>From warm creamy whites to richer tones can completely transform your cabinets.</p>
-            </div>
-          </div>
-
-
-          <!-- Card 3 -->
-          <div class="carousel-card" data-category="interior">
-            <div class="card-media">
-                <img src="interior-painting.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-            
-            </div>
-            <div class="card-content">
-              <h3>Interior Comfort: Living Room</h3>
-              <p>Elevate your living room with a unique experience.</p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="carousel-card" data-category="exterior">
-            <div class="card-media">
-                <img src="luvs-ext.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="card-content">
-              <h3>EXTERIOR ELEGANCE: MODERN FACADE</h3>
-              <p>Premium weather-resistant exterior paint transforming curb appeal with crisp, modern tones.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Bottom Controls -->
-        <div class="slider-bottom-bar">
-          <button class="load-more-btn">Load More</button>
-          <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- ========================================= -->
-    <!-- ABOUT US SECTION                          -->
-    <!-- ========================================= -->
-    <section id="about" class="about-section">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>About Luvs House Painting</h2>
-                <p>Painting Denver for over 40 years, a skilled team of Denver painters transform homes and businesses in Denver, Colorado. Affordable quality, with a dedication to perfection and an eye for design, they specialize in interior and exterior painting, leaving every surface radiant and refreshed.</p>
-            </div>
-            <div class="about-image">
-                <!-- We will replace this gray box with a real image later -->
-                <img src="owner.png" alt="Owner of Luvs House Painting" class="about-photo">
-            </div>
-        </div>
-    </section>
-     <div class="mobile-quote-wrapper" id="mobile-quote">
-    <!-- Right Side: The new lead capture form -->
-    <div class="hero-content-right">
-     <div class="lead-capture-card">
-        <h3>Get Your Free Estimate</h3>
-        <div class="input-group">
-            <label for="mobile-user-name">Full Name</label>
-            <input type="text" id="mobile-user-name" name="name" placeholder="John Doe" required>
-        </div>
-        
-        <div class="input-group">
-            <label for="mobile-user-email">Email Address</label>
-            <input type="email" id="mobile-user-email" name="email" placeholder="john@example.com" required>
-        </div>
-
-        <div class="input-group">
-            <label for="mobile-user-phone">Phone Number</label>
-            <input type="tel" id="mobile-user-phone" name="phone" placeholder="(720) 000-0000" required>
-        </div>
-
-        <div class="input-group">
-            <label for="mobile-user-service">Interested In:</label>
-            <select id="mobile-user-service" name="service" required>
-                <option value="" disabled selected>Select a Service...</option>
-                <option value="Interior Painting">Interior Painting</option>
-                <option value="Exterior Painting">Exterior Painting</option>
-                <option value="Drywall Repair">Drywall Repair</option>
-                <option value="Cabinet Painting">Cabinet Painting</option>
-            </select>
-        </div>
-        <button type="submit" class="submit-btn">Send Request</button>
-      </div>
-    </div>
-    </div>
-    <!-- ========================================= -->
-    <!-- CONTACT & FOOTER SECTION                  -->
-    <!-- ========================================= -->
-    <footer id="contact" class="footer-section">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>Contact Luvs House Painting</h3>
-                <p>Phone: <a href="tel:7202739038" class="footer-phone-link">(720) 273-9038</a></p>
-                <p>Email: info@luvshousepainting.com</p>
-                <p>Hours: Mon - Fri, 7:00 AM - 8:00 PM</p>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2026 Luvs House Painting. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-  <!-- MOBILE STICKY ACTION BAR -->
-<div class="mobile-sticky-bar">
-    <a href="#mobile-quote" class="sticky-btn">Get a Free Estimate</a>
+<!-- NEW: TRUST BAR (LAYER 3) -->
+<!-- ======================================= -->
+<div class="trust-bar">
+    <div class="trust-item"><span>★</span> 5.0 Rated on Yelp</div>
+    <div class="trust-item"><span>🛡️</span> Fully Licensed & Insured</div>
+    <div class="trust-item"><span>📍</span> Serving Denver Metro</div>
+    <div class="trust-item"><span>💼</span> 100% Satisfaction Guarantee</div>
 </div>
+
+<!-- ======================================= -->
+<!-- SERVICES SECTION (UPDATED FOR CATA'S) -->
+<!-- ======================================= -->
+ <section class="services-section" id="services">
+ <div class="services-container">
+ <h2 class="services-main-title">Our Professional Services</h2>
+
+ <div class="services-grid">
+ 
+ <!-- Card 1 -->
+ <div class="service-card">
+ <div class="image-wrapper">
+ <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Paint Brushes" class="inset-img">
+ </div>
+ <div class="service-content">
+ <div class="service-title">
+ <h3>INTERIOR PAINTING</h3>
+ </div>
+ <p>Low odor, easy to clean, and beautiful finishes for any room in your home. We respect your space.</p>
+ <ul>
+ <li>Premium, low-VOC finishes</li>
+ <li>Full furniture protection</li>
+ </ul>
+ <a href="javascript:void(0);" onclick="triggerFormShine()" class="quote-btn desktop-action-btn">Request a Quote</a>
+ <a href="#mobile-quote" class="quote-btn mobile-action-btn">Request a Quote</a>
+ </div>
+ </div>
+
+ <!-- Card 2 -->
+ <div class="service-card">
+ <div class="image-wrapper">
+ <img src="luvs-ext.jpg" alt="House Detail" class="inset-img">
+ </div>
+ <div class="service-content">
+ <div class="service-title">
+ <h3>EXTERIOR PAINTING</h3>
+ </div>
+ <p>Weather-resistant, highly durable paints designed to protect and revitalize your home's exterior against Colorado weather.</p>
+ <ul>
+ <li>Power washing prep included</li>
+ </ul>
+ <a href="javascript:void(0);" onclick="triggerFormShine()" class="quote-btn desktop-action-btn">Request a Quote</a>
+ <a href="#mobile-quote" class="quote-btn mobile-action-btn">Request a Quote</a>
+ </div>
+ </div>
+
+ <!-- Card 3 -->
+ <div class="service-card">
+ <div class="image-wrapper">
+ <img src="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Texture Tool" class="inset-img">
+ </div>
+ <div class="service-content">
+ <div class="service-title">
+ <h3>DRYWALL & STUCCO</h3>
+ </div>
+ <p>Complete drywall hanging, taping, and finishing. We offer seamless patches and durable stucco repairs.</p>
+ <ul>
+ <li>Smooth or custom textures</li>
+ </ul>
+ <a href="javascript:void(0);" onclick="triggerFormShine()" class="quote-btn orange-btn desktop-action-btn">Request a Quote</a>
+ <a href="#mobile-quote" class="quote-btn orange-btn mobile-action-btn">Request a Quote</a>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- HORIZONTAL SLIDER GALLERY SECTION -->
+ <section id="gallery" class="slider-gallery-section">
+ <div class="slider-gallery-container">
+ 
+ <h2 class="slider-gallery-title">Project Gallery</h2>
+ <p class="slider-gallery-subtitle">EXPLORE OUR TRANSFORMATIONS IN MOTION:<br><span>A curated showcase of color and craft</span></p>
+
+ <div class="gallery-controls-bar">
+ <div class="filter-wrapper">
+ <span class="filter-label">Filter by Service</span>
+ <div class="filter-tabs">
+ <button class="filter-btn" data-filter="kitchens"><span>🍳</span> Kitchens</button>
+ <button class="filter-btn" data-filter="cabinets"><span>🚪</span> Cabinets</button>
+ <button class="filter-btn" data-filter="interior"><span>🛋️</span> Interior</button>
+ <button class="filter-btn" data-filter="exterior"><span>🏡</span> Exterior</button>
+ </div>
+ </div>
+ <div class="projects-count">
+ <span class="count-icon">⭐</span>
+ <div>
+ <strong>Premium Quality</strong>
+ <small>Denver craftsmanship</small>
+ </div>
+ </div>
+ </div>
+
+ <div class="carousel-track">
+ 
+ <!-- Video Card -->
+ <div class="carousel-card video-card" data-category="kitchens">
+ <div class="card-media">
+ <video autoplay loop muted playsinline class="card-video">
+ <source src="kid-paint.mp4" type="video/mp4">
+ </video>
+ </div>
+ <div class="card-content">
+ <h3>THE ORANGE REVIVE: A VIBRANT KITCHEN <span class="play-badge">▶</span></h3>
+ <p>Watch our premium wall painting process completely revitalize this wall. We bring new life to outdated spaces.</p>
+ </div>
+ </div>
+ 
+ <!-- Card 2 -->
+ <div class="carousel-card" data-category="cabinets">
+ <div class="card-media">
+ <img src="luvs-cabinet.jpg" style="width: 100%; height: 100%; object-fit: cover">
+ </div>
+ <div class="card-content">
+ <h3>Cabinet Harmony: </h3>
+ <p>From warm creamy whites to richer tones can completely transform your cabinets.</p>
+ </div>
+ </div>
+
+ <!-- Card 3 -->
+ <div class="carousel-card" data-category="interior">
+ <div class="card-media">
+ <img src="interior-painting.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+ </div>
+ <div class="card-content">
+ <h3>Interior Comfort: Living Room</h3>
+ <p>Elevate your living room with a flawless finish and sharp edge lines.</p>
+ </div>
+ </div>
+
+ <!-- Card 4 -->
+ <div class="carousel-card" data-category="exterior">
+ <div class="card-media">
+ <img src="luvs-ext.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+ </div>
+ <div class="card-content">
+ <h3>EXTERIOR ELEGANCE: MODERN FACADE</h3>
+ <p>Premium weather-resistant exterior paint transforming curb appeal with crisp, modern tones.</p>
+ </div>
+ </div>
+
+ </div>
+
+ <div class="slider-bottom-bar">
+ <button class="load-more-btn">Load More</button>
+ <div class="carousel-dots">
+ <span class="dot active"></span>
+ <span class="dot"></span>
+ <span class="dot"></span>
+ <span class="dot"></span>
+ <span class="dot"></span>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- ========================================= -->
+ <!-- NEW: GSAP AWWWARDS TESTIMONIAL SECTION -->
+ <!-- ========================================= -->
+ <section class="testimonial-section">
+     <h2 class="test-title">What Denver <span>Homeowners</span> Are Saying</h2>
+     <div class="test-grid">
+         
+         <div class="test-card-gsap">
+             <div class="stars">★★★★★</div>
+             <p>"Jelsin and his crew did an amazing job on our home. Punctual, extremely detailed, and left everything cleaner than they found it!"</p>
+             <div class="test-author">- Sarah M. (Denver)</div>
+         </div>
+
+         <div class="test-card-gsap">
+             <div class="stars">★★★★★</div>
+             <p>"Great communication from start to finish. The drywall repair and interior paint job look absolutely flawless. Highly recommend!"</p>
+             <div class="test-author">- David L. (Aurora)</div>
+         </div>
+
+         <div class="test-card-gsap">
+             <div class="stars">★★★★★</div>
+             <p>"They completely transformed our exterior. The attention to detail on the trim and siding was exactly what we were looking for."</p>
+             <div class="test-author">- Elena R. (Lakewood)</div>
+         </div>
+
+     </div>
+ </section>
+
+ <!-- ========================================= -->
+ <!-- ABOUT US SECTION -->
+ <!-- ========================================= -->
+ <section id="about" class="about-section">
+ <div class="about-container">
+ <div class="about-text">
+ <h2>About Cata's Painting</h2>
+ <p>Led by Jelsin Claros, Cata's Painting transforms homes and businesses throughout the Denver Metro area. We believe in affordable quality, a dedication to absolute perfection, and leaving every surface radiant. We treat your home as if it were our own, guaranteeing a clean job site and stunning results.</p>
+ </div>
+ <div class="about-image">
+ <!-- We will replace this gray box with a real image later -->
+ <img src="owner.png" alt="Cata's Painting Crew" class="about-photo">
+ </div>
+ </div>
+ </section>
+
+ <div class="mobile-quote-wrapper" id="mobile-quote">
+ <div class="hero-content-right">
+ <div class="lead-capture-card">
+ <h3>Get Your Free Estimate</h3>
+ <div class="input-group">
+ <label for="mobile-user-name">Full Name</label>
+ <input type="text" id="mobile-user-name" name="name" placeholder="John Doe" required>
+ </div>
+ 
+ <div class="input-group">
+ <label for="mobile-user-email">Email Address</label>
+ <input type="email" id="mobile-user-email" name="email" placeholder="john@example.com" required>
+ </div>
+
+ <div class="input-group">
+ <label for="mobile-user-phone">Phone Number</label>
+ <input type="tel" id="mobile-user-phone" name="phone" placeholder="(720) 000-0000" required>
+ </div>
+
+ <div class="input-group">
+ <label for="mobile-user-service">Interested In:</label>
+ <select id="mobile-user-service" name="service" required>
+ <option value="" disabled selected>Select a Service...</option>
+ <option value="Interior Painting">Interior Painting</option>
+ <option value="Exterior Painting">Exterior Painting</option>
+ <option value="Drywall Repair">Drywall Repair</option>
+ <option value="Stucco Repair">Stucco Repair</option>
+ </select>
+ </div>
+ <button type="submit" class="submit-btn">Send Request</button>
+ </div>
+ </div>
+ </div>
+
+ <!-- ========================================= -->
+ <!-- CONTACT & FOOTER SECTION -->
+ <!-- ========================================= -->
+ <footer id="contact" class="footer-section">
+ <div class="footer-container">
+ <div class="footer-info">
+ <h3>Contact Cata's Painting</h3>
+ <p>Phone: <a href="tel:7204537767" class="footer-phone-link">(720) 453-7767</a></p>
+ <p>Hours: Mon - Sat, 7:00 AM - 6:00 PM</p>
+ </div>
+ <div class="footer-copyright">
+ <p>&copy; 2026 Cata's Painting. All Rights Reserved. | Denver, CO</p>
+ </div>
+ </div>
+ </footer>
+
+ <!-- MOBILE STICKY ACTION BAR -->
+<div class="mobile-sticky-bar">
+ <a href="#mobile-quote" class="sticky-btn">Get a Free Estimate</a>
+</div>
+
+<!-- ========================================= -->
+<!-- NEW: AWWWARDS ANIMATION LIBRARIES -->
+<!-- ========================================= -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Lenis for Buttery Smooth Scrolling -->
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+<!-- GSAP & ScrollTrigger for Advanced Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 <script>
-    // ==========================================
-    // 1. SCROLL ANIMATIONS (AOS & Custom Observer)
-    // ==========================================
-    // This starts the AOS library (makes elements fade in as you scroll down the page).
-    AOS.init();
-    
-    // This watches your screen. When a ".service-card" enters the bottom 20% of your screen, it adds the "show-card" class to trigger its animation.
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show-card');
-            }
-        });
-    }, { threshold: 0.2 }); 
+ // ==========================================
+ // 1. AWWWARDS SMOOTH SCROLL (LENIS)
+ // ==========================================
+ const lenis = new Lenis({
+     duration: 1.2,
+     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+     smooth: true,
+ });
 
-    const hiddenCards = document.querySelectorAll('.service-card');
-    hiddenCards.forEach((card) => observer.observe(card));
+ function raf(time) {
+     lenis.raf(time);
+     requestAnimationFrame(raf);
+ }
+ requestAnimationFrame(raf);
 
+ // ==========================================
+ // 2. GSAP SCROLLTRIGGER (TESTIMONIALS)
+ // ==========================================
+ gsap.registerPlugin(ScrollTrigger);
 
-    // ==========================================
-    // 2. FORM SHINE ANIMATION
-    // ==========================================
-    // When a user clicks "Get a Quote", this snaps the screen to the form, selects the Name box so they can start typing, and makes the whole form flash with a glowing shadow for a split second.
-    function triggerFormShine() {
-        const formBox = document.getElementById('quote');
-        const nameInput = document.getElementById('user-name');
-        nameInput.focus();
-        formBox.classList.add('form-shine');
-        setTimeout(() => {
-            formBox.classList.remove('form-shine');
-        }, 800);
-    }
+ // This makes the testimonial cards float up beautifully one by one as you scroll to them
+ gsap.from(".test-card-gsap", {
+     scrollTrigger: {
+         trigger: ".testimonial-section",
+         start: "top 75%", // Starts animating when the top of the section hits 75% down the screen
+     },
+     y: 80, // Start 80px down
+     opacity: 0, // Start invisible
+     duration: 1, // Take 1 second to animate
+     stagger: 0.2, // Wait 0.2 seconds between each card
+     ease: "power3.out" // A smooth, premium easing curve
+ });
 
+ // ==========================================
+ // 3. SCROLL ANIMATIONS (AOS)
+ // ==========================================
+ AOS.init();
+ 
+ const observer = new IntersectionObserver((entries) => {
+ entries.forEach((entry) => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add('show-card');
+ }
+ });
+ }, { threshold: 0.2 }); 
 
-    // ==========================================
-    // 3. PAGE REFRESH ANCHORING
-    // ==========================================
-    // This stops the browser from getting confused and loading halfway down the page when you hit refresh. It forces the page to start exactly at the top, unless you clicked a specific anchor link.
-    if (history.scrollRestoration) {
-        history.scrollRestoration = 'manual';
-    }
-    window.addEventListener('load', () => {
-        if (window.location.hash) {
-            const targetSection = document.querySelector(window.location.hash);
-            if (targetSection) {
-                targetSection.scrollIntoView(); 
-            }
-        } else {
-            window.scrollTo(0, 0);
-        }
-    });
+ const hiddenCards = document.querySelectorAll('.service-card');
+ hiddenCards.forEach((card) => observer.observe(card));
 
+ // ==========================================
+ // 4. FORM SHINE ANIMATION
+ // ==========================================
+ function triggerFormShine() {
+ const formBox = document.getElementById('quote');
+ const nameInput = document.getElementById('user-name');
+ nameInput.focus();
+ formBox.classList.add('form-shine');
+ setTimeout(() => {
+ formBox.classList.remove('form-shine');
+ }, 800);
+ }
 
-    // ==========================================
-    // 4. PHONE NUMBER AUTO-FORMATTER
-    // ==========================================
-    // This watches the phone number typing boxes. As you type, it strips out letters/symbols and automatically adds the dashes mathematically (e.g., changing 7205555555 to 720-555-5555).
-    function formatPhoneNumber(e) {
-        const input = e.target;
-        let cleaned = ('' + input.value).replace(/\D/g, '');
-        let match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
-        if (match) {
-            input.value = !match[2] ? match[1] : match[1] + '-' + match[2] + (match[3] ? '-' + match[3] : '');
-        }
-    }
+ // ==========================================
+ // 5. PAGE REFRESH ANCHORING
+ // ==========================================
+ if (history.scrollRestoration) {
+ history.scrollRestoration = 'manual';
+ }
+ window.addEventListener('load', () => {
+ if (window.location.hash) {
+ const targetSection = document.querySelector(window.location.hash);
+ if (targetSection) {
+ targetSection.scrollIntoView(); 
+ }
+ } else {
+ window.scrollTo(0, 0);
+ }
+ });
 
-    // Connects the math above to both the desktop and mobile phone inputs.
-    const desktopPhoneInput = document.getElementById('user-phone');
-    const mobilePhoneInput = document.getElementById('mobile-user-phone');
-    if (desktopPhoneInput) desktopPhoneInput.addEventListener('input', formatPhoneNumber);
-    if (mobilePhoneInput) mobilePhoneInput.addEventListener('input', formatPhoneNumber);
+ // ==========================================
+ // 6. PHONE NUMBER AUTO-FORMATTER
+ // ==========================================
+ function formatPhoneNumber(e) {
+ const input = e.target;
+ let cleaned = ('' + input.value).replace(/\D/g, '');
+ let match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
+ if (match) {
+ input.value = !match[2] ? match[1] : match[1] + '-' + match[2] + (match[3] ? '-' + match[3] : '');
+ }
+ }
 
+ const desktopPhoneInput = document.getElementById('user-phone');
+ const mobilePhoneInput = document.getElementById('mobile-user-phone');
+ if (desktopPhoneInput) desktopPhoneInput.addEventListener('input', formatPhoneNumber);
+ if (mobilePhoneInput) mobilePhoneInput.addEventListener('input', formatPhoneNumber);
 
-    // ==========================================
-    // 5. GALLERY INTERACTIVITY (All Gallery Logic Combined)
-    // ==========================================
-    // The "DOMContentLoaded" line means: "Wait until the whole website HTML is fully loaded before running any of this gallery logic."
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // --- A. FILTER BUTTONS & GLOW EFFECT ---
-        const filterButtons = document.querySelectorAll('.filter-btn'); 
-        const galleryCards = document.querySelectorAll('.carousel-card');
+ // ==========================================
+ // 7. GALLERY INTERACTIVITY
+ // ==========================================
+ document.addEventListener('DOMContentLoaded', () => {
+ 
+ const filterButtons = document.querySelectorAll('.filter-btn'); 
+ const galleryCards = document.querySelectorAll('.carousel-card');
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                
-                // 1. Turn off the red background on all buttons, then turn it on for the clicked one
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+ filterButtons.forEach(button => {
+ button.addEventListener('click', () => {
+ 
+ filterButtons.forEach(btn => btn.classList.remove('active'));
+ button.classList.add('active');
 
-                // 2. Read the invisible nametag (data-filter) of the button we just clicked
-                const selectedFilter = button.getAttribute('data-filter');
+ const selectedFilter = button.getAttribute('data-filter');
 
-                // 3. Look at every picture card to see if the nametags match
-                galleryCards.forEach(card => {
-                    card.classList.remove('glow-active'); // Turn off all glows first
-                    
-                    // If the picture's nametag matches the button's nametag, turn on the red glow
-                    if (card.getAttribute('data-category') === selectedFilter) {
-                        card.classList.add('glow-active'); 
-                    }
-                });
-            });
-        });
+ galleryCards.forEach(card => {
+ card.classList.remove('glow-active'); 
+ 
+ if (card.getAttribute('data-category') === selectedFilter) {
+ card.classList.add('glow-active'); 
+ }
+ });
+ });
+ });
 
-        // --- B. CAROUSEL DOTS SYNC ---
-        // As you swipe horizontally on the pictures, this calculates which picture is currently in the middle of the screen and turns the corresponding little dot red below it.
-        const track = document.querySelector('.carousel-track');
-        const dots = document.querySelectorAll('.dot');
-        
-        track.addEventListener('scroll', () => {
-            const cardWidth = track.firstElementChild.offsetWidth + 25; 
-            let activeIndex = Math.round(track.scrollLeft / cardWidth);
-            activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
-            
-            dots.forEach(dot => dot.classList.remove('active'));
-            if(dots[activeIndex]) {
-                dots[activeIndex].classList.add('active');
-            }
-        });
+ const track = document.querySelector('.carousel-track');
+ const dots = document.querySelectorAll('.dot');
+ 
+ track.addEventListener('scroll', () => {
+ const cardWidth = track.firstElementChild.offsetWidth + 25; 
+ let activeIndex = Math.round(track.scrollLeft / cardWidth);
+ activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
+ 
+ dots.forEach(dot => dot.classList.remove('active'));
+ if(dots[activeIndex]) {
+ dots[activeIndex].classList.add('active');
+ }
+ });
 
-        // --- C. "LOAD MORE" BUTTON TRICK ---
-        // A visual trick for pitch presentations. When clicked, it pretends to load for 1 second, then turns green to show a success state.
-        const loadMoreBtn = document.querySelector('.load-more-btn');
-        loadMoreBtn.addEventListener('click', () => {
-            loadMoreBtn.innerText = 'Loading...';
-            loadMoreBtn.style.opacity = '0.7';
-            
-            setTimeout(() => {
-                loadMoreBtn.innerText = 'All Projects Loaded ✓';
-                loadMoreBtn.style.opacity = '1';
-                loadMoreBtn.style.backgroundColor = '#28a745'; 
-            }, 1000);
-        });
-    });
+ const loadMoreBtn = document.querySelector('.load-more-btn');
+ loadMoreBtn.addEventListener('click', () => {
+ loadMoreBtn.innerText = 'Loading...';
+ loadMoreBtn.style.opacity = '0.7';
+ 
+ setTimeout(() => {
+ loadMoreBtn.innerText = 'All Projects Loaded ✓';
+ loadMoreBtn.style.opacity = '1';
+ loadMoreBtn.style.backgroundColor = '#28a745'; 
+ }, 1000);
+ });
+ });
 </script>
 </body>
 </html>
